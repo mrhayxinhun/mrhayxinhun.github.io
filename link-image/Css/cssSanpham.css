@@ -1,0 +1,12 @@
+body{
+	width: 1000px;
+}
+a{
+	text-decoration: none;
+	}
+p.productName{
+	text-transform: uppercase;
+			}
+img{
+	max-width: 500px;
+	}
