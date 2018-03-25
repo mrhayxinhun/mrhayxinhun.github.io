@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+	<meta charset="UTF-8">
+	<title>Home</title>
+	<style>
+		*{
+			box-sizing: border-box;
+		}
+
+		.container{
+			width: 500px;	
+			margin: 50px auto;
+			padding: 5px;
+			border-radius: 5px;
+			background-color: #f3f3f3;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		}
+
+		.clearfix::after{
+			content:"";
+			display: table;
+			clear: both;
+		}
+
+		.content{
+			padding: 50px 10px;
+			float: left;
+			text-align: center;
+			
+		}
+
+		.leftside{
+			width: 40%;
+		}
+
+		.rightside{
+			width: 60%;
+			
+		}
+
+		.content a{
+			
+			text-decoration: none;
+			border: none;
+			padding:14px 10px;
+    		margin: 20px auto;
+    		display: inline-block;
+    		
+    		color: white;
+    		border-radius: 3px;
+    		background-color: #4CAF50;
+    		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    		cursor: pointer;
+		}
+
+		.content a:hover{
+			background-color: #45a049;
+		}
+	</style>
+</head>
+<body>
+	<div class="container clearfix">
+		<fieldset>
+			<legend>Admin</legend>
+			<div class="content leftside">
+				<p>Thêm Operator</p>
+				<a href="operation.html">Operation</a>
+			</div>
+			<div class="content rightside">
+				<p>Cấu hình máy</p>
+				<a href="devmanager.html">Device management</a>
+			</div>
+		</fieldset>
+	</div>
+	
+</body>
+</html>
