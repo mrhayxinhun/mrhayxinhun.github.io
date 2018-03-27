@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Manager</title>
+	<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
+	<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
+	<style>
+		*{
+			box-sizing: border-box;
+		}
+
+		body{
+			width: 1140px;
+			margin: 0 auto;
+			border: 1px solid black;
+		}
+
+		.header{
+			width: 100%;
+			border-bottom: 1px solid black;
+			text-align: right;
+		}
+
+		.wrap {
+			padding: 7px 18px;
+		}
+
+		.content{
+			border: 1px solid black;
+			margin-top: 5px;
+			padding: 15px 25px;
+		}
+		
+		.text--center{
+			text-align: center
+		}
+
+		.alignRight{
+			text-align: right;
+		}
+		.row__left{
+			float: left;
+			width: 500px;
+		}
+
+		.row__right{
+			float: right;
+			width: 500px;
+		}
+
+		.box{
+			border: 1px solid black;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		}
+		
+		.background--orange{
+			background-color: orange;
+		}
+
+		.text--red{
+			color: red;
+		}
+
+		.paddingLeft{
+			padding-left: 50px;
+		}
+
+		.clearfix{
+			content: "";
+			display: table;
+			clear: both;
+		}
+
+		.overFlow{
+			overflow: auto;
+		}
+
+		.searchbar{
+			position: relative;
+			padding: 25px 50px;
+
+		}
+
+		input[type="text"]{
+			padding:2px 0px 2px 19px;
+			border-radius: 5px;
+		}
+		
+		.searchIcon{
+			position: absolute;
+			top: 28px;
+    		left: 54px;
+		}
+		table{
+			width: 100%;
+			border-spacing: 3px;
+		}
+
+		th, td{
+			border: 1px solid black;
+			padding: 3px;
+			text-align: center;
+		}
+
+		.wrap>p:last-child{
+			text-align: center;
+		}
+
+		.header span{
+			margin-right: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div class="header">
+		<span style="color: white; border-radius: 50%; border: 1px solid black;" class="fas fa-circle fa-3x"></span><span>Manager</span>
+	</div>
+	<div class="wrap">
+		<h3 class="text--center">Quản lí học viên</h3>
+		<button class="box">Xuất file exel</button>
+		<div class="content">
+			<div class="row clearfix">
+				<div class="row__left">
+					<p><span class="fas fa-graduation-cap"></span>Khóa học HTML</p>
+				</div>
+				<div class="row__right">
+					<span class="box background--orange">Offline</span>
+				</div>
+
+			</div>
+			<div class="row clearfix">
+				<div class="row__left">
+					<p class="paddingLeft"><span class="fas fa-user-circle"></span> Giảng viên: Đặng Quang Huy
+					<span class="text--red paddingLeft">Số lượng học viên: 30/30.</p>
+					<hr style="margin-left: 0px; width: 75%;">
+				</div>
+				<div class="row__right">
+					<p class="alignRight">Văn phòng: <span>Hà Nội</span></p>
+				</div>
+			</div>
+			<div class="row ">
+				<p>Địa chỉ học</p>
+				<p><span class="fas fa-map-marker-alt"></span> số 14 Nguyễn Đình Chiểu, Hai Bà Trưng, Hoàn Kiếm, Hà Nội</p>
+			</div>
+			<div class="row overFlow">
+				<div class="row__right searchbar">
+					<input type="text" name="searchbar" id="searchbar" placeholder="search">
+					<span class="fas fa-search searchIcon" ></span>
+				</div>
+			</div></input>
+			<hr style="width: 50%;">
+			<div class="row">
+				<h3>Danh sách lớp</h3>
+				<table>
+					<tr>
+						<th>ID</th>
+						<th>Họ</th>
+						<th>Tên</th>
+						<th>Email</th>
+						<th>Điện thoại</th>
+						<th>Số buổi học</th>
+						<th>Điểm</th>
+						<th>Ngày đăng kí</th>
+					</tr>
+					<tr>
+						<td>12345678</td>
+						<td>Đặng Quang</td>
+						<td>Huy</td>
+						<td>huyronbin@techmaster.vn</td>
+						<td>0123498765</td>
+						<td>8/10</td>
+						<td>80/100</td>
+						<td>19/3/1997</td>
+					</tr>
+					<tr>
+						<td>123456987</td>
+						<td>Pika</td>
+						<td>Long</td>
+						<td>long@techmaster.vn</td>
+						<td>019283013</td>
+						<td>9/10</td>
+						<td>80/100</td>
+						<td>19/3/1997</td>
+					</tr>
+					<tr>
+						<td>123459876</td>
+						<td>Đinh Thiên</td>
+						<td>Phúc</td>
+						<td>phuc@techmaster.vn</td>
+						<td>016873542</td>
+						<td>1/10</td>
+						<td>10/100</td>
+						<td>19/3/1997</td>
+					</tr>
+					<tr>
+						<td>98765321</td>
+						<td>Lại Y</td>
+						<td>Chang</td>
+						<td>tettettet@gmail.com</td>
+						<td>0123457896</td>
+						<td>7/10</td>
+						<td>90/100</td>
+						<td>19/3/1997</td>
+					</tr>
+				</table>
+			</div>
+
+		</div>
+		<p>1|...</p>
+	</div>
+
+	
+</body>
+</html>
