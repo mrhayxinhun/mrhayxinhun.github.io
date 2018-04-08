@@ -5,7 +5,7 @@
 }
 
 body{
-	background: #f2ede7;
+	background: white;
 }
 
 .wrapper{
@@ -31,7 +31,7 @@ ul.menu a{
 	display: inline-block;
     text-decoration: none;
     color: #18919c;
-    padding: 20px;
+    padding: 20px 30px;
     font-weight: bold;
     font-size: 1.2em;
 }
@@ -78,19 +78,18 @@ div.slide{
   top: 45%;
   width: auto;
   color: white;
-  transition: background-color ease 0.6s, color ease 0.6s;
+  transition: color ease 0.6s;
 }
 
 .prev{
-	left: 0;
+	left: 50px;
 }
 
 .next{
-	right: 0;
+	right: 50px;
 }
 
 .prev:hover, .next:hover{
-	background-color: rgba(168,168,168,.5);
 	color: #18919c;
 }
 
@@ -116,6 +115,17 @@ div.slide{
 @keyframes fade{
 	from{opacity: .4;}
 	to{opacity: 1;}
+}
+
+.title{
+	font-family: 'Indie Flower', cursive;
+    position: absolute;
+    top: 70%;
+    left: 15%;
+    font-size: 3.5em;
+    right: 15%;
+    color: white;
+    text-align: center;
 }
 /*Slide show end*/
 
@@ -150,6 +160,7 @@ h2{
 .topic:hover{
 	opacity: 1;
 }
+
 /*Kết thúc phần hot topic*/
 
 .clearfix::after{
@@ -192,7 +203,7 @@ div.loadMore{
 div.loadMore button{
 	display: inline-block;
     background: linear-gradient(to bottom, #18919c, #60d6cb);
-    padding: 5px;
+    padding: 7px;
     color:#f2ede7;
     border: none;
 }
@@ -223,6 +234,11 @@ a.readBlog{
 	opacity: 1;
 }
 
+.content__img p{
+	font-size: 1.2em;
+	padding: 5px 0;
+}
+
 
 /*Content ends*/
 
@@ -236,8 +252,8 @@ a.readBlog{
 }
 
 .info img{
-	width: 100%;
-	margin: 5px 0 15px;
+	width: 90%;
+	margin: 5px 10px 15px;
 }
 
 .info p{
@@ -251,7 +267,7 @@ a.readBlog{
 .info button[type="submit"]{
 	background: linear-gradient(to bottom, #18919c, #60d6cb);
 	display: inline-block;
-	padding: 5px 2px;
+	padding: 7px 2px;
 	color:#f2ede7;
 	margin-top: 15px;
 }
@@ -261,7 +277,7 @@ a.readBlog{
 }
 
 .info input[type="email"]{
-	padding: 5px;
+	padding: 7px 2px;
 	color:#18919c;
 	border: 1px solid #e7ddd1;
 }
