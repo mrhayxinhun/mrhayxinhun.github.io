@@ -7,8 +7,8 @@ let button=document.getElementsByClassName("button");
 //gan function checkButton vao cac button khi click
 for (let i=0; i<button.length; i++){
     button[i].addEventListener("click", function(){
-        checkButton(this.innerHTML)});
-}
+    checkButton(this.innerHTML);
+});}
 //gan function evaluate khi an dau =
 document.getElementById("calc").addEventListener("click", evaluate);
 
