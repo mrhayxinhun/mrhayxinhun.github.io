@@ -1,0 +1,327 @@
+*{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	background: white;
+}
+
+.wrapper{
+	width: 1040px;
+	margin: 0 auto;
+	position: relative;
+}
+
+/*Style cho Menu*/
+ul.menu {
+	list-style-type: none;
+	background: #e7ddd1;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+	margin-top: -5px;
+}
+
+ul.menu>li{
+	display: inline-block;
+}
+
+ul.menu a{
+	display: inline-block;
+    text-decoration: none;
+    color: #18919c;
+    padding: 20px 30px;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+li.submenu{
+	position: relative;
+}
+
+.submenu__content{
+	display: none;
+	position: absolute;
+	background: #e7ddd1;
+	z-index: 100;
+}
+
+.submenu__content a{
+	display: block;
+	width: 100%;
+}
+
+.submenu:hover .submenu__content{
+	display: block;
+}
+
+.menu a:hover{
+	background: #18919c;
+	color: #e7ddd1;
+}
+/*Kết thúc style cho menu*/
+
+/*Slide show*/
+div.slide{
+	position: relative;
+	width: 1040px;
+}
+
+.mySlides {
+    display: none;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 45%;
+  width: auto;
+  color: white;
+  transition: color ease 0.6s;
+}
+
+.prev{
+	left: 50px;
+}
+
+.next{
+	right: 50px;
+}
+
+.prev:hover, .next:hover{
+	color: #18919c;
+}
+
+
+.dot{
+	margin-top: 8px;
+	display: inline-block;
+    padding: 7px;
+    border-radius: 50%;
+    background: #bbb;
+    transition: background-color 0.6s ease;
+    cursor: pointer;
+}
+
+.active, .dot:hover{
+	background: #18919c ;
+}
+
+.fade{
+	animation: fade 1.5s; 
+}
+
+@keyframes fade{
+	from{opacity: .4;}
+	to{opacity: 1;}
+}
+
+.title{
+	font-family: 'Indie Flower', cursive;
+    position: absolute;
+    top: 70%;
+    left: 15%;
+    font-size: 3.5em;
+    right: 15%;
+    color: white;
+    text-align: center;
+}
+/*Slide show end*/
+
+/*Style cho phần hot topic*/
+.hotTopic{
+	overflow: auto;
+	text-align: center;
+	color: #18919c;
+	margin-top: 25px;
+	padding-bottom: 25px;
+	border-bottom: 1px solid #18919c;
+}
+
+h2{
+	margin-bottom: 20px;
+}
+
+.topic{
+	font-size: 1.2em;
+	width: 25%;
+	float: left;
+	padding: 5px;
+	opacity: 0.8;
+	transition: opacity 1s;
+}
+
+.topic figcaption a{
+	text-decoration: none;
+	color: #18919c;
+}
+
+.topic:hover{
+	opacity: 1;
+}
+
+/*Kết thúc phần hot topic*/
+
+.clearfix::after{
+	content:"";
+	clear: both;
+	display: table;
+}
+
+div.mainContent{
+	margin-top: 50px;
+	margin-bottom: 15px;
+}
+
+/*Content*/
+div.content{
+	width: 70%;
+	float: left;
+	color:#18919c;
+	text-align: center;
+}
+
+.content__img{
+	position: relative;
+	width: 48%;
+	display: inline-block;
+	padding: 5px;
+	margin-right: 0.75%;
+	margin-left: 0.25%;
+	
+}
+
+.content__img img{
+	width: 100%;
+}
+
+div.loadMore{
+	text-align: right;
+}
+
+div.loadMore button{
+	display: inline-block;
+    background: linear-gradient(to bottom, #18919c, #60d6cb);
+    padding: 7px;
+    color:#f2ede7;
+    border: none;
+}
+
+div.loadMore button:hover{
+	color: white;
+}
+
+a.readBlog{
+	position: absolute;
+	text-decoration: none;
+    top: 45%;
+    left: 36%;
+    color: white;
+    background: rgba(24, 145, 156);
+    padding: 5px 10px;
+    display: none;
+    font-size: 1.2em;
+    border-radius: 5px;
+}
+
+.content__img:hover img{
+	opacity: 0.5;
+}
+
+.content__img:hover a.readBlog{
+	display: inline-block;
+	opacity: 1;
+}
+
+.content__img p{
+	font-size: 1.2em;
+	padding: 5px 0;
+}
+
+
+/*Content ends*/
+
+/*Info*/
+.info{
+	width: 30%;
+	float: right;
+	border: 1px solid #e7ddd1;
+	padding: 5px 25px;
+	color:#18919c;
+}
+
+.info img{
+	width: 90%;
+	margin: 5px 10px 15px;
+}
+
+.info p{
+	margin-bottom: 5px;
+}
+
+.alignCenter{
+	text-align: center;
+}
+
+.info button[type="submit"]{
+	background: linear-gradient(to bottom, #18919c, #60d6cb);
+	display: inline-block;
+	padding: 7px 2px;
+	color:#f2ede7;
+	margin-top: 15px;
+}
+
+.info button[type="submit"]:hover{
+	color: white;
+}
+
+.info input[type="email"]{
+	padding: 7px 2px;
+	color:#18919c;
+	border: 1px solid #e7ddd1;
+}
+
+.info hr{
+	margin: 15px auto;
+    width: 50%;
+}
+
+.info a{
+	color: #18919c;
+}
+
+/*Info end*/
+
+
+/*Footer*/
+.footer{
+	text-align: center;
+	font-size: 1.1em;
+	color: #18919c;
+	padding: 10px;
+	border-top: 1px solid #18919c;
+	margin-top: 15px;
+}
+
+.footer a{
+	color: #18919c;
+	padding-left: 10px;
+}
+/*footer end*/
+
+/*Nút back to top*/
+.btn__backToTop{
+	position: fixed;
+	display: inline-block;
+	bottom: 20px;
+	right: 8%;
+	font-size: 1.2em;
+	color:#f2ede7;
+	background: rgba(168,168,168,.8);
+	padding: 10px;
+}
+
+.btn__backToTop:hover{
+	color: white;
+}

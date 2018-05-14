@@ -26,10 +26,15 @@
     width: 100%;
 }
 
+.bc__link-expand{
+    float: right;
+}
+
 .bc__link, .submenu__link{
     color: black;
     line-height: 2em;
     padding-left: 12px;
+    padding-right: 12px;
     display: block;
     padding-top: 4px;
     padding-bottom: 4px;

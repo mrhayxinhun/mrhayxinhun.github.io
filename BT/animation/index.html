@@ -1,0 +1,99 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Animation</title>
+		<style>
+			*{
+				box-sizing: border-box;
+			}
+			body{
+				width: 1140px;
+				margin: auto;
+				background-color: #f9f9f9;
+			}
+			
+			.header{
+				text-align: center;
+				font-size: 3em;
+			}
+			
+			.content{
+				width: 100%;
+			}
+
+			.clearfix{
+				content:"";
+				clear: both;
+				display: table;
+			
+			}
+			
+			.img-container{
+				width: 33.33333%;
+    			float: left;
+    			padding: 6px;
+			}
+
+			.img-container img{
+				width: 100%;
+			}
+
+			.img-container:nth-child(odd){
+				animation: fadeInOut 9s infinite;
+			}
+
+			.img-container:nth-child(even){
+				animation: fadeInOut 9s 4.5s infinite;
+			}
+
+			@keyframes fadeInOut{
+				0%{opacity: 0;}
+				12.5%{opacity: 0.25}
+				25%{opacity: 0.5;}
+				37.5%{opacity: 0.75;}
+				50%{opacity: 1;}
+				62.5%{opacity: 0.75;}
+				75%{opacity: 0.5;}
+				87.5%{opacity: 0.25;}
+				100%{opacity: 0;}
+			}
+
+			.author{
+				text-align: right;
+				padding-right: 6px;
+				font-weight: bold;
+			}
+
+			.author p{
+				position: relative;
+				animation: author 6s infinite;
+			}
+
+			@keyframes author{
+					0%, 33.33% { right: -5%; opacity: 0; }
+  					41.63%, 58.29% { right: 0px; opacity: 1; }
+  					66.66%, 100% { right: 50%; opacity: 0; }
+			}
+		</style>
+	</head>
+	<body>
+		<div class="header">
+			<h1>Harry Potter</h1>
+		</div>
+		<div class="content clearfix">
+			<div class="img-container">
+				<img src="ep1.jpg" alt="Harry Potter and philosophy stone">
+			</div>
+			<div class="img-container">
+				<img src="ep2.jpg" alt="Harry Potter and the chamber of secrets">
+			</div>
+			<div class="img-container">
+				<img src="ep3.jpg" alt="Harry Potter and the prisoner of Azkaban">
+			</div>
+		</div>
+		<br>
+		<div class="author">
+			<p>Credit by Mrhayxinhun</p>
+		</div>
+	</body>
+</html>

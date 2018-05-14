@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+	<meta charset="UTF-8">
+	<title>Travel Blog</title>
+	<link rel="stylesheet" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+	<script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="wrapper">
+		<!-- header -->
+		<div class="header" id="header">
+			<img src="images/banner.jpg" alt="Travel Blog" width="1040px" height="165px">
+		</div>
+		<!-- Kết thúc header -->
+
+		<!-- Menu -->
+		<div>
+			<ul class="menu">
+				<li><a href="#">Trang chủ</a></li>
+				<li class="submenu">
+					<a href="javascript:void(0)" class="submenu__btn">Các địa điểm <i class="fas fa-angle-down"></i></a>
+					<div class="submenu__content">
+						<a href="#">Miền Bắc</a>
+						<a href="#">Miền Trung</a>
+						<a href="#">Miền Nam</a>
+					</div>
+				</li>
+				<li class="submenu">
+					<a href="javascrip:void(0)" class="submenu__btn">Bài viết hay <i class="fas fa-angle-down"></i></a>
+					<div class="submenu__content">
+						<a href="#">Bài 1</a>
+						<a href="#">Bài 2</a>
+						<a href="#">Bài 3</a>
+					</div>	
+				</li>
+				<li><a href="#">Thông tin về tôi</a></li>
+			</ul>
+		</div>
+		<!-- Kết thúc menu -->
+		
+		<!-- slideshow -->
+		<div class="slide">
+			<div class="mySlides fade">
+				<img src="images/anh4.jpg" alt="Cây cầu">
+			</div>
+			<div class="mySlides fade">
+				<img src="images/anh2.jpg" alt="Nhà bên sông">
+			</div>
+			<div class="mySlides fade">
+				<img src="images/anh3.jpg" alt="Bình minh">
+			</div>
+			<div class="mySlides fade">
+				<img src="images/anh1.jpg" alt="Thác nước">
+			</div>
+			<span class="fas fa-angle-left fa-4x prev" onclick="plusSlides(-1)" ></span>
+			<span class="fas fa-angle-right fa-4x next" onclick="plusSlides(1)"></span>
+			<p class="alignCenter">
+				<span class="dot" onclick="currentSlide(1)"></span>
+				<span class="dot" onclick="currenSlide(2)"></span>
+				<span class="dot" onclick="currentSlide(3)"></span>
+				<span class="dot" onclick="currentSlide(4)"></span>
+			</p>
+			<p class="title">Welcome to Viet Nam!</p>
+		</div>
+		<!-- slideshow end -->
+
+		<!-- Hot topic -->
+		<div class="hotTopic">
+			<h2>Chủ đề được yêu thích</h2>
+			<div class="topic">
+				<figure>
+					<a href="#"><img src="images/baibien.jpg" alt="Biển Việt Nam"></a>
+					<figcaption><a href="#">Bãi Biển</a></figcaption>
+				</figure>
+			</div>
+			<div class="topic">
+				<figure>
+					<a href="#"><img src="images/connguoi.jpg" alt="Con người Việt Nam"></a>
+					<figcaption><a href="#">Con người</a></figcaption>
+				</figure>
+			</div>
+			<div class="topic">
+				<figure>
+					<a href="#"><img src="images/dongvat.jpg" alt="Động vât"></a>
+					<figcaption><a href="#">Động vật</a></figcaption>
+				</figure>
+			</div>
+			<div class="topic">
+				<figure>
+					<a href="#"><img src="images/thiennhien.jpg" alt="Thiên nhiên Việt Nam"></a>
+					<figcaption><a href="#">Thiên nhiên</a></figcaption>
+				</figure>
+			</div>
+		</div>
+		<!-- Hot topic ends -->
+		
+		<!-- Main content -->
+		<div class="mainContent clearfix">
+			<!-- Content -->
+			<div class="content">
+				<h2>My Adventure</h2>
+				<div class="content__img">
+					<figure>
+						<img src="images/sapa.jpg" alt="Sapa">
+						<a href="#" class="readBlog">Đọc bài viết</a>
+						<figcaption>
+							<p>28/03/2018</p>
+							<p>Sapa</p>
+						</figcaption>
+					</figure>
+				</div>
+				<div class="content__img">
+					<figure>
+						<img src="images/hanoi.jpg" alt="Hà Nội">
+						<a href="#" class="readBlog">Đọc bài viết</a>
+						<figcaption>
+							<p>29/03/2018</p>
+							<p>Hồ Hoàn Kiếm - Hà Nội</p>
+						</figcaption>
+					</figure>
+				</div>
+				<div class="content__img">
+					<figure>
+						<img src="images/halong.jpg" alt="Hạ Long">
+						<a href="#" class="readBlog">Đọc bài viết</a>
+						<figcaption>
+							<p>30/03/2018</p>
+							<p>Vịnh Hạ Long</p>
+						</figcaption>
+					</figure>
+				</div>
+				<div class="content__img">
+					<figure>
+						<img src="images/hue.jpg" alt="Huế">
+						<a href="#" class="readBlog">Đọc bài viết</a>
+						<figcaption>
+							<p>31/03/2018</p>
+							<p>Cố đô Huế</p>
+						</figcaption>
+					</figure>
+				</div>
+				<div class="loadMore">
+					<button>Xem thêm</button>
+				</div>
+			</div>
+			<!-- content end -->
+			<!-- about me -->
+			<div class="info">
+				<h2 class="alignCenter">Giới thiệu về tôi</h2>
+				<img src="images/luffy.jpeg" alt="I'm Luffy">
+				<p class="alignCenter">Luffy D.Monkey</p>
+				<p>Thuyền trưởng băng hải tặc mũ rơm.</p>
+				<p>Tiền thưởng: 400 triệu đô</p>
+				<hr>
+				<p class="alignCenter">Mạng xã hội: </p>
+				<p><a href="#"><i class="fab fa-youtube fa-2x" style="display: inline-block;
+    width: 117px; margin-left:-14%"></i></a> 1 theo dõi</p>
+				<p><a href="#"><i class="fab fa-twitter fa-2x " style="display: inline-block;
+    width: 117px; margin-left:-14%"></i></a> 1 theo dõi</p>
+				<p><a href="#"><i class="fab fa-facebook-f fa-2x " style="display: inline-block;
+    width: 117px; margin-left:-14%"></i></a> 1 tỉ theo dõi</p>
+				<p><a href="#"><i class="fab fa-instagram fa-2x " style="display: inline-block;
+    width: 117px; margin-left:-14%"></i></a>100 triệu theo dõi</p>
+				<form action="#" class="subform">
+					<input type="email" name="email" id="email" placeholder="Email"></i>
+					<button type="submit">Subscribes</button>
+				</form>
+			</div>
+			<!-- about me end -->
+		</div>
+		<!-- footer -->
+		<div class="footer">
+			<p>&copy; Travel Blog 
+				<a href="#"><i class="fab fa-instagram fa-lg"></i></a>
+				<a href="#"><i class="fab fa-facebook-f fa-lg"></i></a>
+				<a href="#"><i class="fab fa-twitter fa-lg"></i></a>
+				<a href="#"><i class="fab fa-youtube fa-lg"></i></a>
+			</p>
+		</div>
+		<!-- footer end -->
+		<a class="btn__backToTop" href="#header"><i class="fas fa-arrow-up"></i></a>
+	</div>
+	<script src="blog.js"></script>
+</body>
+</html>1
