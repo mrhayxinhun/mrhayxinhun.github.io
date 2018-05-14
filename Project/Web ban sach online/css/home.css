@@ -128,11 +128,12 @@
     }
 
     .content-title {
-        text-transform: uppercase;
+    text-transform: uppercase;
     padding: 12px;
     letter-spacing: 1px;
     background-color: rgb(236,236,236);
     color: #444;
+    display: block;
     }
 
     .product   {
