@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bookaholic</title>
+    <link rel="icon" href="images/icon-web.png">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9"
+        crossorigin="anonymous">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <div class="header clearfix wrapper" id="header">
+        <div class="header__logo">
+            <img src="images/logo.jpg" alt="Bookaholic shop" title="Welcome
+            to Bookaholic shop">
+        </div>
+        <div class="header__thumbnail">
+            <div class="thumbnail__item thumbnail__hotline">
+                <i class="thumbnail__icon fas fa-phone fa-2x"></i>
+                <p class="thumbnail__description">
+                    Hotline
+                    <br> 1900-1900
+                    <br>
+                </p>
+                <p class="thumbnail__tooltip">
+                    Tổng đài chăm sóc khách hàng hoạt động 7 ngày trong tuần.
+                    <br> Thứ 2-7:
+                    <strong>8:00-20:00</strong>.
+                    <br> Chủ nhật:
+                    <strong>9:00-17:00</strong>.
+                </p>
+            </div>
+            <div class="thumbnail__item thumbnail__ship">
+                <i class="thumbnail__icon fas fa-truck fa-2x"></i>
+                <div class="thumbnail__description">
+                    <span class="thumbnail__label">Miễn phí giao hàng</span>
+                    <br>
+                    <span>Tận nơi toàn quốc</span>
+                    <br>
+                </div>
+                <p class="thumbnail__tooltip">
+                    Miễn phí giao hàng với đơn hàng từ 250,000 vnđ trở lên.
+                </p>
+            </div>
+            <div class="thumbnail__item thumbnail__books">
+                <i class="thumbnail__icon fas fa-book fa-2x"></i>
+                <p class="thumbnail__description">
+                    Hơn 100,000 đầu sách
+                    <br> Cập nhật mỗi ngày.
+                </p>
+                <p class="thumbnail__tooltip">
+                    Với hàng trăm nghìn đầu sách, Bookaholic tự hào đưa tri thức đến với mọi nhà.
+                </p>
+            </div>
+        </div>
+
+        <div class="header__login">
+            <p class="login-btn" id="login-btn">Đăng nhập</p>
+            <p class="shopping-cart">
+                <i class="fas fa-shopping-cart"></i>
+            </p>
+        </div>
+    </div>
+    <!-- Header ends -->
+
+    <!-- Login forms -->
+    <div class="login-container">
+    <div class="login">
+        <div class="login__description">
+            <div class="description__sign-in tab__description" id="description__sign-in">
+                <h1 class="description__tittle">
+                    Đăng nhập
+                </h1>
+                <p class="description__content">Đăng nhập để theo dõi đơn hàng, lưu danh sách sản phẩm yêu thích, nhận nhiều ưu đãi hấp dẫn.</p>
+            </div>
+            <div class="description__sign-up tab__description" id="description__sign-up">
+                <h1 class="description__tittle">Tạo tài khoản</h1>
+                <p class="description__content">Tạo tài khoản để theo dõi đơn hàng, lưu sản phẩm yêu thích, nhận nhiều ưu đãi hấp dẫn.</p>
+            </div>
+            <div class="description__image">
+                <img src="images/img-for-sign-up-modal.png" alt="Đăng nhập, thỏa sức mua sắm">
+            </div>
+        </div>
+        <div class="login__form">
+            <div class="login__tab">
+                <span class="tab__link" id="tab__link--default" onclick="openForm(event, 'form__sign-in', 'description__sign-in')">Đăng nhập</span>
+                <span class="tab__link" onclick="openForm(event, 'form__sign-up', 'description__sign-up')">Tạo tài khoản</span>
+            </div>
+            <form action="#" method="POST" class="form__sign-in tab__content" id="form__sign-in">
+                <div class="form__item">
+                    <label class="form__title" for="user-mail">Email:</label>
+                    <input class="form__content form__content--padding" type="email" name="user-mail" id="user-mail" placeholder="Nhập địa chỉ email của bạn">
+                </div>
+                <div class="form__item">
+                    <label class="form__title" for="password">Mật khẩu:</label>
+                    <input class="form__content form__content--padding" type="password" name="password" id="password" placeholder="Mật khẩu từ 6 đến 32 kí tự">
+                </div>
+                <div class="form__item ">
+                    <p class="form__content form__content--no-border">Quên mật khẩu, nhấn vào
+                        <a href="#">đây.</a>
+                    </p>
+                </div>
+                <div class="form__item">
+                    <button class="form__content button-submit form__content--padding" type="submit">
+                        <span class="button-content">Đăng nhập</span>
+                    </button>
+                </div>
+                <div class="form__item">
+                    <button class="sign-in__facebook form__content">
+                        <i class="button-icon fab fa-facebook-f fa-lg"></i>
+                        <span class="button-content">Đăng nhập bằng Facebook</span>
+                    </button>
+                </div>
+                <div class="form__item">
+                    <button class="sign-in__google form__content">
+                        <i class="button-icon fab fa-google fa-lg"></i>
+                        <span class="button-content">Đăng nhập bằng Google </span>
+                    </button>
+                </div>
+
+            </form>
+            <form action="#" method="POST" class="form__sign-up tab__content" id="form__sign-up">
+                <div class="form__item">
+                    <label class="form__title" for="user-name">Họ và tên:</label>
+                    <input type="text" class="form__content form__content--padding" name="user-name" id="user-name" placeholder="Nhập họ tên">
+                </div>
+                <div class="form__item">
+                    <label for="user-mail" class="form__title">Email:</label>
+                    <input type="email" class="form__content form__content--padding" name="user-mail" id="user-mail" placeholder="Nhập địa chỉ email của bạn">
+                </div>
+                <div class="form__item">
+                    <label for="password" class="form__title">Mật khẩu:</label>
+                    <input type="password" class="form__content form__content--padding" name="password" id="password" placeholder="Mật khẩu từ 6 đến 32 kí tự">
+                </div>
+                <div class="form__item">
+                    <label for="gender" class="form__title">Giới tính:</label>
+                    <div class="form__content form__content--no-border">
+                        <input type="radio" name="gender" value="Nam" id="male">Nam
+                        <input type="radio" name="gender" value="Nữ" id="female">Nữ
+
+                        <label for=""></label>
+                    </div>
+                </div>
+                <div class="form__item">
+                    <div class="form__content form__content--no-border">
+                        <input type="checkbox" name="" id="">Đồng ý thực hiện mọi giao dịch mua bán theo
+                        <a href="#">điều kiện sử dụng và chính sách mua bán của Bookaholic.</a>
+                    </div>
+                </div>
+                <div class="form__item">
+                    <button class="form__content button-submit">Tạo tài khoản</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+    <!-- Login form ends-->
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="wrapper clearfix">
+
+            <ul class="menu">
+                <li class="menu__item menu__item--books">
+                    <i class="fas fa-bars fa-lg"></i>
+                    <span class="menu__link menu__link--books">Danh mục sách</span>
+                    <ul class="book-category">
+                        <li class="bc__item">
+                            <a href="#" class="bc__link">Sách bán chạy</a>
+                        </li>
+                        <li class="bc__item">
+                            <a href="#" class="bc__link">Sách mới xuất bản</a>
+                        </li>
+                        <li class="bc__item">
+                            <a class="bc__link">Văn học trong nước</a>
+                            <ul class="submenu">
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Phê bình văn học</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a class="submenu__link">Phóng sự, kí sự</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Thơ ca</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Tiểu thuyết lãng mạn</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Giả tưởng, thần bí</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Kiếm hiệp</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Trinh thám</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Hồi kí</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="bc__item">
+                            <a href="#" class="bc__link">Văn học nước ngoài</a>
+                            <ul class="submenu">
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Phê bình văn học</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Phóng sự, kí sự</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Thơ ca</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Tiểu thuyết lãng mạn</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Giả tưởng, thần bí</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Kiếm hiệp</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Trinh thám</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Hồi kí</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="bc__item">
+                            <a href="#" class="bc__link">Thiếu nhi</a>
+                        </li>
+                        <li class="bc__item">
+                            <a href="#" class="bc__link">Phát triển bản thân</a>
+                        </li>
+                        <li class="bc__item">
+                            <a href="#" class="bc__link">Kinh tế</a>
+                            <ul class="submenu">
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Marketing</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Quản trị - Lãnh đạo</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Tài chính - Tiền tệ</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Đầu tư - Chứng khoán</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Nhân vật - Bài học kinh doanh</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Ngoại thương</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="bc__item">
+                            <a href="#" class="bc__link">Khoa học - Kĩ thuật</a>
+                        </li>
+                        <li class="bc__item">
+                            <a class="bc__link">Giáo khoa</a>
+                            <ul class="submenu">
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Cấp 1</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Cấp 2</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Cấp 3</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Đại học</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li class="bc__item">
+                            <a href="#" class="bc__link">Truyện tranh</a>
+                        </li>
+                        <li class="bc__item">
+                            <a href="#" class="bc__link">Nhà xuất bản</a>
+                            <ul class="submenu">
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">NXB Kim Đồng</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">NXB Trẻ</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">NXB Văn Học</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">NXB Phụ Nữ</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="bc__item">
+                            <a href="#" class="bc__link">Sách giảm giá</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu__item menu__item--home">
+                    <a href="#" class="menu__link">Trang chủ</a>
+                </li>
+                <li class="menu__item">
+                    <a href="#" class="menu__link">Tin tức</a>
+                </li>
+                <li class="menu__item">
+                    <a href="#" class="menu__link">Liên hệ</a>
+                </li>
+                <li class="menu__item menu__item--search-bar">
+                    <form class="search-bar">
+                        <input type="search" placeholder="Tìm sản phẩm bạn mong muốn" class="search-bar__email" name="search-bar" id="seach-bar">
+                        <button type="submit" class="search-bar__btn">Tìm</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- Navbar ends -->
+
+    <!-- Category and slide -->
+    <div class="wrapper clearfix">
+        <div class="category-and-slide-container">
+            <ul class="book-menu">
+                <li class="bc__item">
+                    <a href="#" class="bc__link">Sách bán chạy</a>
+                </li>
+                <li class="bc__item">
+                    <a href="#" class="bc__link">Sách mới xuất bản</a>
+                </li>
+                <li class="bc__item">
+                    <a href="#" class="bc__link">Văn học trong nước</a>
+                    <ul class="submenu">
+                        <li class="submenu__item">
+                            <a href="#" class="submenu__link">Phê bình văn học</a>
+                        </li>
+                        <li class="submenu__item">
+                            <a href="#" class="submenu__link">Phóng sự, kí sự</a>
+                        </li>
+                        <li class="submenu__item">
+                            <a href="#" class="submenu__link">Thơ ca</a>
+                        </li>
+                        <li class="submenu__item">
+                            <a href="#" class="submenu__link">Tiểu thuyết lãng mạn</a>
+                        </li>
+                        <li class="submenu__item">
+                            <a href="#" class="submenu__link">Giả tưởng, thần bí</a>
+                        </li>
+                        <li class="submenu__item">
+                            <a href="#" class="submenu__link">Kiếm hiệp</a>
+                        </li>
+                        <li class="submenu__item">
+                            <a href="#" class="submenu__link">Trinh thám</a>
+                        </li>
+                        <li class="submenu__item">
+                            <a href="#" class="submenu__link">Hồi kí</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="bc__item">
+                    <a href="#" class="bc__link">Văn học nước ngoài</a>
+                    <ul class="submenu">
+                        <li class="submenu__item">
+                            <a href="#" class="submenu__link">Phê bình văn học</a>
+                        </li>
+                        <li class="submenu__item">
+                            <a href="#" class="submenu__link">Phóng sự, kí sự</a>
+                        </li>
+                        <li class="submenu__item">
+                            <a href="#" class="submenu__link">Thơ ca</a>
+                        </li>
+                        <li class="submenu__item">
+                            <a href="#" class="submenu__link">Tiểu thuyết lãng mạn</a>
+                        </li>
+                        <li class="submenu__item">
+                            <a href="#" class="submenu__link">Giả tưởng, thần bí</a>
+                        </li>
+                        <li class="submenu__item">
+                            <a href="#" class="submenu__link">Kiếm hiệp</a>
+                        </li>
+                        <li class="submenu__item">
+                            <a href="#" class="submenu__link">Trinh thám</a>
+                        </li>
+                        <li class="submenu__item">
+                            <a href="#" class="submenu__link">Hồi kí</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="bc__item">
+                    <a href="#" class="bc__link">Thiếu nhi</a>
+                </li>
+                <li class="bc__item">
+                    <a href="#" class="bc__link">Phát triển bản thân</a>
+                </li>
+                <li class="bc__item">
+                    <a href="kinhte.html" class="bc__link">Kinh tế</a>
+                    <ul class="submenu">
+                        <li class="submenu__item">
+                            <a href="#" class="submenu__link">Marketing</a>
+                        </li>
+                        <li class="submenu__item">
+                            <a href="#" class="submenu__link">Quản trị - Lãnh đạo</a>
+                        </li>
+                        <li class="submenu__item">
+                            <a href="#" class="submenu__link">Tài chính - Tiền tệ</a>
+                        </li>
+                        <li class="submenu__item">
+                            <a href="#" class="submenu__link">Đầu tư - Chứng khoán</a>
+                        </li>
+                        <li class="submenu__item">
+                            <a href="#" class="submenu__link">Nhân vật - Bài học kinh doanh</a>
+                        </li>
+                        <li class="submenu__item">
+                            <a href="#" class="submenu__link">Ngoại thương</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="bc__item">
+                    <a href="#" class="bc__link">Khoa học - Kĩ thuật</a>
+                </li>
+                <li class="bc__item">
+                    <a href="#" class="bc__link">Giáo khoa</a>
+                    <ul class="submenu">
+                        <li class="submenu__item">
+                            <a href="#" class="submenu__link">Cấp 1</a>
+                        </li>
+                        <li class="submenu__item">
+                            <a href="#" class="submenu__link">Cấp 2</a>
+                        </li>
+                        <li class="submenu__item">
+                            <a href="#" class="submenu__link">Cấp 3</a>
+                        </li>
+                        <li class="submenu__item">
+                            <a href="#" class="submenu__link">Đại học</a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li class="bc__item">
+                    <a href="#" class="bc__link">Truyện tranh</a>
+                </li>
+                <li class="bc__item">
+                    <a href="#" class="bc__link">Nhà xuất bản</a>
+                    <ul class="submenu">
+                        <li class="submenu__item">
+                            <a href="#" class="submenu__link">NXB Kim Đồng</a>
+                        </li>
+                        <li class="submenu__item">
+                            <a href="#" class="submenu__link">NXB Trẻ</a>
+                        </li>
+                        <li class="submenu__item">
+                            <a href="#" class="submenu__link">NXB Văn Học</a>
+                        </li>
+                        <li class="submenu__item">
+                            <a href="#" class="submenu__link">NXB Phụ Nữ</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="bc__item">
+                    <a href="#" class="bc__link">Sách giảm giá</a>
+                </li>
+            </ul>
+            <div class="slide-container">
+                <div class="slide__item">
+                    <a href="#" class="slide__link">
+                        <img src="images/slider-re1.jpg" alt="Bitcoin and Blockchain" class="slide__photo">
+                    </a>
+
+                </div>
+                <div class="slide__item">
+                    <a href="#" class="slide__link">
+                        <img src="images/slider-re3.jpg" alt="Thiên nga đen - Cuốn sách có ảnh hưởng lớn suốt 60 năm qua" class="slide__photo">
+                    </a>
+                </div>
+                <div class="slide__item">
+                    <a href="#" class="slide__link">
+                        <img src="images/slider-re4.jpg" alt="Những cuốn sách hay nhất về chứng khoán" class="slide__photo">
+                    </a>
+                </div>
+                <span class="slide__back-btn">
+                    <i class="fas fa-angle-left"></i>
+                </span>
+                <span class="slide__next-btn">
+                    <i class="fas fa-angle-right"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+    <!-- Category and slide ends -->
+
+    <!-- content -->
+    <div class="content-wrapper">
+        <div class="wrapper">
+            <div class="content">
+                <div class="sidebar">
+                    <div class="hot-deal">
+                        <h4 class="content-title">
+                            <a href="#">Giảm giá</a>
+                        </h4>
+                        <div class="product">
+                            <div class="product__image">
+                                <a href="#">
+                                    <img src="images/hotdeal.jpg" alt="Phân tích chứng khoán" title="Phân tích chứng khoán">
+                                </a>
+                                <div class="product__buy-wrapper">
+
+                                    <div class="product__buy">
+                                        <a href="#" class="product__buy-link">Mua ngay</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="product__info">
+                                <div class="product__name">
+                                    <cite>Phân tích chứng khoán</cite>
+                                </div>
+                                <div class="product__current-price">
+                                    <p>
+                                        <strong>399,0000vnđ</strong>
+                                        <span class="sale-procentov">-20%</span>
+                                    </p>
+
+                                </div>
+                                <div class="product__price">
+                                    <del>499,000vnđ</del>
+                                </div>
+                                <div class="product__rating">
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="customer-cmt">
+
+                    </div>
+                    <div class="customer-support">
+                        <h4 class="content-title">Hỗ trợ trực tuyến</h4>
+                        <div class="support-container">
+                            <div class="support__item">
+                                <i class="support__icon fas fa-user"></i>
+                                <div class="support__info ">
+                                    <p class="support__name">
+                                        Mrs.Thảo
+                                    </p>
+                                    <p class="support__phone">
+                                        Sđt: 090090909090
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="support__item">
+                                <i class="support__icon fas fa-user"></i>
+                                <div class="support__info ">
+                                    <p class="support__name">
+                                        Mr.Hào
+                                    </p>
+                                    <p class="support__phone">
+                                        Sđt: 090090909090
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="support__item">
+                                <i class="support__icon fas fa-envelope"></i>
+                                <p class="support__info">
+                                    support@bookaholic.com
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-content">
+                    <div class="new-book">
+                        <h4 class="content-title">Sách mới</h4>
+                        <div class="product-wrapper">
+                            <div class="product">
+                                <div class="product__image product__image--test">
+                                    <a href="#">
+                                        <img src="images/sp1.jpg" alt="Phân tích chứng khoán" title="Phân tích chứng khoán">
+                                    </a>                                        
+                                    <a href="#" class="product__buy-link--test">Mua ngay</a>
+                                </div>
+                                <div class="product__info">
+                                    <div class="product__name">
+                                        <cite>Phân tích chứng khoán</cite>
+                                    </div>
+                                    <div class="product__current-price">
+                                        <p>
+                                            <strong>399,0000vnđ</strong>
+                                            <span class="sale-procentov">-20%</span>
+                                        </p>
+
+                                    </div>
+                                    <div class="product__price">
+                                        <del>499,000vnđ</del>
+                                    </div>
+                                    <div class="product__rating">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product">
+                                <div class="product__image">
+                                    <a href="#">
+                                        <img src="images/sp2.jpg" alt="Phân tích chứng khoán" title="Phân tích chứng khoán">
+                                    </a>
+                                    <div class="product__buy-wrapper">
+
+                                        <div class="product__buy">
+                                            <a href="#" class="product__buy-link">Mua ngay</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="product__info">
+                                    <div class="product__name">
+                                        <cite>Phân tích chứng khoán</cite>
+                                    </div>
+                                    <div class="product__current-price">
+                                        <p>
+                                            <strong>399,0000vnđ</strong>
+                                            <span class="sale-procentov">-20%</span>
+                                        </p>
+
+                                    </div>
+                                    <div class="product__price">
+                                        <del>499,000vnđ</del>
+                                    </div>
+                                    <div class="product__rating">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product">
+                                <div class="product__image">
+                                    <a href="#">
+                                        <img src="images/sp3.jpg" alt="Phân tích chứng khoán" title="Phân tích chứng khoán">
+                                    </a>
+                                    <div class="product__buy-wrapper">
+
+                                        <div class="product__buy">
+                                            <a href="#" class="product__buy-link">Mua ngay</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="product__info">
+                                    <div class="product__name">
+                                        <cite>Phân tích chứng khoán</cite>
+                                    </div>
+                                    <div class="product__current-price">
+                                        <p>
+                                            <strong>399,0000vnđ</strong>
+                                            <span class="sale-procentov">-20%</span>
+                                        </p>
+
+                                    </div>
+                                    <div class="product__price">
+                                        <del>499,000vnđ</del>
+                                    </div>
+                                    <div class="product__rating">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product">
+                                <div class="product__image">
+                                    <a href="#">
+                                        <img src="images/sp4.jpg" alt="Phân tích chứng khoán" title="Phân tích chứng khoán">
+                                    </a>
+                                    <div class="product__buy-wrapper">
+
+                                        <div class="product__buy">
+                                            <a href="#" class="product__buy-link">Mua ngay</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="product__info">
+                                    <div class="product__name">
+                                        <cite>Phân tích chứng khoán</cite>
+                                    </div>
+                                    <div class="product__current-price">
+                                        <p>
+                                            <strong>399,0000vnđ</strong>
+                                            <span class="sale-procentov">-20%</span>
+                                        </p>
+
+                                    </div>
+                                    <div class="product__price">
+                                        <del>499,000vnđ</del>
+                                    </div>
+                                    <div class="product__rating">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product">
+                                <div class="product__image">
+                                    <a href="#">
+                                        <img src="images/sp5.jpg" alt="Phân tích chứng khoán" title="Phân tích chứng khoán">
+                                    </a>
+                                    <div class="product__buy-wrapper">
+
+                                        <div class="product__buy">
+                                            <a href="#" class="product__buy-link">Mua ngay</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="product__info">
+                                    <div class="product__name">
+                                        <cite>Phân tích chứng khoán</cite>
+                                    </div>
+                                    <div class="product__current-price">
+                                        <p>
+                                            <strong>399,0000vnđ</strong>
+                                            <span class="sale-procentov">-20%</span>
+                                        </p>
+
+                                    </div>
+                                    <div class="product__price">
+                                        <del>499,000vnđ</del>
+                                    </div>
+                                    <div class="product__rating">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product">
+                                <div class="product__image">
+                                    <a href="#">
+                                        <img src="images/sp6.jpg" alt="Phân tích chứng khoán" title="Phân tích chứng khoán">
+                                    </a>
+                                    <div class="product__buy-wrapper">
+
+                                        <div class="product__buy">
+                                            <a href="#" class="product__buy-link">Mua ngay</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="product__info">
+                                    <div class="product__name">
+                                        <cite>Phân tích chứng khoán</cite>
+                                    </div>
+                                    <div class="product__current-price">
+                                        <p>
+                                            <strong>399,0000vnđ</strong>
+                                            <span class="sale-procentov">-20%</span>
+                                        </p>
+
+                                    </div>
+                                    <div class="product__price">
+                                        <del>499,000vnđ</del>
+                                    </div>
+                                    <div class="product__rating">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product">
+                                <div class="product__image">
+                                    <a href="#">
+                                        <img src="images/sp7.jpg" alt="Phân tích chứng khoán" title="Phân tích chứng khoán">
+                                    </a>
+                                    <div class="product__buy-wrapper">
+
+                                        <div class="product__buy">
+                                            <a href="#" class="product__buy-link">Mua ngay</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="product__info">
+                                    <div class="product__name">
+                                        <cite>Phân tích chứng khoán</cite>
+                                    </div>
+                                    <div class="product__current-price">
+                                        <p>
+                                            <strong>399,0000vnđ</strong>
+                                            <span class="sale-procentov">-20%</span>
+                                        </p>
+
+                                    </div>
+                                    <div class="product__price">
+                                        <del>499,000vnđ</del>
+                                    </div>
+                                    <div class="product__rating">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product">
+                                <div class="product__image">
+                                    <a href="#">
+                                        <img src="images/sp8.jpg" alt="Phân tích chứng khoán" title="Phân tích chứng khoán">
+                                    </a>
+                                    <div class="product__buy-wrapper">
+
+                                        <div class="product__buy">
+                                            <a href="#" class="product__buy-link">Mua ngay</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="product__info">
+                                    <div class="product__name">
+                                        <cite>Phân tích chứng khoán</cite>
+                                    </div>
+                                    <div class="product__current-price">
+                                        <p>
+                                            <strong>399,0000vnđ</strong>
+                                            <span class="sale-procentov">-20%</span>
+                                        </p>
+
+                                    </div>
+                                    <div class="product__price">
+                                        <del>499,000vnđ</del>
+                                    </div>
+                                    <div class="product__rating">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="advertise">
+                        <div class="advertise__item">
+                            <img src="images/adv1.jpg" alt="">
+                        </div>
+                        <div class="advertise__item">
+                            <img src="images/adv2.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="best-seller-book">
+                        <h4 class="content-title">Bán chạy nhất</h4>
+                        <div class="product-wrapper">
+                            <div class="product">
+                                <div class="product__image">
+                                    <a href="#">
+                                        <img src="images/sp9.jpg" alt="Phân tích chứng khoán" title="Phân tích chứng khoán">
+                                    </a>
+                                    <div class="product__buy-wrapper">
+
+                                        <div class="product__buy">
+                                            <a href="#" class="product__buy-link">Mua ngay</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="product__info">
+                                    <div class="product__name">
+                                        <cite>Phân tích chứng khoán</cite>
+                                    </div>
+                                    <div class="product__current-price">
+                                        <p>
+                                            <strong>399,0000vnđ</strong>
+                                            <span class="sale-procentov">-20%</span>
+                                        </p>
+
+                                    </div>
+                                    <div class="product__price">
+                                        <del>499,000vnđ</del>
+                                    </div>
+                                    <div class="product__rating">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product">
+                                <div class="product__image">
+                                    <a href="#">
+                                        <img src="images/sp10.jpg" alt="Phân tích chứng khoán" title="Phân tích chứng khoán">
+                                    </a>
+                                    <div class="product__buy-wrapper">
+
+                                        <div class="product__buy">
+                                            <a href="#" class="product__buy-link">Mua ngay</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="product__info">
+                                    <div class="product__name">
+                                        <cite>Phân tích chứng khoán</cite>
+                                    </div>
+                                    <div class="product__current-price">
+                                        <p>
+                                            <strong>399,0000vnđ</strong>
+                                            <span class="sale-procentov">-20%</span>
+                                        </p>
+
+                                    </div>
+                                    <div class="product__price">
+                                        <del>499,000vnđ</del>
+                                    </div>
+                                    <div class="product__rating">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product">
+                                <div class="product__image">
+                                    <a href="#">
+                                        <img src="images/sp11.jpg" alt="Phân tích chứng khoán" title="Phân tích chứng khoán">
+                                    </a>
+                                    <div class="product__buy-wrapper">
+
+                                        <div class="product__buy">
+                                            <a href="#" class="product__buy-link">Mua ngay</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="product__info">
+                                    <div class="product__name">
+                                        <cite>Phân tích chứng khoán</cite>
+                                    </div>
+                                    <div class="product__current-price">
+                                        <p>
+                                            <strong>399,0000vnđ</strong>
+                                            <span class="sale-procentov">-20%</span>
+                                        </p>
+
+                                    </div>
+                                    <div class="product__price">
+                                        <del>499,000vnđ</del>
+                                    </div>
+                                    <div class="product__rating">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product">
+                                <div class="product__image">
+                                    <a href="#">
+                                        <img src="images/sp12.jpg" alt="Phân tích chứng khoán" title="Phân tích chứng khoán">
+                                    </a>
+                                    <div class="product__buy-wrapper">
+
+                                        <div class="product__buy">
+                                            <a href="#" class="product__buy-link">Mua ngay</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="product__info">
+                                    <div class="product__name">
+                                        <cite>Phân tích chứng khoán</cite>
+                                    </div>
+                                    <div class="product__current-price">
+                                        <p>
+                                            <strong>399,0000vnđ</strong>
+                                            <span class="sale-procentov">-20%</span>
+                                        </p>
+
+                                    </div>
+                                    <div class="product__price">
+                                        <del>499,000vnđ</del>
+                                    </div>
+                                    <div class="product__rating">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product">
+                                <div class="product__image">
+                                    <a href="#">
+                                        <img src="images/sp13.jpg" alt="Phân tích chứng khoán" title="Phân tích chứng khoán">
+                                    </a>
+                                    <div class="product__buy-wrapper">
+
+                                        <div class="product__buy">
+                                            <a href="#" class="product__buy-link">Mua ngay</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="product__info">
+                                    <div class="product__name">
+                                        <cite>Phân tích chứng khoán</cite>
+                                    </div>
+                                    <div class="product__current-price">
+                                        <p>
+                                            <strong>399,0000vnđ</strong>
+                                            <span class="sale-procentov">-20%</span>
+                                        </p>
+
+                                    </div>
+                                    <div class="product__price">
+                                        <del>499,000vnđ</del>
+                                    </div>
+                                    <div class="product__rating">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product">
+                                <div class="product__image">
+                                    <a href="#">
+                                        <img src="images/sp14.jpg" alt="Phân tích chứng khoán" title="Phân tích chứng khoán">
+                                    </a>
+                                    <div class="product__buy-wrapper">
+
+                                        <div class="product__buy">
+                                            <a href="#" class="product__buy-link">Mua ngay</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="product__info">
+                                    <div class="product__name">
+                                        <cite>Phân tích chứng khoán</cite>
+                                    </div>
+                                    <div class="product__current-price">
+                                        <p>
+                                            <strong>399,0000vnđ</strong>
+                                            <span class="sale-procentov">-20%</span>
+                                        </p>
+
+                                    </div>
+                                    <div class="product__price">
+                                        <del>499,000vnđ</del>
+                                    </div>
+                                    <div class="product__rating">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product">
+                                <div class="product__image">
+                                    <a href="#">
+                                        <img src="images/sp15.jpg" alt="Phân tích chứng khoán" title="Phân tích chứng khoán">
+                                    </a>
+                                    <div class="product__buy-wrapper">
+
+                                        <div class="product__buy">
+                                            <a href="#" class="product__buy-link">Mua ngay</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="product__info">
+                                    <div class="product__name">
+                                        <cite>Phân tích chứng khoán</cite>
+                                    </div>
+                                    <div class="product__current-price">
+                                        <p>
+                                            <strong>399,0000vnđ</strong>
+                                            <span class="sale-procentov">-20%</span>
+                                        </p>
+
+                                    </div>
+                                    <div class="product__price">
+                                        <del>499,000vnđ</del>
+                                    </div>
+                                    <div class="product__rating">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product">
+                                <div class="product__image">
+                                    <a href="#">
+                                        <img src="images/sp16.jpg" alt="Phân tích chứng khoán" title="Phân tích chứng khoán">
+                                    </a>
+                                    <div class="product__buy-wrapper">
+
+                                        <div class="product__buy">
+                                            <a href="#" class="product__buy-link">Mua ngay</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="product__info">
+                                    <div class="product__name">
+                                        <cite>Phân tích chứng khoán</cite>
+                                    </div>
+                                    <div class="product__current-price">
+                                        <p>
+                                            <strong>399,0000vnđ</strong>
+                                            <span class="sale-procentov">-20%</span>
+                                        </p>
+
+                                    </div>
+                                    <div class="product__price">
+                                        <del>499,000vnđ</del>
+                                    </div>
+                                    <div class="product__rating">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="skoro-have-book">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- content ends -->
+
+    <!-- Subcribe -->
+    <div class="wrapper">
+        <div class="subcribe">
+
+            <p class="subcribe__content">
+                Theo dõi Bookaholic để không bỏ lỡ hàng ngàn sản phẩm và chương trình khuyến mãi hấp dẫn dành cho bạn.
+            </p>
+            <form action="#" class="subcribe__form">
+                <input type="email" class="subcribe__email" placeholder="Nhập email của bạn" name="subcribe-email" id="subcribe-email">
+                <button type="submit" class="subcribe__submit-btn">Theo dõi</button>
+            </form>
+        </div>
+    </div>
+    <!-- Subcribe ends -->
+
+    <!-- footer -->
+    <div class="footer">
+        <div class="wrapper">
+            <div class="bookaholic">
+                <div class="bk-address">
+                    <h3>Liên hệ</h3>
+                    <p>
+                        <i class="fas fa-map-marker fa-lg"></i>4, Nguyễn Đình Chiểu, Hà Nội</p>
+                    <p>
+                        <i class="fas fa-phone fa-lg"></i>090090909090</p>
+                    <p>
+                        <i class="fas fa-envelope fa-lg"></i>info@bookaholic.com</p>
+                </div>
+                <div class="bk-info">
+                    <h3>Về bookaholic</h3>
+                    <ul>
+                        <li>
+                            <a href="#">Giới thiệu</a>
+                        </li>
+                        <li>
+                            <a href="#">Tin tức</a>
+                        </li>
+                        <li>
+                            <a href="#">Đối tác</a>
+                        </li>
+                        <li>
+                            <a href="#">Liên hệ</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bk-policy">
+                    <h3>Chính sách</h3>
+                    <ul>
+                        <li>
+                            <a href="#">Chính sách thanh toán</a>
+                        </li>
+                        <li>
+                            <a href="#">Chính sách vận chuyển</a>
+                        </li>
+                        <li>
+                            <a href="#">Chính sách đổi trả</a>
+                        </li>
+                        <li>
+                            <a href="#">Chính sách bảo hành</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bk-follow">
+                    <h3>Kết nối với chúng tôi</h3>
+                    <div class="bk-follow__icon">
+                        <a href="#" class="fab fa-youtube fa-2x"></a>
+                        <a href="#" class="fab fa-facebook fa-2x"></a>
+                        <a href="#" class="fab fa-twitter fa-2x"></a>
+                        <a href="#" class="fab fa-google-plus fa-2x"></a>
+                        <a href="#" class="fab fa-instagram fa-2x"></a>
+                    </div>
+                </div>
+                <div class="bk-pay-method">
+                    <h3>Phương thức thanh toán</h3>
+                    <img src="images/pay-method.PNG" alt="">
+                </div>
+            </div>
+
+        </div>
+        <div class="footer__privacy">
+            <div class="wrapper">
+                <p>&copy; 2018 - Bản quyền thuộc về Bookaholic.com</p>
+                <span>Giấy chứng nhận Đăng ký Kinh doanh số 0309532909 do Sở Kế hoạch và Đầu tư Thành phố Hà Nội cấp ngày
+                    12/05/2018.
+                </span>
+            </div>
+        </div>
+    </div>
+    <!-- footer ends -->
+
+    <!-- button back to top -->
+    <div>
+        <a href="#header" class="back-to-top"><i class="fas fa-angle-up"></i></a> 
+    </div>
+    <!-- button back to top ends -->
+    <script src="js/general.js"></script>
+    <script src="js/home.js"></script>
+</body>
+
+</html>

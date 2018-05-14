@@ -1,0 +1,237 @@
+.book-category{
+    display: none;
+}
+
+/* Breadcrums */
+.breadcrums-wrapper{
+    background-color: #efefef;
+}
+
+.breadcrums{
+    display: flex; 
+}
+
+.breadcrums__link{
+    display: inline-block;
+    padding: 8px;
+    color: black;
+    position: relative;
+    margin-right: 24px;
+}
+
+.breadcrums__link::before{
+    position: absolute;
+    left: 100%;
+    top: 0;
+    content: "";
+    border: 18.9px solid; 
+    border-color: transparent transparent transparent rgb(199, 191, 191);
+}
+
+.breadcrums__link::after{
+    position: absolute;
+    left: 100%;
+    top: 0.5px;
+    content: "";
+    border: 17.9px solid;
+    border-color: transparent transparent transparent #efefef;;
+}
+
+.breadcrums__item:last-child .breadcrums__link::before,
+.breadcrums__item:last-child .breadcrums__link::after{
+    border: none;
+}
+
+.breadcrums__link--active{
+    color: #189eff;
+}
+/* Breadcrums ends */
+
+/* book to buy */
+.book-to-buy{
+    width: calc((100% - 20px * 12) / 12 * 9 + 20px * 8);
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 24px;
+    display: flex;
+}
+
+.book-to-buy__image-slide{
+    width: 35%;
+}
+
+.book-to-buy__image-wrapper{
+    border: 1px solid rgb(191,191,191);
+    padding: 12px 12px 6px 12px;
+}
+
+.book-to-buy__image{
+    display: none;
+}
+
+.tab-image{
+    margin-top: 12px;
+    display: flex;
+}
+
+.tab-image__thumbnail-wrapper{
+    margin-right: 10px;
+    border: 1px solid rgb(191,191,191);
+    padding: 3px;
+    cursor: pointer;
+}
+
+.tab-image__thumbnail-wrapper--active{
+    border-color: #189eff;
+}
+
+.book-to-buy__info{
+    width: calc(65% - 20px);
+    margin-left: 20px;
+}
+/* book to buy ends */
+
+/* Related-product */
+.related-product{
+    width: calc((100% - 20px * 12) / 12 * 9 + 20px * 8);
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 24px;
+}
+
+.related-product__title{
+    text-transform: uppercase;
+    color: #444;
+    padding: 12px;
+    background-color: rgb(236,236,236);
+}
+
+.product-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product   {
+    margin-top:24px;
+    border: 1px solid rgb(236,236,236);
+    width: calc((100% - 20px * 3) / 4); 
+    margin-right: 20px;
+}
+
+.product__image{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    text-align: center;
+    border-bottom: 1px solid rgb(236,236,236);
+    position: relative;
+}
+
+.product__image img{
+    box-shadow: 4px 4px 4px rgb(163, 163, 163);
+    max-width: 80%;
+}
+
+.product__buy-wrapper{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(216,216,216,.5);
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.4s;
+}
+
+.product__buy{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgba(24,158,255);
+}
+
+.product__image:hover .product__buy-wrapper{
+    visibility: visible;
+    opacity: 1;
+}
+
+.product__buy-link{
+    text-transform: uppercase;
+    padding: 6px;
+    display: inline-block;
+    color: white;
+}
+
+.product__info{
+    padding-left: 12px;
+}
+
+.sale-procentov{
+    display: inline-block;
+    color: white;
+    background-color: rgba(24,158,255,.8);
+    padding: 6px;
+}
+
+.product__price{
+    font-size: 13px;
+    color: rgba(136,136,136);
+}
+
+.product-wrapper .product:nth-child(4n){
+    margin-right: 0;
+}
+/* related product end */
+
+/* tab-book-info */
+.tab-book-info{
+    width: calc((100% - 20px * 12) / 12 * 9 + 20px * 8);
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 24px;
+}
+
+.tab-book{
+    border-bottom: 1px solid rgb(191,191,191);
+    margin-bottom: 24px;
+}
+
+.tab-book__item{
+    margin-left: 24px;
+    display: inline-block;
+    width: 20%;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.tab-book__item--active{
+    color: #189eff;
+    border-bottom: 2px solid #189eff;
+}
+
+.about-book{
+    text-align: justify;
+}
+
+.info-book{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.info-book th{
+    width: 30%;
+    text-align: left;
+    padding: 12px;
+    border: 1px solid rgb(191,191,191);
+    background-color: rgb(236,236,236);
+}
+
+.info-book td{
+    width: 70%;
+    border: 1px solid rgb(191,191,191);
+    padding: 12px;
+}
+/* tab book info ends */

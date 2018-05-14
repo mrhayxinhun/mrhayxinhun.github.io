@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Bookaholic</title>
+        <link rel="icon" href="images/icon-web.png">
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/product.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9"
+            crossorigin="anonymous">
+    </head>
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="header clearfix wrapper" id="header">
+        <div class="header__logo">
+            <img src="images/logo.jpg" alt="Bookaholic shop" title="Welcome
+            to Bookaholic shop">
+        </div>
+        <div class="header__thumbnail">
+            <div class="thumbnail__item thumbnail__hotline">
+                <i class="thumbnail__icon fas fa-phone fa-lg"></i>
+                <p class="thumbnail__description">
+                    Hotline
+                    <br> 1900-1900
+                    <br>
+                </p>
+                <p class="thumbnail__tooltip">
+                    Tổng đài chăm sóc khách hàng hoạt động 7 ngày trong tuần.
+                    <br> Thứ 2-7:
+                    <strong>8:00-20:00</strong>.
+                    <br> Chủ nhật:
+                    <strong>9:00-17:00</strong>.
+                </p>
+            </div>
+            <div class="thumbnail__item thumbnail__ship">
+                <i class="thumbnail__icon fas fa-truck fa-lg"></i>
+                <div class="thumbnail__description">
+                    <span class="thumbnail__label">Miễn phí giao hàng</span>
+                    <br>
+                    <span>Tận nơi toàn quốc</span>
+                    <br>
+                </div>
+                <p class="thumbnail__tooltip">
+                    Miễn phí giao hàng với đơn hàng từ 250,000 vnđ trở lên.
+                </p>
+            </div>
+            <div class="thumbnail__item thumbnail__books">
+                <i class="thumbnail__icon fas fa-book fa-lg"></i>
+                <p class="thumbnail__description">
+                    Hơn 100,000 đầu sách
+                    <br> Cập nhật mỗi ngày.
+                </p>
+                <p class="thumbnail__tooltip">
+                    Với hàng trăm nghìn đầu sách, Bookaholic tự hào đưa tri thức đến với mọi nhà.
+                </p>
+            </div>
+        </div>
+
+        <div class="header__login">
+            <p class="login-btn" id="login-btn">Đăng nhập</p>
+            <p class="shopping-cart">
+                <i class="fas fa-shopping-cart"></i>
+            </p>
+        </div>
+    </div>
+    <!-- Header ends -->
+
+    <!-- Login forms -->
+    <div class="login-container">
+        <div class="login">
+            <div class="login__description">
+                <div class="description__sign-in tab__description" id="description__sign-in">
+                    <h1 class="description__tittle">
+                        Đăng nhập
+                    </h1>
+                    <p class="description__content">Đăng nhập để theo dõi đơn hàng, lưu danh sách sản phẩm yêu thích, nhận nhiều ưu đãi hấp dẫn.</p>
+                </div>
+                <div class="description__sign-up tab__description" id="description__sign-up">
+                    <h1 class="description__tittle">Tạo tài khoản</h1>
+                    <p class="description__content">Tạo tài khoản để theo dõi đơn hàng, lưu sản phẩm yêu thích, nhận nhiều ưu đãi hấp dẫn.</p>
+                </div>
+                <div class="description__image">
+                    <img src="images/img-for-sign-up-modal.png" alt="Đăng nhập, thỏa sức mua sắm">
+                </div>
+            </div>
+            <div class="login__form">
+                <div class="login__tab">
+                    <span class="tab__link" id="tab__link--default" onclick="openForm(event, 'form__sign-in', 'description__sign-in')">Đăng nhập</span>
+                    <span class="tab__link" onclick="openForm(event, 'form__sign-up', 'description__sign-up')">Tạo tài khoản</span>
+                </div>
+                <form action="#" method="POST" class="form__sign-in tab__content" id="form__sign-in">
+                    <div class="form__item">
+                        <label class="form__title" for="user-mail">Email:</label>
+                        <input class="form__content form__content--padding" type="email" name="user-mail" id="user-mail" placeholder="Nhập địa chỉ email của bạn">
+                    </div>
+                    <div class="form__item">
+                        <label class="form__title" for="password">Mật khẩu:</label>
+                        <input class="form__content form__content--padding" type="password" name="password" id="password" placeholder="Mật khẩu từ 6 đến 32 kí tự">
+                    </div>
+                    <div class="form__item ">
+                        <p class="form__content form__content--no-border">Quên mật khẩu, nhấn vào
+                            <a href="#">đây.</a>
+                        </p>
+                    </div>
+                    <div class="form__item">
+                        <button class="form__content button-submit form__content--padding" type="submit">
+                            <span class="button-content">Đăng nhập</span>
+                        </button>
+                    </div>
+                    <div class="form__item">
+                        <button class="sign-in__facebook form__content">
+                            <i class="button-icon fab fa-facebook-f fa-lg"></i>
+                            <span class="button-content">Đăng nhập bằng Facebook</span>
+                        </button>
+                    </div>
+                    <div class="form__item">
+                        <button class="sign-in__google form__content">
+                            <i class="button-icon fab fa-google fa-lg"></i>
+                            <span class="button-content">Đăng nhập bằng Google </span>
+                        </button>
+                    </div>
+
+                </form>
+                <form action="#" method="POST" class="form__sign-up tab__content" id="form__sign-up">
+                    <div class="form__item">
+                        <label class="form__title" for="user-name">Họ và tên:</label>
+                        <input type="text" class="form__content form__content--padding" name="user-name" id="user-name" placeholder="Nhập họ tên">
+                    </div>
+                    <div class="form__item">
+                        <label for="user-mail" class="form__title">Email:</label>
+                        <input type="email" class="form__content form__content--padding" name="user-mail" id="user-mail" placeholder="Nhập địa chỉ email của bạn">
+                    </div>
+                    <div class="form__item">
+                        <label for="password" class="form__title">Mật khẩu:</label>
+                        <input type="password" class="form__content form__content--padding" name="password" id="password" placeholder="Mật khẩu từ 6 đến 32 kí tự">
+                    </div>
+                    <div class="form__item">
+                        <label for="gender" class="form__title">Giới tính:</label>
+                        <div class="form__content form__content--no-border">
+                            <input type="radio" name="gender" value="Nam" id="male">Nam
+                            <input type="radio" name="gender" value="Nữ" id="female">Nữ
+
+                            <label for=""></label>
+                        </div>
+                    </div>
+                    <div class="form__item">
+                        <div class="form__content form__content--no-border">
+                            <input type="checkbox" name="" id="">Đồng ý thực hiện mọi giao dịch mua bán theo
+                            <a href="#">điều kiện sử dụng và chính sách mua bán của Bookaholic.</a>
+                        </div>
+                    </div>
+                    <div class="form__item">
+                        <button class="form__content button-submit">Tạo tài khoản</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Login form ends-->
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="wrapper clearfix">
+
+            <ul class="menu">
+                <li class="menu__item menu__item--books">
+                    <i class="fas fa-bars fa-lg"></i>
+                    <span class="menu__link menu__link--books">Danh mục sách</span>
+                    <ul class="book-category">
+                        <li class="bc__item">
+                            <a href="#" class="bc__link">Sách bán chạy</a>
+                        </li>
+                        <li class="bc__item">
+                            <a href="#" class="bc__link">Sách mới xuất bản</a>
+                        </li>
+                        <li class="bc__item">
+                            <a class="bc__link">Văn học trong nước</a>
+                            <ul class="submenu">
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Phê bình văn học</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a class="submenu__link">Phóng sự, kí sự</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Thơ ca</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Tiểu thuyết lãng mạn</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Giả tưởng, thần bí</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Kiếm hiệp</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Trinh thám</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Hồi kí</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="bc__item">
+                            <a href="#" class="bc__link">Văn học nước ngoài</a>
+                            <ul class="submenu">
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Phê bình văn học</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Phóng sự, kí sự</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Thơ ca</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Tiểu thuyết lãng mạn</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Giả tưởng, thần bí</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Kiếm hiệp</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Trinh thám</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Hồi kí</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="bc__item">
+                            <a href="#" class="bc__link">Thiếu nhi</a>
+                        </li>
+                        <li class="bc__item">
+                            <a href="#" class="bc__link">Phát triển bản thân</a>
+                        </li>
+                        <li class="bc__item">
+                            <a href="#" class="bc__link">Kinh tế</a>
+                            <ul class="submenu">
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Marketing</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Quản trị - Lãnh đạo</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Tài chính - Tiền tệ</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Đầu tư - Chứng khoán</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Nhân vật - Bài học kinh doanh</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Ngoại thương</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="bc__item">
+                            <a href="#" class="bc__link">Khoa học - Kĩ thuật</a>
+                        </li>
+                        <li class="bc__item">
+                            <a class="bc__link">Giáo khoa</a>
+                            <ul class="submenu">
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Cấp 1</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Cấp 2</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Cấp 3</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">Đại học</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li class="bc__item">
+                            <a href="#" class="bc__link">Truyện tranh</a>
+                        </li>
+                        <li class="bc__item">
+                            <a href="#" class="bc__link">Nhà xuất bản</a>
+                            <ul class="submenu">
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">NXB Kim Đồng</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">NXB Trẻ</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">NXB Văn Học</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="#" class="submenu__link">NXB Phụ Nữ</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="bc__item">
+                            <a href="#" class="bc__link">Sách giảm giá</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu__item menu__item--home">
+                    <a href="#" class="menu__link">Trang chủ</a>
+                </li>
+                <li class="menu__item">
+                    <a href="#" class="menu__link">Tin tức</a>
+                </li>
+                <li class="menu__item">
+                    <a href="#" class="menu__link">Liên hệ</a>
+                </li>
+                <li class="menu__item menu__item--search-bar">
+                    <form class="search-bar">
+                        <input type="search" placeholder="Tìm sản phẩm bạn mong muốn" class="search-bar__email" name="search-bar" id="seach-bar">
+                        <button type="submit" class="search-bar__btn">Tìm</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- Navbar ends -->
+
+    <!-- breadcrums -->
+    <div class="breadcrums-wrapper">
+        <div class="wrapper">
+            <ul class="breadcrums">
+                <li class="breadcrums__item">
+                    <a href="home.html" class="breadcrums__link">Trang chủ</a>
+                </li>
+                <li class="breadcrums__item">
+                    <a href="kinhte.html" class="breadcrums__link">Sách kinh tế</a>
+                </li>
+                <li class="breadcrums__item">
+                    <a href="#" class="breadcrums__link breadcrums__link--active">Nhân vật - Bài học kinh doanh</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- breadcrums ends -->
+
+    <!-- Content -->
+    <div class="content-wrapper">
+        <div class="wrapper">
+            <div class="content">
+                <!-- book-to-buy -->
+                <div class="book-to-buy">
+                    <div class="book-to-buy__image-slide">
+                        <div class="book-to-buy__image-wrapper">
+                                <img class="book-to-buy__image" id="product-img-1" src="images/sp6-big.jpg" alt="Elon Musk: Tesla, SpaceX và sứ mệnh tìm kiếm tương lai" title="Elon Musk: Tesla, SpaceX và sứ mệnh tìm kiếm tương lai">
+                                <img class="book-to-buy__image" id="product-img-2" src="images/sp6-big-2.jpg" alt="Elon Musk, Tesla và SpaceX">
+                        </div>
+                        <div class="tab-image">
+                            <div class="tab-image__thumbnail-wrapper" onclick="tabImg(event, 'product-img-1')" id="tab-image-default">
+                                <img src="images/sp6-thumb.jpg"  alt="Elon Musk" class="tab-image__thumbnail">
+                            </div>
+                            <div class="tab-image__thumbnail-wrapper" onclick="tabImg(event, 'product-img-2')">
+                                <img src="images/sp6-thumb-2.jpg"  alt="Elon Musk" class="tab-image__thumbnail">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="book-to-buy__info">
+                        <h3 class="book-to-buy__title">Elon Musk: Tesla, SpaceX và sứ mệnh tìm kiếm tương lai ngoài sức tưởng tượng</h3>
+                        <p class="book-to-buy-status">Tình trạng: <span>Còn hàng</span></p>
+                        <p class="book-to-buy__price">Giá bìa: <span>209,000vnđ</span></p>
+                        <p class="book-to-buy__sale-price">Giá bán: <span>167,200vnđ</span></p>
+                        <p class="book-to-buy__sale-percentage">Tiết kiệm: <span>  41.800vnđ (-20%)</span></p>
+                    </div>
+                </div>
+                <!-- book-to-buy -->
+                <!-- tab book info -->
+                <div class="tab-book-info">
+                    <div class="tab-book">
+                        <span class="tab-book__item" id="tab-book__item--default" onclick="openTabBookInfo(event, 'about-book')">
+                            Giới thiệu sách
+                        </span>
+                        <span class="tab-book__item" onclick="openTabBookInfo(event, 'info-book-wrapper')">
+                            Thông tin chi tiết
+                        </span>
+                    </div>
+                    <div class="tab-book__content about-book" id="about-book">
+                        <p>Trong cuốn <strong>Elon Musk: Tesla, SpaceX và sứ mệnh tìm kiếm một tương lai</strong>  ngoài sức tưởng tượng nhà báo công nghệ kỳ cựu Ashlee Vance đã mở cánh cửa đầu tiền nhìn vào cuộc sống phi thường của doanh nhân táo bạo nhất thung lũng Silicon. Được viết với độc quyền tiếp cận Musk, gia đình và bạn bè anh, cuốn sách lần theo cuộc hành trình của doanh nhân này, từ thuở nhỏ được nuôi dạy ở Nam Phi đến khi lên đến đỉnh cao của giới kinh doanh toàn cầu. Vance dành hơn 30 giờ trò chuyện với Musk và phỏng vấn gần 300 người để kể những câu chuyện đầy biến động về các công ty đang làm thay đổi thế giới mà Musk thành lập: PayPal, Tesla Motors, SpaceX và SolarCity, và để mô tả một người đàn ông đã tạo sức sống mới cho ngành công nghiệp Mỹ và thổi bùng tinh thần đổi mới ở một cấp độ khác, trong khi cũng tạo nên không ít kẻ thù trên con đường đó.</p>
+                        <p>Vance dùng câu chuyện cuả Musk để khám phá một trong những câu hỏi trọng tâm trong thời đại của chúng ta: liệu quốc gia của những nhà phát minh sáng chế, thế lực đã dẫn dắt thế giới hiện đại suốt một thế kỷ có còn trụ nổi trong kỷ nguyên cạnh tranh toàn cầu khốc liệt? Anh khẳng định rằng Musk – một trong những nhận vật dị thường và ấn tượng nhất lịch sử kinh doanh Mỹ- là một sự hòa trộn đương đại của những nhà sáng chế huyền thoại và những nhà công nghiệp như Thomas Edison, Henry Ford, Howard Hughes và Steve Jobs. Hơn bất cứ doanh nhân nào khác, Musk cống hiến toàn bộ năng lượng và cược toàn bộ tương lai của anh cho việc kiến tạo một tương lai giàu mạnh và rộng mở cho thời hoàng kim của khoa học viễn tưởng.</p>
+                    </div>
+                    <div class="tab-book__content info-book-wrapper" id="info-book-wrapper">
+                        <table class="info-book">
+                            <tr>
+                                <th>Công ti phát hành</th>
+                                <td>Alphabooks</td>
+                            </tr>
+                            <tr>
+                                <th>Nhà xuất bản</th>
+                                <td>Nhà xuất bản lao động</td>
+                            </tr>
+                            <tr>
+                                <th>Tác giả</th>
+                                <td>Ashlee Vance</td>
+                            </tr>
+                            <tr>
+                                <th>Dịch giả</th>
+                                <td>Nguyễn Văn Hào</td>
+                            </tr>
+                            <tr>
+                                <th>Loại bìa</th>
+                                <td>Bìa cứng</td>
+                            </tr>
+                            <tr>
+                                <th>Số trang</th>
+                                <td>525</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>   
+                <!-- tab book info ends -->
+                <!-- Related-product -->
+                <div class="related-product">
+                    <h4 class="related-product__title">
+                        Sách cùng thể loại
+                    </h4>
+                    <div class="product-wrapper">
+                            <div class="product">
+                                    <div class="product__image">
+                                        <a href="#">
+                                            <img src="images/sp1.jpg" alt="Phân tích chứng khoán" title="Phân tích chứng khoán">
+                                        </a>
+                                        <div class="product__buy-wrapper">
+        
+                                            <div class="product__buy">
+                                                <a href="#" class="product__buy-link">Mua ngay</a>
+                                            </div>
+        
+                                        </div>
+                                    </div>
+                                    <div class="product__info">
+                                        <div class="product__name">
+                                            <cite>Phân tích chứng khoán</cite>
+                                        </div>
+                                        <div class="product__current-price">
+                                            <p>
+                                                <strong>399,0000vnđ</strong>
+                                                <span class="sale-procentov">-20%</span>
+                                            </p>
+        
+                                        </div>
+                                        <div class="product__price">
+                                            <del>499,000vnđ</del>
+                                        </div>
+                                        <div class="product__rating">
+        
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product">
+                                    <div class="product__image">
+                                        <a href="#">
+                                            <img src="images/sp2.jpg" alt="Phân tích chứng khoán" title="Phân tích chứng khoán">
+                                        </a>
+                                        <div class="product__buy-wrapper">
+        
+                                            <div class="product__buy">
+                                                <a href="#" class="product__buy-link">Mua ngay</a>
+                                            </div>
+        
+                                        </div>
+                                    </div>
+                                    <div class="product__info">
+                                        <div class="product__name">
+                                            <cite>Phân tích chứng khoán</cite>
+                                        </div>
+                                        <div class="product__current-price">
+                                            <p>
+                                                <strong>399,0000vnđ</strong>
+                                                <span class="sale-procentov">-20%</span>
+                                            </p>
+        
+                                        </div>
+                                        <div class="product__price">
+                                            <del>499,000vnđ</del>
+                                        </div>
+                                        <div class="product__rating">
+        
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product">
+                                    <div class="product__image">
+                                        <a href="#">
+                                            <img src="images/sp3.jpg" alt="Phân tích chứng khoán" title="Phân tích chứng khoán">
+                                        </a>
+                                        <div class="product__buy-wrapper">
+        
+                                            <div class="product__buy">
+                                                <a href="#" class="product__buy-link">Mua ngay</a>
+                                            </div>
+        
+                                        </div>
+                                    </div>
+                                    <div class="product__info">
+                                        <div class="product__name">
+                                            <cite>Phân tích chứng khoán</cite>
+                                        </div>
+                                        <div class="product__current-price">
+                                            <p>
+                                                <strong>399,0000vnđ</strong>
+                                                <span class="sale-procentov">-20%</span>
+                                            </p>
+        
+                                        </div>
+                                        <div class="product__price">
+                                            <del>499,000vnđ</del>
+                                        </div>
+                                        <div class="product__rating">
+        
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product">
+                                    <div class="product__image">
+                                        <a href="#">
+                                            <img src="images/sp4.jpg" alt="Phân tích chứng khoán" title="Phân tích chứng khoán">
+                                        </a>
+                                        <div class="product__buy-wrapper">
+        
+                                            <div class="product__buy">
+                                                <a href="#" class="product__buy-link">Mua ngay</a>
+                                            </div>
+        
+                                        </div>
+                                    </div>
+                                    <div class="product__info">
+                                        <div class="product__name">
+                                            <cite>Phân tích chứng khoán</cite>
+                                        </div>
+                                        <div class="product__current-price">
+                                            <p>
+                                                <strong>399,0000vnđ</strong>
+                                                <span class="sale-procentov">-20%</span>
+                                            </p>
+        
+                                        </div>
+                                        <div class="product__price">
+                                            <del>499,000vnđ</del>
+                                        </div>
+                                        <div class="product__rating">
+        
+                                        </div>
+                                    </div>
+                                </div>
+                    </div>
+                </div>
+                <!-- Related-product ends -->
+            </div>
+        </div>
+    </div>    
+
+    <!-- Content ends -->
+
+    <!-- Subcribe -->
+    <div class="wrapper">
+        <div class="subcribe">
+
+            <p class="subcribe__content">
+                Theo dõi Bookaholic để không bỏ lỡ hàng ngàn sản phẩm và chương trình khuyến mãi hấp dẫn dành cho bạn.
+            </p>
+            <form action="#" class="subcribe__form">
+                <input type="email" class="subcribe__email" placeholder="Nhập email của bạn" name="subcribe-email" id="subcribe-email">
+                <button type="submit" class="subcribe__submit-btn">Theo dõi</button>
+            </form>
+        </div>
+    </div>
+    <!-- Subcribe ends -->
+
+    <!-- footer -->
+    <div class="footer">
+        <div class="wrapper">
+            <div class="bookaholic">
+                <div class="bk-address">
+                    <h3>Liên hệ</h3>
+                    <p>
+                        <i class="fas fa-map-marker fa-lg"></i>4, Nguyễn Đình Chiểu, Hà Nội</p>
+                    <p>
+                        <i class="fas fa-phone fa-lg"></i>090090909090</p>
+                    <p>
+                        <i class="fas fa-envelope fa-lg"></i>info@bookaholic.com</p>
+                </div>
+                <div class="bk-info">
+                    <h3>Về bookaholic</h3>
+                    <ul>
+                        <li>
+                            <a href="#">Giới thiệu</a>
+                        </li>
+                        <li>
+                            <a href="#">Tin tức</a>
+                        </li>
+                        <li>
+                            <a href="#">Đối tác</a>
+                        </li>
+                        <li>
+                            <a href="#">Liên hệ</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bk-policy">
+                    <h3>Chính sách</h3>
+                    <ul>
+                        <li>
+                            <a href="#">Chính sách thanh toán</a>
+                        </li>
+                        <li>
+                            <a href="#">Chính sách vận chuyển</a>
+                        </li>
+                        <li>
+                            <a href="#">Chính sách đổi trả</a>
+                        </li>
+                        <li>
+                            <a href="#">Chính sách bảo hành</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bk-follow">
+                    <h3>Kết nối với chúng tôi</h3>
+                    <div class="bk-follow__icon">
+                        <a href="#" class="fab fa-youtube fa-2x"></a>
+                        <a href="#" class="fab fa-facebook fa-2x"></a>
+                        <a href="#" class="fab fa-twitter fa-2x"></a>
+                        <a href="#" class="fab fa-google-plus fa-2x"></a>
+                        <a href="#" class="fab fa-instagram fa-2x"></a>
+                    </div>
+                </div>
+                <div class="bk-pay-method">
+                    <h3>Phương thức thanh toán</h3>
+                    <img src="images/pay-method.PNG" alt="">
+                </div>
+            </div>
+
+        </div>
+        <div class="footer__privacy">
+            <div class="wrapper">
+                <p>&copy; 2018 - Bản quyền thuộc về Bookaholic.com</p>
+                <span>Giấy chứng nhận Đăng ký Kinh doanh số 0309532909 do Sở Kế hoạch và Đầu tư Thành phố Hà Nội cấp ngày 12/05/2018.
+                </span>
+            </div>
+        </div>
+    </div>
+    <!-- footer ends -->
+
+    <!-- button back to top -->
+    <div>
+        <a href="#header" class="back-to-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+    </div>
+    <!-- button back to top ends -->
+    <script src="js/general.js"></script>
+    <script src="js/product.js"></script>
+</body>
+
+</html>
