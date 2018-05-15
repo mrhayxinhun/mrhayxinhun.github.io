@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-for</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- <div id="app" class="container">
+        <div class="alert alert-success" role="alert" v-if="user.email == 'test@allaravel.com' && user.password == 123456">
+            Chao mung {{user.email}} dang nhap thanh cong
+        </div>
+        <div class="alert alert-danger" role="alert" v-if="(user.email != 'test@allavarel.com' && user.password != null) || (user.email != null && user.password != 123456)">
+            Nhap sai
+        </div>
+        <form action="#" v-if="user.name != 'test@allavarel.com' && user.password != 123456">
+            <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                    <input type="email" name="email" id="staticEmail" v-model="user.email" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="password" class="col-sm-2 col-form-label">Password</label>
+                <div class="col-sm-10">
+                    <input type="password" id="password" v-model="user.password" class="form-control">
+                </div>
+            </div>
+        </form>
+    </div> -->
+
+    <!-- <div id="app1" class="container">
+        <div class="row ">
+            <h1 class="col-sm-12 text-center">Bang cuu chuong {{number}}</h1>
+        </div>
+        <div class="row">
+            <p class="col-sm-4 text-right">Nhap so</p>
+            <input type="text" v-model="number" class="col-sm-2 form-control">
+        </div>
+        <div class="row">
+            <div class="col-sm-2" v-for="i in 10">{{i}} X {{number}} = {{i*number}}</div>
+        </div>
+    </div> -->
+
+    <!-- <div id="app2" class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <h1 class="text-success">Danh sach cac bai viet</h1>
+            </div>
+            <div class="row">
+                <div class="col-sm-12" v-for="(title, index) in titlePosts">
+                        <h4>{{index +1}}. {{title}}</h4>
+                </div>
+                
+            </div>
+        </div>
+    </div> -->
+
+    <!-- <div id="app3" class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <h1 class="text-success" >Danh sach san pham den led chieu sang</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3" v-for="product in products">
+                <a v-bind:href="product.url">
+                    <img v-bind:src="product.image" alt="San Pham" class="img-thumbnail">
+                </a>
+                 <p class="text-center text-info">{{product.price}}</p>
+                 <p class="text-center">{{product.name}}</p>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- <div id="app4" class="container">
+        <div class="col-sm-12">
+            <h1 class="text-success text-center">Chi tiet thong tin nguoi dung</h1>
+        </div>
+        <div class="row">
+            <div class="col-sm-12" v-for="(value, key, index) in user">
+                {{index}}.{{key}}: {{value}}
+            </div>
+        </div>
+    </div> -->
+
+    <div class="container" id="app5">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1 class="text-center text-success">Danh sach nguoi dung dang hoat dong</h1>
+            </div>
+        </div>
+        <div class="row">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Ho ten</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">So dien thoai</th>
+                        <th scope="col">Noi o</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(user , index) in users" v-if = "user.active">
+                        <th scope="row">{{index}}</th>
+                        <td>{{user.name}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.phone}}</td>
+                        <td>{{user.location}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- <div id="app6" class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1 class="text-center text-success">Nhung bai viet duoc xem nhieu nhat tren allavarel</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12" v-for="element in mostViewedCategories">
+                <h4>{{element.name}}</h4>
+                <p v-for="(post,index) in element.posts">{{index=+1}}. <a v-bind:href="post.url" style="color: dodgerblue">{{post.title}}</a></p>
+            </div>
+
+        </div>
+    </div> -->
+
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        let app = new Vue({
+            el: "#app",
+            data: {
+                user: {}
+            }
+        })
+
+        let app1 = new Vue({
+            el: "#app1",
+            data: {
+                number: 1
+            }
+        })
+
+        let app2 = new Vue({
+            el: "#app2",
+            data: {
+                titlePosts: [
+                    'Giới thiệu framework Vue.js',
+                    'Cài đặt môi trường Vue.js',
+                    'Các công cụ sử dụng trong phát triển Vue.js'
+                ]
+            }
+        })
+
+        let app3 = new Vue({
+            el: '#app3',
+            data: {
+                products: [
+                    { name: 'Đèn led âm trần LIPER 8W series E', image: 'http://bigi.vn/public/images/products/liper/downlight/LP-DL08EW03-Y1.png', url: 'http://bigi.vn/san-pham/led-am-tran-sieu-mong-liper-8w-anh-sang-trang-lo-cat-%CF%8690-110mm-ma-lp-dl08ew03-y1', price: '161,000đ' },
+                    { name: 'Đèn led âm trần LIPER 7W series F', image: 'http://bigi.vn/public/images/products/liper/downlight/LPDL-07A01-YX.png', url: 'http://bigi.vn/san-pham/led-am-tran-liper-7w-anh-sang-vang-lo-cat-%CF%8675-85mm-ma-lpdl-07a01-yx-w', price: '209,000đ' },
+                    { name: 'Đèn led âm trần LIPER 10W series A', image: 'http://bigi.vn/public/images/products/liper/downlight/LPDL-10A01-YX.png', url: 'http://bigi.vn/san-pham/led-am-tran-liper-10w-anh-sang-trang-lo-cat-%CF%8695-105mm-ma-lpdl-10a01-yx-c', price: '257,000đ' },
+                    { name: 'Đèn led ốp trần LIPER 12W', image: 'http://bigi.vn/public/images/products/liper/downlight/LPDL-12K01-YE-00.png', url: 'http://bigi.vn/san-pham/led-op-tran-liper-12w-anh-sang-trang-tron-%CF%86153x58mm-ma-lp-dl12k01-ye-c', price: '402,000đ' },
+                    { name: 'Đèn led pha LIPER 10W', image: 'http://bigi.vn/public/images/products/liper/flood/LPFL-10A-00.png', url: 'http://bigi.vn/san-pham/led-pha-sieu-ben-dep-liper-10w-mau-den-anh-sang-trang-ma-lpfl-10x01-c', price: '232,000đ' },
+                    { name: 'Đèn led pha LIPER công suất lớn 100W', image: 'http://bigi.vn/public/images/products/liper/flood/LPFL-100A-X2-00.png', url: 'http://bigi.vn/san-pham/led-pha-sieu-ben-dep-liper-100w-mau-trang-anh-sang-trang-ma-lpfl-100x21-c', price: '1,262,000đ' },
+                    { name: 'Đèn led phượt LIPER 30W pin 8 tiếng', image: 'http://bigi.vn/public/image/product/p00943/den-led-pha-flood-light-lpfl-30k01-co-the-su-dung-sac-o-to-1000x1000.jpg', url: 'http://bigi.vn/san-pham/den-led-pha-liper-lpfl-30k01-30w', price: '1,262,000đ' },
+                    { name: 'Đèn đường công nghệ LED 200W', image: 'http://bigi.vn/public/image/product/p00942/led-den-duong-liper-lpstl-200a01-200w-chieu-sang-cong-cong-chieu-sang-do-thi-1000x1000.jpg', url: 'http://bigi.vn/san-pham/led-den-duong-liper-lpstl-200a01-cong-suat-200w', price: 'Liên hệ' }
+                ]
+            }
+        })
+
+        let app4 = new Vue({
+            el: '#app4',
+            data: {
+                user: {
+                    name: 'Nguyễn Văn A',
+                    email: 'nguyenvana@allaravel.com',
+                    phone: '0904123456',
+                    joinedDate: '15/03/2017',
+                    location: 'Hà Nội'
+                }
+            }
+        })
+
+        var app5 = new Vue({
+            el: '#app5',
+            data: {
+                users: [
+                    { name: 'Nguyễn Văn Minh', email: 'minhnv@allaravel.com', phone: '0904123456', location: 'Hà Nội', active: 1 },
+                    { name: 'Trần Mộng Tú', email: 'tutm@allaravel.com', phone: '0904123456', location: 'Sài Gòn', active: 1 },
+                    { name: 'Lê Viết Xuân', email: 'xuanlv@allaravel.com', phone: '0904123456', location: 'Quảng Nam', active: 0 },
+                    { name: 'Nguyễn Đức Tuấn', email: 'tuannd@allaravel.com', phone: '0904123456', location: 'Quảng Ninh', active: 1 },
+                    { name: 'Đinh Mạnh Dũng', email: 'dungdm@allaravel.com', phone: '0904123456', location: 'Nam Định', active: 0 },
+                    { name: 'Trần Thanh Phương', email: 'phuongtt@allaravel.com', phone: '0904123456', location: 'Hà Nội', active: 0 },
+                    { name: 'Trần Văn Tùng', email: 'tungtv@allaravel.com', phone: '0904123456', location: 'HCM', active: 1 }
+                ]
+            }
+        })
+
+        let app6 = new Vue({
+            el: "#app6",
+            data: {
+            mostViewedCategories: [
+                {
+                    name: 'Kiến thức framework Laravel',
+                    posts: [
+                        { title: 'Học Laravel 5 miễn phí', url: 'https://allaravel.com/laravel-tutorials/khoa-hoc-laravel-5-mien-phi/' },
+                        { title: 'Tìm kiếm thông minh với Typeahead trong ứng dụng Laravel', url: 'https://allaravel.com/laravel-tutorials/tim-kiem-thong-minh-voi-typeahead-trong-ung-dung-laravel/' },
+                        { title: 'Xác thực API bằng OAuth2 với Laravel Passport', url: 'https://allaravel.com/laravel-tutorials/xac-thuc-api-bang-oauth-2-voi-laravel-passport/' }
+                    ]
+                },
+                {
+                    name: 'Kiến thức framework Vue.js',
+                    posts: [
+                        { title: 'Khóa học Vue.js miễn phí', url: 'https://allaravel.com/tutorials/vuejs-framework/khoa-hoc-vue-js-2-mien-phi/' },
+                        { title: 'Series Xây dựng diễn đàn dạng đơn trang với Vuejs', url: 'https://allaravel.com/laravel-tutorials/xay-dung-forum-dang-spa-voi-laravel-va-vue-js/' },
+                        { title: 'Vue.js là gì?', url: 'https://allaravel.com/tutorials/vuejs-framework/gioi-thieu-framework-vue-js/' }
+                    ]
+                },
+                {
+                    name: 'Design Pattern',
+                    posts: [
+                        { title: 'Inversion of Control nguyên lý của các nguyên lý', url: 'https://allaravel.com/tutorials/inversion-of-control-nguyen-ly-cua-cac-nguyen-ly/' },
+                        { title: 'Design Pattern sự tiến hóa trong lập trình', url: 'https://allaravel.com/tutorials/design-pattern-su-tien-hoa-trong-lap-trinh/' },
+                        { title: 'SOLID 5 nguyên lý vàng trong thiết kế hướng đối tượng', url: 'https://allaravel.com/laravel-tutorials/solid-5-nguyen-ly-vang-trong-thiet-ke-huong-doi-tuong/' }
+                    ]
+                }
+            ]
+        }
+        })
+    </script>
+</body>
+
+</html>

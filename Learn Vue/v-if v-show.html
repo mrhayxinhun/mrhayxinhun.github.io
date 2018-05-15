@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <div id="app">
+        <h1 v-if="user.name!=null && user.gender==1" style="color:red">Chao anh {{user.name}}</h1>
+        <h1 v-else-if="user.name != null && user.gender==2" style="color:green">Chao chi {{user.name}}</h1>
+        <h1 v-else>Vi du ve v-if</h1>
+        <label for="username">Ho ten: </label>
+        <input type="text" id="username" v-model="user.name"> 
+        <label for="gender">Gioi tinh</label>
+        <select name="gender" id="gender" v-model="user.gender">
+            <option value="1">Nam</option>
+            <option value="2">Nu</option>
+        </select>
+    </div> -->
+
+    <!-- <div id="app">
+        <h1 v-show="user.name!=null && user.gender==1" style="color:red">Chao anh {{user.name}}</h1>
+        <h1 v-show="user.name!=null && user.gender==2" style="color:green">Chao chi {{user.name}}</h1>
+        <h1 v-show="user.name==null || user.gender==null">Vi du ve if</h1>
+        <label for="name">
+              Ho ten:           
+        </label>
+        <input type="text" v-model="user.name" id="name" placeholder="Nhap ten cua ban">
+        <label for="gender">Gioi tinh:</label>
+        <select name="gender" id="gender" v-model="user.gender">
+            <option value="1">Nam</option>
+            <option value="2">Nu</option>
+        </select>
+    </div> -->
+
+    <!-- Bai tap -->
+    <div id="app">
+        <h1 v-if="user.email=='test@allaravel.com' && user.password==123456" style="color: dodgerblue">Ban da dang nhap thanh cong</h1>
+        <h1 v-else-if="user.email==null && user.password==null" style="color:green">Dang nhap</h1>
+        <h1 v-else style="color:red">Thong tin dang nhap sai, vui long thu lai</h1>
+        <label for="email">Email:</label>
+        <input type="email" id="email" v-model="user.email">
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" v-model="user.password">
+    </div>
+
+    <!-- development version, includes helpful console warnings -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        let app= new Vue({
+            el: "#app",
+            data: {
+                user:{}
+            }
+        })
+    </script>
+</body>
+</html>
