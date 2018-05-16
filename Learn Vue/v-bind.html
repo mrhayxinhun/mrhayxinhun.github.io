@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+
+<body>
+    <!-- <div class="container" id="app1">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <h1>Thiet lap thuoc tinh class voi v-bind</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <input type="checkbox" name="textGreen" id="textGreen" v-model="checkedStyle" value="text-success"><label for="textGreen">Mau xanh</label>
+            </div>
+            <div class="col-md-12">
+                <input type="checkbox" name="markText" id="markText" v-model="checkedStyle" value="mark"><label for="markText">Highlight</label>
+            </div>
+            <div class="col-md-12">
+                <input type="checkbox" name="transformUppercase" id="transformUppercase" value="text-uppercase" v-model="checkedStyle"><label for="transformUppercase">Viet hoa tat ca</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p v-bind:class ="checkedStyle">Vue.js là một framework Javascript tuyệt vời, dễ học và áp dụng cho các dự án web. Bạn dễ dàng làm chủ Vue với Khóa học Vue.js 2 miễn phí trong 7 ngày.</p>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- <div id="app2" class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <h1>Thiet lap thuoc tinh class voi v-bind</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <p>Chon mau</p>
+            </div>
+            <div class="col-sm-2">
+                <input type="radio" name='text-color' id="green-text" value="text-success" v-model="textColor">
+                <label for="green-text">Mau xanh luc</label>
+            </div>
+            <div class="col-sm-2">
+                <input type="radio" name="text-color" id="red-text" value="text-danger" v-model="textColor">
+                <label for="red-text">Mau do</label>
+            </div>
+            <div class="col-sm-2">
+                <input type="radio" name="text-color" id="blue-text" value="text-primary" v-model="textColor">
+                <label for="blue-text">Mau xanh lam</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <p>Can le chu</p>
+            </div>
+            <div class="col-sm-2">
+                <input type="radio" name="align-text" id="align-left" value="text-left" v-model="textAlign"><label for="align-left">Trai</label>
+            </div>
+            <div class="col-sm-2">
+                <input type="radio" name="align-text" id="align-center" value="text-center" v-model="textAlign"><label for="align-center">Giua</label>
+            </div>
+            <div class="col-sm-2">
+                <input type="radio" name="align-text" id="align-right" value="text-right" v-model="textAlign"><label for="align-right">Phai</label> 
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <p :class="[textColor, textAlign]">Vue.js là một framework Javascript tuyệt vời, dễ học và áp dụng cho các dự án web. Bạn dễ dàng làm chủ Vue với Khóa học Vue.js 2 miễn phí trong 7 ngày. Kiến thức Vue.js kết hợp với Laravel giúp bạn có thể tạo ra những hệ thống thực sự phức tạp với hiệu suất hoạt động cao. Ngoải ra bạn cũng cần có những kiến thức cơ bản về CSS, ES6... là nền tảng rất cơ bản của thiết kế web.</p>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- bai tap -->
+    <div id="app3" class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <p :style="{'font-size': fontSize+'px'}" :class="{'alert':true, 'alert-primary':activeClass, 'alert-danger': !activeClass}"><strong>Canh bao! </strong>Vue.js la framework gay nghien.</p>
+            </div>
+            <div class="col-sm-2">
+                <button class="btn btn-primary" @click="btnClick">Nhan thu</button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        let app1 = new Vue({
+            el: "#app1",
+            data: {
+                checkedStyle: []
+            }
+        })
+
+        let app2 = new Vue({
+            el: "#app2",
+            data: {
+                textColor: '',
+                textAlign: ''
+            }
+        })
+
+        let app3 = new Vue({
+            el: "#app3",
+            data: {
+                activeClass: true,
+                fontSize: 14
+            },
+            methods: {
+                btnClick: function(){
+                    this.activeClass = !this.activeClass;
+                    this.fontSize++;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

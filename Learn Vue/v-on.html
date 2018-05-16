@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- <div id="app1" class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1>Quan li su kien de dang voi v-on Vue.js</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores repudiandae autem quam illum distinctio necessitatibus corporis possimus laboriosam eaque, dicta sunt est aliquid quod esse atque voluptatem consequuntur accusantium repellat.</p>
+            </div>
+            <div class="col-sm-2">
+                <button v-on:click="likes++" class="btn btn-outline-primary"><i class="fas fa-thumbs-up"></i>Like<span class="badge badge-pill badge-primary">{{likes}}</span></button>
+            </div>
+        </div>
+    </div> -->
+
+    <div id="app2" class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <a v-on:click.prevent="courseClick" href="https://allaravel.com/tutorials/vuejs-framework/khoa-hoc-6vue-js-2-mien-phi/">Khoa hoc Vue.js mien phi</a>
+            </div>
+            <div class="col-sm-12" v-if="show">
+                <div class="list-group">
+                    <a :href="tut.url" class="list-group-item" v-for="tut in tutorials">{{ tut.title }}</a>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <a href="https://allaravel.com/tutorials/vuejs-framework/khoa-hoc-6vue-js-2-mien-phi/">Khoa hoc Vue.js mien phi</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <p>Thay đổi sự kiện gốc trong Vue.js, cũng là thẻ a bạn hãy nhấp thử hai liên kết trên để trải nghiệm</p>
+            </div>
+            <div class="col-sm-2">
+                <button class="btn btn-primary" @keyup.enter="courseClick">Show</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+
+        </div>
+    </div>
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        let app1 = new Vue({
+            el: "#app1",
+            data: {
+                likes: 9
+            }
+        });
+
+        let app2 = new Vue({
+            el: '#app2',
+            data: {
+                show: false,
+                tutorials: [
+                    { title: '1.1 Giới thiệu framework Vue.js', url: 'https://allaravel.com/tutorials/vuejs-framework/gioi-thieu-framework-vue-js/' },
+                    { title: '1.2 Cài đặt môi trường Vue.js', url: 'https://allaravel.com/tutorials/vuejs-framework/cai-dat-moi-truong-vue-js/' },
+                    { title: '1.3 Công cụ sử dụng trong phát triển Vue.js', url: 'https://allaravel.com/tutorials/vuejs-framework/cong-cu-su-dung-trong-phat-trien-vue-js/' },
+                    { title: '2.1 Cú pháp câu lệnh', url: 'https://allaravel.com/tutorials/vuejs-framework/mau-cu-phap-cau-lenh-trong-vue-js/' },
+                    { title: '2.2 Cú pháp điều kiện v-if, v-show', url: 'https://allaravel.com/tutorials/vuejs-framework/cau-lenh-dieu-kien-v-if-va-v-show/' },
+                ]
+            },
+            methods: {
+                courseClick: function () {
+                    this.show = !this.show;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
