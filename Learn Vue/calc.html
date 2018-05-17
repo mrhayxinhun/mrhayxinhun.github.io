@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #c1c1c1;
+        }
+
+        .wrapper {
+            width: 400px;
+            margin: 30px auto;
+            overflow: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 5px 6px #E0E0E0;
+        }
+
+        .screen {
+            width: 100%;
+            background: black;
+            color: white;
+            text-align: right;
+            padding: 18px 2px;
+            font-size: 3em;
+            height: 82px;
+        }
+
+        .button {
+            width: 25%;
+            float: left;
+            background: #E0E0E0;
+            padding: 25px 15px;
+            text-align: center;
+            font-size: 1.6em;
+            border-right: 1px solid black;
+            border-bottom: 1px solid black;
+            opacity: 0.8;
+        }
+
+        .button--darker {
+            background: #9E9E9E;
+        }
+
+        .button--colorful {
+            background: orange;
+            color: white;
+            border-right: none;
+        }
+
+        .button--big {
+            width: 50%;
+        }
+
+        .button--border {
+            border-bottom: none;
+        }
+
+        .button:hover {
+            cursor: pointer;
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper" id="app">
+        <div class="screen">
+            <span id="screen__text">{{screenText}}</span>
+        </div>
+        <div class="button button--darker" @click="clearScreen">AC</div>
+        <div class="button button--darker" @click="checkBtn('CE')">CE</div>
+        <div class="button button--darker" @click="checkBtn('%')">%</div>
+        <div class="button button--colorful" @click="checkBtn('/')">/</div>
+        <div class="button" @click="checkBtn('7')">7</div>
+        <div class="button" @click="checkBtn('8')">8</div>
+        <div class="button" @click="checkBtn('9')">9</div>
+        <div class="button button--colorful" @click="checkBtn('*')">*</div>
+        <div class="button" @click="checkBtn('4')">4</div>
+        <div class="button" @click="checkBtn('5')">5</div>
+        <div class="button" @click="checkBtn('6')">6</div>
+        <div class="button button--colorful"@click="checkBtn('-')">-</div>
+        <div class="button" @click="checkBtn('1')">1</div>
+        <div class="button" @click="checkBtn('2')">2</div>
+        <div class="button" @click="checkBtn('3')">3</div>
+        <div class="button button--colorful" @click="checkBtn('+')">+</div>
+        <div class="button button--big button--border" @click="checkBtn('0')">0</div>
+        <div class="button button--border" @click="checkBtn('.')">.</div>
+        <div class="button button--colorful button--border" id="calc" @click="calculate">=</div>
+    </div>
+    </div>
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        let app = new Vue({
+            el: "#app",
+            data: {
+                screenText: "0",
+                expression: [],
+                calcFinished: false
+            },
+            methods: {
+                checkBtn: function(value){
+                    let isNumber = Number.isInteger(Number(value));
+                    if (value == "=") {    
+                        
+                    }
+                    else if (this.screenText=="0" && value == "0" || this.screenText == "0" && value=="CE"){
+            
+                    }
+                    //neu nguoi dung nhap vao 2 dau lien tiep thi se khong lam gi tiep
+                    else if (!isNumber && isNaN(this.expression[this.expression.length-1])){
+                        
+                    }
+                    else if(value == "CE"){ 
+                        this.expression.pop();
+                        this.screenText = this.expression.join('');
+                    }
+                    else {
+                        this.expression.push(value);
+                        this.screenText = this.expression.join('');
+                    }
+                },
+                calculate:function(){
+                        this.screenText=eval(this.screenText);
+                        this.expression = [];                     
+                },
+                clearScreen: function(){
+                    this.screenText="0";
+                    this.expression=[];   
+                    this.calcFinished = false;           
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
