@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Bt1:
+        function drawTriangle(length){
+            for(let i=1;i<=length;i++){
+                let str = "";
+                for(let j=0;j<i;j++){
+                    str+="#";
+                }
+                console.log(str);
+            }
+        }
+        //C2
+        for (let line="#";line.length<8;line+="#") console.log(line);
+
+        // Bt2
+        function printFizzBuzz(n){
+            for (let i=1;i<=n;i++){
+                let str="";
+                if (i%3==0) str+="Fizz";
+                if (i%5==0) str+="Buzz";
+                if (str=="") console.log(i);
+                else console.log(str);
+            }
+        }
+        // C2
+        for (let i=1;i<=100;i++){
+            let str="";
+            if (i%3==0) str+="Fizz";
+            if (i%5==0) str+="Buzz";
+            console.log(str||i)
+        }
+
+        // Bt3
+        function printGrid(size){
+            let str="";
+            for (let i=0;i<size;i++){
+                if (i%2==0) str+=" ";
+                else str+="#";
+            }
+            for (let i=0;i<size;i++){
+                if (i%2==0) console.log(` ${str}`);
+                else console.log(str);
+            }
+        }
+        // C2
+        
+    </script>
+</body>
+</html>

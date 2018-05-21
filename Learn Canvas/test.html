@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #canvas {
+            border: 1px solid #0095dd;
+        }
+    </style>
+</head>
+
+<body onload="draw()">
+    <canvas id="canvas" width="600" height="600"></canvas>
+    <script>
+        var canvas = document.getElementById('canvas');
+        var ctx = canvas.getContext('2d');
+        var raf;
+        var ball = {
+            x: 300,
+            y: 300,
+            vx: 5,
+            vy: 2,
+            radius: 15,
+            color: "#0095DD",
+            draw: function () {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
+                ctx.closePath();
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+        };
+
+        var panel = {
+            x: 300,
+            y: 570,
+            width: 20,
+            cap: "round",
+            color: "#0095DD",
+            draw: function () {
+                ctx.lineWidth = this.width;
+                // ctx.lineCap = this.cap;
+                ctx.strokeStyle = this.color;
+                ctx.beginPath();
+                ctx.moveTo(this.x - 40, this.y);
+                ctx.lineTo(this.x + 40, this.y);
+                ctx.stroke();
+            }
+        };
+        var brickColumn = 7,
+            brickRow = 3,
+            brickWidth = 75,
+            brickHeight = 20,
+            brickPadding = 10,
+            brickOffsetLeft = 10,
+            brickOffsetTop = 30;
+        var bricks = [];
+        for (var c = 0; c < brickColumn; c++) {
+                bricks[c] = [];
+                for (var r = 0; r < brickRow; r++) {
+                    bricks[c][r] = {
+                         x: 0, 
+                         y: 0, 
+                         status: Math.ceil(Math.random()*3) };
+                }
+            }
+
+        function drawBricks() {
+            
+            for (var c = 0; c < brickColumn; c++) {
+                for (var r = 0; r < brickRow; r++) {
+                    if ( bricks[c][r].status>0){
+                        var brickX = (c * (brickWidth + brickPadding)) + brickOffsetLeft;
+                    var brickY = (r * (brickHeight + brickPadding)) + brickOffsetTop;
+                    bricks[c][r].x = brickX;
+                    bricks[c][r].y = brickY;
+                    ctx.beginPath();
+                    ctx.rect(brickX, brickY, brickWidth, brickHeight);
+                    if (bricks[c][r].status == 3) ctx.fillStyle = "blue";
+                    else if (bricks[c][r].status == 2) ctx.fillStyle = "green";
+                    else if (bricks[c][r].status == 1) ctx.fillStyle = "grey";
+                    ctx.fill();
+                    ctx.closePath();
+                    }
+                    
+                }
+            }
+        }
+
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ball.draw();
+            panel.draw();
+            drawBricks();
+            ball.x += ball.vx;
+            ball.y += ball.vy;
+            if (ball.y > canvas.height || ball.y < 0) {
+                ball.vy = -ball.vy;
+            }
+            if (ball.x + ball.vx > canvas.width || ball.x + ball.vx < 0) {
+                ball.vx = -ball.vx;
+            }
+            if (ball.y + 15 > panel.y && ball.x > panel.x - 40 && ball.x < panel.x + 40) {
+                ball.vy = -ball.vy;
+            }
+
+            for (let c=0;c<brickColumn;c++){
+                for (let r = 0; r< brickRow; r++){
+                    if (ball.x >bricks[c][r].x && ball.x < bricks[c][r].x + brickWidth && (ball.y-15 < bricks[c][r].y+ brickHeight && ball.y + 15 >bricks[c][r].y)){
+                        bricks[c][r].status --;
+                        ball.vy = -ball.vy;
+                    } 
+                }
+            }
+            raf = window.requestAnimationFrame(draw);
+        }
+
+        canvas.addEventListener('mouseover', function (e) {
+            raf = window.requestAnimationFrame(draw);
+        });
+
+        canvas.addEventListener('mousemove', function (e) {
+            if (e.clientX < 50) {
+                panel.x = 50;
+            }
+            else if (e.clientX > 550) {
+                panel.x = 550;
+            }
+            else
+                panel.x = e.clientX;
+        })
+
+        canvas.addEventListener('mouseout', function (e) {
+            window.cancelAnimationFrame(raf);
+        });
+
+    </script>
+</body>
+
+</html>

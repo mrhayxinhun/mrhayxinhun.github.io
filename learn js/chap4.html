@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // BT1
+        function range(numStart, numEnd, step = 1) {
+            let arr = [];
+            if (step > 0) {
+                for (let i = (numStart<numEnd?numStart:numEnd); i <= (numStart<numEnd?numEnd:numStart); i += step) {
+                    arr.push(i);
+                }
+            }
+            else if (step == 0) console.log("Hay nhap khoang cach khac 0");
+            else {
+                for (let i = (numStart > numEnd ? numStart : numEnd); i >= (numStart > numEnd ? numEnd : numStart); i += step) {
+                    arr.push(i);
+                }
+            }
+            return arr;
+        }
+
+        function sum(numbers){
+            let result = 0;
+            for (let num of numbers){
+                result += num;
+            }
+            return result;
+        }
+
+    //Bt2
+        function reverseArray(arr){
+            let newArr = [];
+            for (let element of arr){
+                newArr.unshift(element);
+            }
+            return newArr;
+        }
+
+        function reverseArrayInPlace(arr){
+            for (let i=0;i<arr.length/2;i++){
+                let itemChange;
+                itemChange = arr[i];
+                arr[i] = arr[arr.length-i-1];
+                arr[arr.length-i-1] = itemChange;
+                console.log(arr[arr.length - i -1]);
+            }
+            return arr;
+        }
+
+    // BT3
+    
+    // function arrayToList(arr){
+    //     let obj = {};
+    //     obj.value = arr[0];
+    //     if (arr.length == 1){
+    //         obj.rest = null;
+
+    //     }
+    //     else {
+    //         arr.shift();
+    //         obj.rest = arrayToList(arr);
+    //     }
+    //     return obj;
+    // }
+    // C2
+    function arrayToList(arr){
+        let list = null;
+        for (i=arr.length-1;i>=0;i--){
+            list={value: arr[i], rest: list};
+        }
+        return list;
+    }
+
+    // function listToArray(list){
+    //     let arr = [];
+    //     arr.push(list.value);   
+    //     if (list.rest == null){
+    //         return arr;
+    //     }
+    //     else return arr.concat(listToArray(list.rest));
+    // }
+    // C2
+    function listToArray(list){
+        let arr=[];
+        for (let node=list;node;node=node.rest){
+            arr.push(node.value);
+        }
+        return arr;
+    }
+
+    function prepend(element, list){
+        let newList={};
+        newList.value = element;
+        newList.rest=list;
+        return newList;
+    }
+
+    // function nth(list, index){
+    //     let newList=[];
+    //     if (index==0){
+    //         newList.push(list.value) ;
+    //     }
+    //     else return newList.concat(nth(list.rest, index-1));
+    //     return newList;
+    // }   
+    // C2
+    function nth(list, index){
+        if(!list) return undefined;
+        else if (index==0) return list.value;
+        else return nth(list.rest, index-1);
+    }
+
+
+    //BT4
+
+    </script>
+</body>
+
+</html>

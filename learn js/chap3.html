@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Bt1
+        function maxNumber(num1, num2){
+            return num1>num2?num1:num2;
+        }
+
+        // Bt2
+        function isEven(num){
+            // if (num<0) num=-num;
+            if (num==0) console.log(`Day la so chan`);
+            else if (num == 1) console.log(`Day la so le`);
+            else if (num<0) isEven(-num);
+            else return isEven(num-2);
+        }
+
+        //Bt3
+        function countBs(str){
+            return countChar(str,"B");
+        }
+
+        function countChar(str,character){
+            let count=0;
+            for (let i=0;i<str.length;i++){
+                if (str[i]==character) count++;
+            }
+            return count;
+        }
+    </script>
+</body>
+</html>

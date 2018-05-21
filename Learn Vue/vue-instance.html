@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1>Quản lí công việc</h1>
+            </div>
+        </div>
+        <form action="#" class="border">
+            <div class="row">
+                <h3>Thêm công việc vào danh sách</h3>
+            </div>
+            <div class="form-group  row">
+                <label class="col-md-3" for="titleWork">Tiêu đề</label>
+                <input class="col-md-9" type="text" name="titleWork" id="titleWork" v-model="titleWork">
+            </div>
+            <div class="form-group row">
+                <label class="col-md-3" for="detailsWork">Chi tiết công việc</label>
+                <textarea class="col-md-9" name="detailsWork" id="detailsWork" v-model="detailsWork"></textarea>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-3" for="priority">Độ ưu tiên</label>
+                <select name="priority" id="priority" class="col-md-3 bg-success text-white">
+                    <option value="0">0 - Không quan trọng</option>
+                    <option value="1">1 - Cực thấp</option>
+                    <option value="2">2 - Thấp</option>
+                    <option value="3">3 - Bình thường</option>
+                    <option value="4">4 - Quan trọng</option>
+                </select>
+            </div>
+            <div class="form-group row text-right">
+                <button class="btn btn-success text-white">Thêm</button>
+                <button class="btn btn-secondary text-white" >Xóa</button>
+            </div>
+        </form>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</body>
+
+</html>

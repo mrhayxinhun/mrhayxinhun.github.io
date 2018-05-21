@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    // BT1
+    function flatten(arr){
+      return arr.reduce((newArr,element) => newArr.concat(element));
+    }
+
+    // BT2
+    function loop(value,testFunction, updateFunction, bodyFunction) {
+      for (let i = value;testFunction(i);i=updateFunction(i)){
+        bodyFunction(i);
+      }
+    }
+
+    // BT3
+    function every(array, test){
+      for (let element of array){
+        if (test(element)){}
+        else return false;
+      }
+      return true;
+    }
+
+    function every2(array,test){
+      return !arr.some(element=>!test(element));
+    }
+
+    // BT4
+    function dominantDirection(text){
+      
+    }
+  </script>
+</body>
+
+</html>
