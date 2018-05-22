@@ -19,21 +19,24 @@
                 <h1>Quản lí công việc</h1>
             </div>
         </div>
-        <form action="#" class="border">
+        <form action="#" class="container border" >
             <div class="row">
-                <h3>Thêm công việc vào danh sách</h3>
+                <div class="col-md-12">
+                    <h4>Thêm công việc vào danh sách</h4>
+                </div>
             </div>
             <div class="form-group  row">
-                <label class="col-md-3" for="titleWork">Tiêu đề</label>
-                <input class="col-md-9" type="text" name="titleWork" id="titleWork" v-model="titleWork">
+                <label class="col-md-2" for="titleWork">Tiêu đề</label>
+                <input class="col-md-10" type="text" name="titleWork" id="titleWork">
+
             </div>
             <div class="form-group row">
-                <label class="col-md-3" for="detailsWork">Chi tiết công việc</label>
-                <textarea class="col-md-9" name="detailsWork" id="detailsWork" v-model="detailsWork"></textarea>
+                <label class="col-md-2" for="detailsWork">Chi tiết công việc</label>
+                <textarea class="col-md-10" name="detailsWork" id="detailsWork" v-model="detailsWork"></textarea>
             </div>
             <div class="form-group row">
-                <label class="col-md-3" for="priority">Độ ưu tiên</label>
-                <select name="priority" id="priority" class="col-md-3 bg-success text-white">
+                <label class="col-md-2" for="priority">Độ ưu tiên</label>
+                <select name="priority" id="priority" class="col-md-2 bg-success text-white">
                     <option value="0">0 - Không quan trọng</option>
                     <option value="1">1 - Cực thấp</option>
                     <option value="2">2 - Thấp</option>
@@ -41,13 +44,16 @@
                     <option value="4">4 - Quan trọng</option>
                 </select>
             </div>
-            <div class="form-group row text-right">
-                <button class="btn btn-success text-white">Thêm</button>
-                <button class="btn btn-secondary text-white" >Xóa</button>
+            <div class="form-group text-right">
+                <button class="btn btn-success text-white text-right">Thêm</button>
+                <button class="btn btn-secondary text-white text-right">Xóa</button>
             </div>
         </form>
+        <div class="container">
+            <h4>Danh sách công việc</h4>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </body>
 
 </html>
