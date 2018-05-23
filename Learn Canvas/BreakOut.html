@@ -7,10 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        /* body{
-            width: 620px;
-            margin: 0 auto;
-        } */
+        body{
+            text-align: center;
+        }
 
         #canvas {
             border: 1px solid #0095dd;
@@ -87,7 +86,7 @@
                     bricks[c][r] = {
                          x: 0, 
                          y: 0, 
-                         status: Math.ceil(Math.random()*2) };
+                         status: Math.ceil(Math.random()*3) };
                 }
             }
         
@@ -104,7 +103,7 @@
                     bricks[c][r].y = brickY;
                     ctx.beginPath();
                     ctx.rect(brickX, brickY, brickWidth, brickHeight);
-                    if (bricks[c][r].status == 3) ctx.fillStyle = "blue";
+                    if (bricks[c][r].status == 3) ctx.fillStyle = "red";
                     else if (bricks[c][r].status == 2) ctx.fillStyle = "#0095dd";
                     else if (bricks[c][r].status == 1) ctx.fillStyle = "grey";
                     ctx.fill();
@@ -184,15 +183,15 @@
         
         // Lay vi tri chuot de panel chay theo
         canvas.addEventListener('mousemove', function (e) {
-            if (e.clientX <= 40) {
+            if (e.offsetX <= 40) {
                 panel.x=40;
                 
             }
-            else if (e.clientX >= 560) {
+            else if (e.offsetX >= 560) {
                 panel.x = 560;
             }
             else
-                {panel.x = e.clientX;}
+                {panel.x = e.offsetX;}
             console.log(panel.x);
         });
 

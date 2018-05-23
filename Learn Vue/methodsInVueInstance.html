@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container" id="app">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Họ và tên {{fullName()}}</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <label for="first-name">First name</label>
+            </div>
+            <div class="col-md-6">
+                <input type="text" v-model="firstName" class="form-control" id="first-name">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <label for="last-name">Last name</label>
+            </div>
+            <div class="col-md-6">
+                <input type="text" id="last-name" class="form-control" v-model="lastName">
+            </div>
+        </div>
+
+    </div>
+    <div class="container">
+        <div id="app2">
+            <p>A = {{ propertyA }}</p>
+            <p>B = {{ propertyB }}</p>
+            <button v-on:click="a++">Thêm 1 vào a</button>
+            <button v-on:click="b++">Thêm 1 vào b</button>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                firstName: '',
+                lastName: ''
+            },
+            methods: {
+                fullName: function () {
+                    if (this.firstName.toLowerCase().includes("văn")) {
+                        return `Ông ${this.firstName} ${this.lastName}`;
+                    } else if (this.firstName.toLowerCase().includes("thị")) {
+                        return `Bà ${this.firstName} ${this.lastName}`;
+                    } else return ` Ông/Bà ${this.firstName} ${this.lastName}`;
+                }
+            }
+        });
+
+        let app2 = new Vue({
+            el: '#app2',
+            data: {
+                a: 0,
+                b: 0
+            },
+            computed: {
+                propertyA: function () {
+                    console.log('Tính toán thuộc tính A');
+                    return this.a ;
+                },
+                propertyB: function () {
+                    console.log('Tính toán thuộc tính B');
+                    return this.b;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

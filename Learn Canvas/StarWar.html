@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Star War</title>
+    <style>
+        #star-war{
+            border: 1px solid black;
+            margin: 0 auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="star-war" width="600" height="600"></canvas>
+    <script>
+        let canvas = document.getElementById("star-war");
+        let ctx=canvas.getContext('2d');
+        let raf;
+        
+        let gun = {
+            width: 30,
+            height: 40,
+            x: canvas.width/2 - 15 ,
+            y: 550,
+            vx: 7,
+            
+            draw: function(){
+                ctx.fillStyle="red";
+                ctx.fillRect(this.x, this.y, this.width, this.height);
+                
+            }
+        };
+
+        let bullet={
+            x: gun.x + 10,
+            y: gun.y - 10,
+            vy: 5,
+            width: 10,
+            height: 10,
+            draw: function(){
+                ctx.fillStyle="red";
+                ctx.fillRect(this.x, this.y, this.width, this.height);
+            }
+
+        }
+
+        function draw(){
+            ctx.clearRect(0,0,canvas.width, canvas.height)
+            gun.draw();
+            bullet.draw();
+            bullet.y-=bullet.vy;
+            requestAnimationFrame(draw);
+        }
+
+        canvas.addEventListener('mouseover', function(){
+            raf=requestAnimationFrame(draw);
+        })
+
+        canvas.addEventListener('mouseout', function(){
+            cancelAnimationFrame(raf);
+        })
+
+        document.addEventListener('keydown', function(event){
+            if (event.keyCode == 37){
+                if (gun.x <= 0){
+                    gun.x = 0;
+                }
+                else
+                gun.x-=gun.vx;
+                
+            }
+            if (event.keyCode == 39){
+                if (gun.x >= canvas.width - gun.width){
+                    gun.x = canvas.width - gun.width;
+                }
+                else
+                gun.x+=gun.vx;  
+            }
+
+            if (event.keyCode == 32){
+                console.log('aa');
+                bullet.draw();
+            }
+        })
+
+    </script>
+</body>
+</html>
