@@ -1,20 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <script>
-       function speak(line){
-           console.log(`The ${this.type} rabbit say "${line}"`)
-       } 
-       let whiteRabbit = {type: "white", speak};
-       let hungryRabbit = {type: "hungry", speak};
-       whiteRabbit.speak("Oh my ears and whiskers, how late it's getting");
-       hungryRabbit.speak("i couldn/t eat carrot right now");
+        // class Rabbit {
+        //     constructor(type){
+        //         this.type = type;
+        //     }
+        //     speak(line){
+        //         console.log(`The ${this.type} rabbit says ${line}`);
+        //     }
+        // }
+
+        // let killerRabbit = new Rabbit('killer');
+        // let blackRabbit = new Rabbit('black');
+
+        // Rabbit.prototype.teeth = "small";
+        // console.log(killerRabbit.teeth);
+        // killerRabbit.teeth = "long, sharp, and bloody";
+        // console.log(killerRabbit.teeth);
+        // console.log(blackRabbit.teeth);
+        // console.log(Rabbit.prototype.teeth);
+        
+        let ages = {
+            Boris: 39,
+            Liang: 22,
+            Julia: 62
+        };
+
+        console.log(`Julia is ${ages['Julia']}`);
+        console.log("Is Jack's age known", "Jack" in ages);
+        
+
+
+
+
     </script>
 </body>
+
 </html>

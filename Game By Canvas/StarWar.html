@@ -20,13 +20,13 @@
         #btnStart {
             padding: 8px;
             font-size: 16px;
-            background: rgba(30,144,255,.8);
+            background: rgba(30, 144, 255, .8);
             color: white;
             border: none;
-            transition: all 0,4s;
+            transition: all 0, 4s;
         }
 
-        #btnStart:hover{
+        #btnStart:hover {
             background-color: dodgerblue;
             cursor: pointer;
         }
@@ -43,8 +43,8 @@
         let canvas = document.getElementById("star-war");
         let ctx = canvas.getContext('2d');
         ctx.font = "48px Arial";
-        ctx.fillStyle="dodgerBlue";
-        ctx.fillText('Welcome to the Star War', 30, canvas.height/2);
+        ctx.fillStyle = "dodgerBlue";
+        ctx.fillText('Welcome to the Star War', 30, canvas.height / 2);
         function startGame() {
             let canvas = document.getElementById("star-war");
             let ctx = canvas.getContext('2d');
@@ -79,6 +79,21 @@
                     ctx.font = this.font;
                     ctx.fillStyle = this.color;
                     ctx.fillText(`Your bullets: ${this.count}/${this.max}`, this.x, this.y)
+                }
+            };
+
+            // Biến chứa số lượng missed planet
+            let missedPlanet = {
+                x: 250,
+                y: 30,
+                count: 0,
+                max: 10,
+                font: "16px Arial",
+                color: "grey",
+                display: function () {
+                    ctx.font = this.font;
+                    ctx.fillStyle = this.color;
+                    ctx.fillText(`Missed Planets: ${this.count}/${this.max}`, this.x, this.y);
                 }
             }
 
@@ -131,10 +146,13 @@
                 gun.draw();
                 score.display();
                 quantityBullet.display();
+                missedPlanet.display();
                 gunAction();
 
-                //Kiểm tra xem người dùng hết đạn chưa, nếu hết thì báo thua cuộc
-                if (quantityBullet.count == 0) {
+    
+
+                //Kiểm tra xem người dùng hết đạn hoặc miss số lượng planet xác định chưa, nếu hết thì báo thua cuộc
+                if (quantityBullet.count == 0 || missedPlanet.count == missedPlanet.max) {
                     clearInterval(interval1);
                     clearInterval(interval2);
                     loser.display();
@@ -162,7 +180,8 @@
                     if (planet.status > 0) {
                         planet.y += planet.vy;
                         if (planet.y >= canvas.height) {
-                            planet.y = 0;
+                            planet.status = 0;
+                            missedPlanet.count++;
                         }
                         planet.draw();
                         //Kiểm tra xem súng có va chạm vào thiên thạch không, nếu có thì game over, có thể ấn lại nút start
@@ -271,7 +290,7 @@
 
             //Chạy function vẽ ảnh trong canvas cũng như tạo thiên thạch liên tục sau 1 khoảng thời gian xác định
             interval1 = setInterval(draw, 1000 / 60);
-            interval2 = setInterval(createPlanet, 500);
+            interval2 = setInterval(createPlanet, 700);
         }
 
         //Button start ấn để start game, chỉ ấn lại được khi giá trị btnOnce = true
