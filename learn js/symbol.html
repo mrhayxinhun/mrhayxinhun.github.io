@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let firstName = Symbol("first name");
+        // let person = {};
+        // person[firstName]= "Duong";
+        // Object.defineProperty(person, firstName, {writable: false});
+        // person[firstName]="ABC";
+        // Object.defineProperty(person, 'lastName', {
+        //     value: "Dang",
+        //     writable: false
+        // });
+        // console.log(person.lastName);
+
+        // class Matrix {
+        //     constructor(width, height, content = (x,y) => undefined){
+        //         this.width = width;
+        //         this.height = height;
+        //         this.content = [];
+        //         for (let y = 0; y<height; y++){
+        //             for (let x = 0; x < width; x++){
+        //                 this.content[y * width + x] = content(x,y);
+        //             }
+        //         }
+        //     }
+
+        //     get(x,y) {
+        //         return this.content[y * this.width + x];
+        //     }
+        //     set(x,y,value){
+        //         this.content[y * this.width + x] = value;
+        //     }
+        // }
+
+        // class MatrixIterator{
+        //     constructor(matrix) {
+        //         this.x = 0;
+        //         this.y = 0;
+        //         this.matrix = matrix;
+        //     }
+
+        //     next() {
+        //         if (this.y == this.matrix.height) return {done: true};
+        //         let value ={x: this.x,
+        //                     y: this.y,
+        //                     value: this.matrix.get(this.x, this.y)
+        //         };
+        //         this.x++;
+        //         if (this.x == this.matrix.width) {
+        //             this.x = 0;
+        //             this.y++;
+        //         }
+        //         return {value, done:false};
+        //     }
+        // }
+
+        // Matrix.prototype[Symbol.iterator] = function() {
+        //     return new MatrixIterator(this);
+        // };
+
+        // let matrix = new Matrix(2,2, (x,y) => `value ${x},${y}`);
+        // for (let{x,y,value} of matrix){
+        //     console.log(x,y,value);
+        // }
+
+        class Temperature {
+            constructor(celsius) {
+                this.celsius = celsius;
+            }
+            get fahrenheit() {
+                return this.celsius * 1.8 + 32;
+            }
+            set fahrenheit(value) {
+                this.celsius = (value -32) / 1.8;
+            }
+            static fromFahrenheit(value){
+                return new Temperature((value - 32) / 1.8);
+            }
+        }
+//         class Temperature {
+//   constructor(celsius) {
+//     this.celsius = celsius;
+//   }
+//   get fahrenheit() {
+//     return this.celsius * 1.8 + 32;
+//   }
+//   set fahrenheit(value) {
+//     this.celsius = (value - 32) / 1.8;
+//   }
+
+//   static fromFahrenheit(value) {
+//     return new Temperature((value - 32) / 1.8);
+//   }
+// }
+
+        let temp = new Temperature(22);
+        console.log(temp.fahrenheit);
+        temp.fahrenheit = 77;
+        console.log(temp.celsius);
+
+
+    </script>
+</body>
+</html>

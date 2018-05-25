@@ -102,9 +102,9 @@
                             bricks[c][r].y = brickY;
                             ctx.beginPath();
                             ctx.rect(brickX, brickY, brickWidth, brickHeight);
-                            if (bricks[c][r].status == 3) ctx.fillStyle = "red";
-                            else if (bricks[c][r].status == 2) ctx.fillStyle = "#0095dd";
-                            else if (bricks[c][r].status == 1) ctx.fillStyle = "grey";
+                            if (bricks[c][r].status == 3) ctx.fillStyle = "#FF3B3E";
+                            else if (bricks[c][r].status == 2) ctx.fillStyle = "#FFFC54";
+                            else if (bricks[c][r].status == 1) ctx.fillStyle = "#1B89CC";
                             ctx.fill();
                             ctx.closePath();
                         }
@@ -120,6 +120,7 @@
                 score: 0,
                 display: function () {
                     ctx.font = "16px Arial";
+                    ctx.fillStyle="#1B89CC"
                     ctx.fillText(`Score: ${this.score}`, 20, 20)
                 }
             }
@@ -145,6 +146,8 @@
             //Biến vẽ các phần tử trong canvas
             function draw() {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = "#EAF8FF";
+                ctx.fillRect(0,0,canvas.width, canvas.height);
                 ball.draw();
                 panel.draw();
                 drawBricks();

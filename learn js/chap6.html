@@ -10,38 +10,155 @@
 
 <body>
     <script>
-        // class Rabbit {
-        //     constructor(type){
-        //         this.type = type;
+        // let rabbit = {};
+        // rabbit.speak = function(line){
+        //     console.log(`The rabbit says '${line}'`);
+        // };
+
+        // rabbit.speak("I'm alive.");
+
+        // function speak(line) {
+        //     console.log(`The ${this.type} rabbit says '${line}'`);
+        // }
+
+        // let whiteRabbit = {
+        //     type: "white",
+        //     speak
+        // };
+
+        // let hungryRabbit = {
+        //     speak,
+        //     type: "hungry"
+        // }
+
+        // whiteRabbit.speak("Oh my god");
+
+        // function normalize(){
+        //     console.log(this.croods.map(n => n/this.length));
+        // }
+
+        // normalize.call({croods:[0,2,4], length: 5})
+
+        // let empty ={};
+        // console.log(empty.toString);
+        // console.log(empty.toString());
+
+        // let protoRabbit = {
+        //     speak(line) {
+        //         console.log(`The ${this.type} rabbit says '${line}'`);
         //     }
-        //     speak(line){
-        //         console.log(`The ${this.type} rabbit says ${line}`);
+        // };
+        // let killerRabbit = Object.create(protoRabbit);
+        // killerRabbit.type = "killer";
+        // killerRabbit.speak("SKREEE");
+
+        // function Rabbit(type){
+        //     this.type = type;
+        // }
+
+        // Rabbit.prototype.speak = function(line) {
+        //     console.log(`The ${this.type} rabbit says '${line}'`);
+        // };
+
+        // let weirdRabbit = new Rabbit("weird");
+        // console.log(weirdRabbit.speak("FUck"))
+        
+        // class Rabbit {
+        //     constructor(type) {
+        //         this.type = type
+        //     }
+        //     speak(line) {
+        //         console.log(`${this.type} rabbit says '${line}'`);
         //     }
         // }
 
-        // let killerRabbit = new Rabbit('killer');
         // let blackRabbit = new Rabbit('black');
-
+        // let killerRabbit = new Rabbit('killer');
         // Rabbit.prototype.teeth = "small";
-        // console.log(killerRabbit.teeth);
-        // killerRabbit.teeth = "long, sharp, and bloody";
-        // console.log(killerRabbit.teeth);
         // console.log(blackRabbit.teeth);
-        // console.log(Rabbit.prototype.teeth);
+        // killerRabbit.teeth = "big";
+        // console.log(killerRabbit.teeth);
+
+        // Rabbit.prototype.toString = function(){
+        //     return `a ${this.type} rabbit`;
+        // }
+        // console.log(String(blackRabbit));
+        // let sym = Symbol("name");
+        // console.log(sym == Symbol("name"));
+        // Rabbit.prototype[sym] = 55;
+        // console.log(blackRabbit[sym]);
         
-        let ages = {
-            Boris: 39,
-            Liang: 22,
-            Julia: 62
-        };
+        // const toStringSymbol = Symbol('toString');
+        // Array.prototype[toStringSymbol] = function(){
+        //     return `${this.length} cm of blue yarn`;
+        // }
+        // console.log([1,2].toString());
+        // console.log([1,2][toStringSymbol]());
 
-        console.log(`Julia is ${ages['Julia']}`);
-        console.log("Is Jack's age known", "Jack" in ages);
-        
+        // let stringObject = {
+        //     [toStringSymbol]() { return "a jute rope";}
+        // };
+        // console.log(stringObject[toStringSymbol]());
+        // function speak(line){
+        //     console.log(`The ${this.type} rabbit says '${line}'`);
+        // }
 
+        // function Rabbit(type){
+        //     this.type = type,
+        //     this.speak = speak
+        // }
 
+        // let ages = {
+        //     Boris: 39,
+        //     Liang: 22,
+        //     Julia: 62
+        // };
 
+        // console.log(`Julia is ${ages["Julia"]}`);
 
+        // let ages = new Map();
+        // ages.set("Boris", 39);
+        // ages.set("Julia", 62);
+        // ages.set("Liang", 22);
+        // console.log(ages);
+        // console.log(`Julia is ${ages.get("Julia")} `);
+        // console.log(`Is Jack's age known? ${ages.has("Jack")}`);
+
+        // let okIterator = "OK"[Symbol.iterator]();
+        // console.log(okIterator.next());
+
+        // let map = new Map().set('a',1).set('b',2);
+        // for (let pair of map) {
+        //     console.log(pair);
+        // }
+
+        // console.log(map);
+        // let iterable = map[Symbol.iterator]();
+        // console.log(iterable);
+        // console.log(iterable.next());
+        // console.log(iterable.next());
+        // console.log(iterable.next());
+
+        class Matrix {
+            constructor(width, height, content = (x,y) => undefined){
+                this.width = width;
+                this.height = height;
+                this.content = [];
+
+                for (let y=0; y<height; y++){
+                    for (let x=0; x<width; x++) {
+                        this.content[y*width + x] = content(x,y)
+                    }
+                }
+            }
+            
+            get(x,y) {
+                return this.content[y * this.width + x];
+            }
+            set(x,y,value) {
+                this.content[y * this.width + x] = value;
+            }
+        }
     </script>
 </body>
 
