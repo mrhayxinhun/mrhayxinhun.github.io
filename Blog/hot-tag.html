@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+    <style>
+       .wrapper{
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        #hot-tag-container {
+            width: 24%;
+            border: 1px solid grey;
+            font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+        }
+
+        .hot-tag__title {
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .hot-tag__icon {
+            color: #E6A23C;
+            margin-right: 10px;
+        }
+
+        .hot-tag {
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 10px;
+            margin-right: 10px; 
+
+        }
+
+        .el-button {
+            padding: 4px;
+            font-size: 0.8125rem;
+        }
+
+        .el-button+.el-button {
+            margin-left: -5px;
+        }
+
+        .hot-tag__name {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .hot-tag__quantity {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="hot-tag-container">
+            <el-row :gutter="20">
+                <el-col :span="24">
+                    <h3 class="hot-tag__title">
+                        <i class="fas fa-tags hot-tag__icon"></i>Chủ đề phổ biến
+                    </h3>
+
+                    <div class="hot-tag-row">
+                        <a :href="tag.href" class="hot-tag" v-for="tag in hotTags">
+                            <el-button class="hot-tag__name" plain type="info">{{tag.tagName}}</el-button>
+                            <el-button class="hot-tag__quantity" type="primary">{{tag.tagQuantity}}</el-button>
+                        </a>
+                    </div>
+                    <a href="">
+                        <el-tag>Tất cả chủ đề nổi bật</el-tag>
+                    </a>
+                </el-col>
+            </el-row>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <!-- import JavaScript -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script>
+        let hotTag = new Vue({
+            el: "#hot-tag-container",
+            data: {
+                hotTags: [
+                    { tagName: "Javascript", tagQuantity: 3900, href: "" },
+                    { tagName: "PHP", tagQuantity: 2900, href: "" },
+                    { tagName: "Golang", tagQuantity: 2200, href: "" },
+                    { tagName: "C++", tagQuantity: 1900, href: "" },
+                    { tagName: "Node.js", tagQuantity: 1300, href: "" },
+                    { tagName: "Java", tagQuantity: 900, href: "" },
+                    { tagName: "Ruby", tagQuantity: 800, href: "" },
+                    { tagName: "CSS", tagQuantity: 776, href: "" },
+                    { tagName: "Vue.js", tagQuantity: 750, href: "" },
+                    { tagName: "Bootstrap", tagQuantity: 698, href: "" },
+                    { tagName: "HTML", tagQuantity: 622, href: "" },
+                    { tagName: "Git", tagQuantity: 513, href: "" },
+                ]
+            }
+        })
+    </script>
+</body>
+
+</html>

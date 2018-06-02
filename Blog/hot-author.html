@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hot author</title>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+    <style>
+        #hot-author-wrapper {
+            max-width: 240px;
+            margin: 0 auto;
+            border: 1px solid grey;
+        }
+
+        .hot-author,
+        .title {
+            font-family: "Helvetica Neue", Arial, sans-serif;
+        }
+
+        .hot-author__image {
+            border-radius: 50%;
+            max-width: 100%;
+        }
+
+        .hot-author__name {
+            color: #409EFF;
+            margin: 5px 0;
+        }
+
+
+        .hot-author__info {
+            color: rgba(0, 0, 0, .6);
+            display: flex;
+        }
+
+        .hot-author__thumbnail {
+            margin-right: 5px;
+        }
+
+        .title {
+            text-align: center;
+        }
+
+        .title__icon {
+            color: #E6A23C;
+            margin-right: 10px;
+        }
+
+        .title__content {
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        .el-tooltip {
+            transition: all 0.1s;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="hot-author-wrapper">
+        <el-row class="title">
+            <el-col :span="24">
+                <h3 class="title__content">
+                    <i class="fas fa-trophy fa-lg title__icon "></i> Tác giả nổi bật</h3>
+            </el-col>
+        </el-row>
+        <el-row :gutter="10" class="hot-author" v-for="author in authors">
+            <el-col :span="6">
+                <img class="hot-author__image" circle :src="author.avatar" alt="avatar">
+            </el-col>
+            <el-col :span="18">
+                <p class="hot-author__name">{{author.name}}</p>
+                <div class="hot-author__info">
+                    <el-tooltip content="Người theo dõi" placement="bottom" effect="light">
+                        <span class="hot-author__thumbnail">
+                            <i class="fas fa-user-plus fa-xs"></i>
+                            <span>{{author.follower}}</span>
+                        </span>
+                    </el-tooltip>
+                    <el-tooltip placement="bottom" content="Bài viết" effect="light">
+                        <span class="hot-author__thumbnail">
+                            <i class="el-icon-edit fa-xs"></i>
+                            <span>{{author.posts}}</span>
+                            </p>
+                    </el-tooltip>
+                    <el-tooltip placement="bottom" content="Bài viết được lưu" effect="light">
+                        <span class="hot-author__thumbnail">
+                            <i class="fas fa-bookmark fa-xs"></i>
+                            <span>{{author.bookmark}}</span>
+                        </span>
+                    </el-tooltip>
+                </div>
+        </el-row>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <!-- import JavaScript -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script>
+        let hotAuthor = new Vue({
+            el: "#hot-author-wrapper",
+            data: {
+                authors: [
+                    { avatar: "images/avatar.jpg", name: "Nguyễn Công Phượng Hoàng Anh Gia Lai", follower: 100, posts: 50, bookmark: 200 },
+                    { avatar: "images/avatar.jpg", name: "Lương Xuân Trường", follower: 2000, posts: 50, bookmark: 2200 },
+                    { avatar: "images/avatar.jpg", name: "Lê Công Vinh", follower: 100, posts: 50, bookmark: 2100 },
+                    { avatar: "images/avatar.jpg", name: "Cristiano Ronaldo", follower: 100, posts: 50, bookmark: 200 },
+                    { avatar: "images/avatar.jpg", name: "Martial", follower: 100, posts: 50, bookmark: 200 }
+                ]
+            }
+        })
+    </script>
+</body>
+
+</html>

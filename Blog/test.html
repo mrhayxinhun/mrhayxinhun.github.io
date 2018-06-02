@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe"
+        crossorigin="anonymous"></script>
+    <style>
+        @import url("//unpkg.com/element-ui@2.4.0/lib/theme-chalk/index.css");
+
+        #app {
+            width: 1140px;
+            font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+            margin: 0 auto;
+        }
+
+        .posts {
+            border-bottom: 1px solid #e4e1e1;
+            padding: 6px;
+        }
+
+        .posts:hover {
+            background: #f9f8f8;
+            cursor: pointer;
+        }
+
+        .post__title h2 {
+            text-transform: capitalize;
+        }
+
+        .post__title h2:hover {
+            color: grey;
+        }
+
+        .posts__avatar {
+            width: 13%
+        }
+
+        .posts__avatar img {
+            width: 100%;
+            border-radius: 50%;
+        }
+
+        .post__content p {
+            font-size: 16px;
+            color: grey;
+        }
+
+        .post__times p {
+            font-size: 13px;
+            color: #989696;
+            text-align: right;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="app">
+        <el-container>
+            <el-header>
+                <el-menu :default-active="activeIndex2" class="el-menu-demo" mode="horizontal" @select="handleSelect" background-color="#545c64"
+                    text-color="#fff" active-text-color="#ffd04b">
+                    <el-menu-item index="1">Bài viết mới</el-menu-item>
+                    <el-menu-item index="2">Bài viết cũ</el-menu-item>
+                    <el-menu-item index="3">Series</el-menu-item>
+                </el-menu>
+            </el-header>
+            <el-main>
+                <div v-for="po in posts">
+                    <el-row :gutter="20" class="posts">
+                        <el-col :span="4" class="posts__avatar">
+                            <img :src="po.images" alt="">
+                        </el-col>
+                        <el-col :span="20">
+                            <div class="grid-content bg-purple details">
+                                <div class="post__title">
+                                    <el-row type="flex" justify="space-between">
+                                        <div>
+                                            <h2>{{po.title}}</h2>
+                                        </div>
+                                        <div type="flex" ustify="space-between">
+                                            <span>
+                                                <i class="far fa-eye"></i>
+                                                <span> {{po.view}} </span>
+                                            </span>
+                                            <span>
+                                                <i class="fas fa-thumbs-up"></i>
+                                                <span> {{po.like}} </span>
+                                            </span>
+                                        </div>
+                                    </el-row>
+                                </div>
+                                <div class="post__tag">
+                                    <el-tag>Tag One</el-tag>
+                                    <el-tag type="success">Tag Two</el-tag>
+                                    <el-tag type="info">Tag Three</el-tag>
+                                    <el-tag type="warning">Tag Four</el-tag>
+                                    <el-tag type="danger">Tag Five</el-tag>
+                                </div>
+                                <div class="post__content">
+                                    <p> Trào lưu tiêm thẩm mỹ vẫn chưa hề hạ nhiệt, sở dĩ phương pháp làm đẹp này vẫn được nhiều
+                                        chị em lựa chọn là bởi cách thức làm nhanh, không cần đụng chạm dao kéo, không mất
+                                        thời gian hồi phục mà kết quả có thể thấy rõ. Tuy nhiên dù là phương pháp thẩm mỹ
+                                        nào cũng có những rủi ro nếu lựa chọn cơ sở thẩm mỹ không được cấp phép, người tiêm
+                                        không có tay nghề hoặc sử dụng những chất tiêm không rõ nguồn gốc. </p>
+                                </div>
+                                <div class="post__times">
+                                    <p>Nguyễn văn A đã đăng từ 2 ngày trước</p>
+                                </div>
+                            </div>
+                        </el-col>
+                    </el-row>
+                </div>
+            </el-main>
+        </el-container>
+    </div>
+
+    <script src="//unpkg.com/vue/dist/vue.js"></script>
+    <script src="//unpkg.com/element-ui@2.4.0/lib/index.js"></script>
+
+    <script>
+        var Main = {
+            data() {
+                return {
+                    activeIndex: '1',
+                    activeIndex2: '1'
+                };
+            },
+            methods: {
+                handleSelect(key, keyPath) {
+                    console.log(key, keyPath);
+                }
+            }
+        }
+        var Ctor = Vue.extend(Main)
+
+        new Vue({
+            el: '#app',
+            data: {
+                posts: [
+                    { images: 'https://kenh14cdn.com/2018/4/13/photo-4-1523613034062930366784.jpg', title: 'Học javascript 1 cách nhanh nhất', view: 100, like: 222, tag: ['HTML', 'javascript'] },
+                    { images: 'http://lh5.googleusercontent.com/-fylZF9ONaQg/WBP6lXY-A9I/AAAAAAABADA/BO_0loTj3u8keNXa4vRShuvvsxmcRBtNQCLcB/s1600/OhGai.Net-0202291016.jpg', title: 'Thành thạo vuejs trong vòng 1 tiếng', view: 332, like: 2002, tag: ['HTML', 'javascript'] },
+                    { images: 'http://nguoinoitieng.tv/images/nnt/0/1/yb.jpg', title: 'Các chức năng cần học', view: 120, like: 2020, tag: ['HTML', 'javascript'] },
+                    { images: 'https://dantricdn.com/k:2015/2-1445676760-anh-6-1445746332748/hinh-anh-moi-nhat-cua-hot-girl-tu-linh-sau-scandal.jpg', title: 'Tiêu đề lung tung thôi', view: 525, like: 662, tag: ['HTML', 'javascript'] },
+                    { images: 'http://thammydep.vn/wp-content/uploads/2015/10/cach-lam-trang-da-tu-nhien-cua-hot-girl-thai-lan.jpg', title: 'học nhanh 1 số ngôn ngữ', view: 1330, like: 222, tag: ['HTML', 'javascript'] },
+                    { images: 'http://static2.yan.vn/YanNews/2167221/201710/20171019-103837-16387409_683217865192549_5235848798608510926_n.jpg', title: 'Thư viện boostrap và cách xử dụng', view: 1030, like: 121, tag: ['HTML', 'javascript'] },
+                ]
+            }
+
+        })
+    </script>
+
+</body>
+
+</html>
