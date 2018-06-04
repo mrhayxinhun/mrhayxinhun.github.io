@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="app">
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+        <!-- <blog-post title="My journey with Vue"></blog-post>
+        <blog-post title="My journey with Vue"></blog-post>
+        <blog-post title="Bloggin with Vue"></blog-post>
+        <blog-post title="Why Vue is so fun"></blog-post> -->
+        <blog-post v-for="post in posts" v-bind:key="post.id" v-bind:post="post"></blog-post>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        Vue.component('blog-post', {
+            props: ['post'],
+            template: `
+                <div class="blog-post">
+                    <h3>{{post.title}}</h3>
+                    <button @click="$emit('enlarge-text')">
+                        Enlarge text
+                    </button>
+                    <div v-html="post.content"></div>
+                </div>
+            `
+        })
+
+        Vue.component('button-counter', {
+            data: function () {
+                return {
+                    count: 0
+                }
+            },
+            template: '<button v-on:click="count++">You clicked me {{count}} times</button>'
+        })
+
+        new Vue({
+            el: "#app",
+            data: {
+                posts: [
+                    { id: 0, title: "My fourney with Vue", content: "It only start" },
+                    { id: 1, title: "Blogging with Vue", content: "I will try my best everyday to learn" },
+                    { id: 2, title: "Why Vue is so funny", content: "Not only funny, it also easier" }
+                ],
+                postFontSize: 1
+            }
+        })
+    </script>
+</body>
+
+</html>
