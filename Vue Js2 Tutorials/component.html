@@ -13,17 +13,15 @@
 
 <body>
     <div id="app">
-        <button-counter></button-counter>
-        <button-counter></button-counter>
-        <button-counter></button-counter>
-        <!-- <blog-post title="My journey with Vue"></blog-post>
-        <blog-post title="My journey with Vue"></blog-post>
-        <blog-post title="Bloggin with Vue"></blog-post>
-        <blog-post title="Why Vue is so fun"></blog-post> -->
-        <blog-post v-for="post in posts" v-bind:key="post.id" v-bind:post="post"></blog-post>
+        <div :style="{fontSize: postFontSize + 'em'}">
+            <blog-post 
+                v-for= "post in posts"
+                :key="post.id"
+                :post="post"
+                @enlarge-text="onEnlargeText"
+            ></blog-post>
+        </div>
     </div>
-
-
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
@@ -32,21 +30,12 @@
             template: `
                 <div class="blog-post">
                     <h3>{{post.title}}</h3>
-                    <button @click="$emit('enlarge-text')">
+                    <button @click="$emit('enlarge-text', 0.2)">
                         Enlarge text
                     </button>
                     <div v-html="post.content"></div>
                 </div>
             `
-        })
-
-        Vue.component('button-counter', {
-            data: function () {
-                return {
-                    count: 0
-                }
-            },
-            template: '<button v-on:click="count++">You clicked me {{count}} times</button>'
         })
 
         new Vue({
@@ -58,7 +47,13 @@
                     { id: 2, title: "Why Vue is so funny", content: "Not only funny, it also easier" }
                 ],
                 postFontSize: 1
+            },
+            methods: {
+                onEnlargeText: function (enlargeAmount) {
+                    this.postFontSize+=enlargeAmount;
+                }
             }
+
         })
     </script>
 </body>
