@@ -49,6 +49,7 @@
             width: 260px !important;
             margin-left: 30px;
             padding-top: 20px;
+            overflow: hidden;
         }
 
         .el-header {
@@ -82,10 +83,8 @@
             padding-bottom: 6px;
         }
 
-        .post__tag .el-tag {
-            height: 22px;
-            line-height: 22px;
-            margin-right: 6px;
+        .post__tag .el-button {
+            margin-right: 10px;
         }
 
         .posts:hover {
@@ -107,7 +106,7 @@
         }
 
         .post__times {
-            font-size: 0.8125rem;
+            font-size: 0.8rem;
             color: #989696;
             text-align: right;
         }
@@ -130,12 +129,12 @@
         }
 
         .hot-author__name {
-            font-size: 14px;
+            font-size: 0.875rem;
             margin: 10px 0;
         }
 
         .hot-author__info {
-            font-size: 14px;
+            font-size: 0.875rem;
             color: rgba(0, 0, 0, .6);
             display: flex;
         }
@@ -217,14 +216,14 @@
                 <div v-for="post in posts">
                     <el-row type="flex" class="posts">
                         <el-col class="posts__avatar">
-                            <img :src="post.images" alt="">
+                            <a :href="post.authorLink"><img :src="post.images" alt=""></a> 
                         </el-col>
                         <el-col>
                             <div>
                                 <h3 class="post__title">{{post.title}}</h3>
                             </div>
                             <div class="post__tag">
-                                <el-tag type="info" v-for="tag in post.tags" :key="tag.id">{{tag}}</el-tag>
+                                <a :href="tag.link" v-for="tag in post.tags" :key="tag.id"><el-button plain type="info" >{{tag.name}}</el-button></a> 
 
                             </div>
                             <div class="post__content">
@@ -315,29 +314,16 @@
     <!-- import JavaScript -->
     <script src="https://unpkg.com/element-ui/lib/index.js"></script>
     <script>
-        // export default {
-        //     data() {
-        //         return {
-        //             activeIndex: '1',
-        //             activeIndex2: '1'
-        //         };
-        //     },
-        //     methods: {
-        //         handleSelect(key, keyPath) {
-        //             console.log(key, keyPath);
-        //         }
-        //     }
-        // }
         let test = new Vue({
             el: "#test",
             data: {
                 posts: [
-                    { images: 'https://kenh14cdn.com/2018/4/13/photo-4-1523613034062930366784.jpg', title: 'Học javascript 1 cách nhanh nhất', view: 100, like: 222, tags: ['HTML', 'javascript'], author: "Nguyễn Công Phượng", authorLink: "" },
-                    { images: 'http://lh5.googleusercontent.com/-fylZF9ONaQg/WBP6lXY-A9I/AAAAAAABADA/BO_0loTj3u8keNXa4vRShuvvsxmcRBtNQCLcB/s1600/OhGai.Net-0202291016.jpg', title: 'Thành thạo vuejs trong vòng 1 tiếng', view: 332, like: 2002, tags: ['HTML', 'Javascript', 'PHP', "Go"], author: "Nguyễn Công Phượng", authorLink: "" },
-                    { images: 'http://nguoinoitieng.tv/images/nnt/0/1/yb.jpg', title: 'Các chức năng cần học', view: 120, like: 2020, tags: ['HTML', 'javascript'], author: "Nguyễn Công Phượng", authorLink: "" },
-                    { images: 'https://dantricdn.com/k:2015/2-1445676760-anh-6-1445746332748/hinh-anh-moi-nhat-cua-hot-girl-tu-linh-sau-scandal.jpg', title: 'Tiêu đề lung tung thôi', view: 525, like: 662, tags: ['HTML', 'Javascript'], author: "Nguyễn Công Phượng", authorLink: "" },
-                    { images: 'http://thammydep.vn/wp-content/uploads/2015/10/cach-lam-trang-da-tu-nhien-cua-hot-girl-thai-lan.jpg', title: 'Học nhanh 1 số ngôn ngữ', view: 1330, like: 222, tags: ['HTML', 'Javascript'], author: "Nguyễn Công Phượng", authorLink: "" },
-                    { images: 'http://static2.yan.vn/YanNews/2167221/201710/20171019-103837-16387409_683217865192549_5235848798608510926_n.jpg', title: 'Thư viện boostrap và cách xử dụng', view: 1030, like: 121, tags: ['HTML', 'jJavascript'], author: "Nguyễn Công Phượng", authorLink: "" },
+                    { images: 'https://kenh14cdn.com/2018/4/13/photo-4-1523613034062930366784.jpg', title: 'Học javascript 1 cách nhanh nhất', view: 100, like: 222, tags: [{name:'HTML', link: ''}, {name:'javascript', link:''}], author: "Nguyễn Công Phượng", authorLink: "" },
+                    { images: 'http://lh5.googleusercontent.com/-fylZF9ONaQg/WBP6lXY-A9I/AAAAAAABADA/BO_0loTj3u8keNXa4vRShuvvsxmcRBtNQCLcB/s1600/OhGai.Net-0202291016.jpg', title: 'Thành thạo vuejs trong vòng 1 tiếng', view: 332, like: 2002, tags: [{name:'HTML', link: ''}, {name:'javascript', link:''}, {name: "Go", link: ""}, {name: "PHP", link: ""}], author: "Nguyễn Công Phượng", authorLink: "" },
+                    { images: 'http://nguoinoitieng.tv/images/nnt/0/1/yb.jpg', title: 'Các chức năng cần học', view: 120, like: 2020, tags: [{name:'HTML', link: ''}, {name:'javascript', link:''}], author: "Nguyễn Công Phượng", authorLink: "" },
+                    { images: 'https://dantricdn.com/k:2015/2-1445676760-anh-6-1445746332748/hinh-anh-moi-nhat-cua-hot-girl-tu-linh-sau-scandal.jpg', title: 'Tiêu đề lung tung thôi', view: 525, like: 662, tags: [{name:'HTML', link: ''}, {name:'javascript', link:''}], author: "Nguyễn Công Phượng", authorLink: "" },
+                    { images: 'http://thammydep.vn/wp-content/uploads/2015/10/cach-lam-trang-da-tu-nhien-cua-hot-girl-thai-lan.jpg', title: 'Học nhanh 1 số ngôn ngữ', view: 1330, like: 222, tags: [{name:'HTML', link: ''}, {name:'javascript', link:''}], author: "Nguyễn Công Phượng", authorLink: "" },
+                    { images: 'http://static2.yan.vn/YanNews/2167221/201710/20171019-103837-16387409_683217865192549_5235848798608510926_n.jpg', title: 'Thư viện boostrap và cách xử dụng', view: 1030, like: 121, tags: [{name:'HTML', link: ''}, {name:'javascript', link:''}], author: "Nguyễn Công Phượng", authorLink: "" },
                 ],
                 authors: [
                     { avatar: "https://kenh14cdn.com/2018/4/13/photo-4-1523613034062930366784.jpg", name: "Nguyễn Công Phượng Hoàng Anh Gia Lai", follower: 100, posts: 50, bookmark: 200 },
