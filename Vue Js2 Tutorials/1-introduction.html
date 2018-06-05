@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        {{message}}
+    </div>
+    <div id="app2">
+        <span :title="message">Hover me</span>
+    </div>
+    <div id="app3">
+        <span v-if="seen">Just dont give up</span>
+    </div>
+    <div id="app4">
+        <ol>
+            <li v-for="todo in todos">
+                {{todo.text}}
+            </li>
+        </ol>
+    </div>
+    <div id="app5">
+        <p>{{message}}</p>
+        <button @click="reverseMessage">Reverse</button>
+    </div>
+
+    <div id="app6">
+        <p>{{message}}</p>
+        <input type="text" v-model="message">
+    </div>
+
+    <div id="app7">
+        <ol>
+            <todo-item 
+                v-for="todo in todos"
+                :todo= "todo"
+                :key = "todo.id"
+            ></todo-item>
+        </ol>
+    </div>
+
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        Vue.component('todo-item', {
+            props: ['todo'],
+            template: `<li>{{todo.text}}</li>`
+        })
+        let app7 = new Vue({
+            el: "#app7",
+            data: {
+                todos: [
+                    {text: "Js"},
+                    {text: "TRy your best"},
+                    {text: "Just dont give up"}
+                ]
+            }
+        })
+        let app6 = new Vue({
+            el: "#app6",
+            data: {
+                message: 'Hello Vuejs'
+            }
+        })
+        let app5 = new Vue ({
+            el: "#app5",
+            data: {
+                message: "Hello Vue.js"
+            },
+            methods: {
+                reverseMessage: function () {
+                    this.message = this.message.split('').reverse().join('')
+                }
+            }
+        })
+        let app4= new Vue({
+            el: "#app4",
+            data: {
+                todos: [
+                    {text: 'JS'},
+                    {text: 'HTML'},
+                    {text: 'CSS'}
+                ]
+            }
+        })
+        let app3= new Vue({
+            el: "#app3",
+            data: {
+                seen: true
+            }
+        })
+        let app2 = new Vue({
+            el: "#app2",
+            data: {
+                message: 'You loaded this page on' + new Date().toLocaleString()
+            }
+        })
+        let app1 = new Vue ({
+            el: "#app",
+            data: {
+                message: "Hello VueJS"
+            }
+        })    
+    </script>
+</body>
+
+</html>

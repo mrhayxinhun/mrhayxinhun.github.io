@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Helvetica Venue', Arial, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.4em;
+}
+
+p {
+  line-height: 1.5em;
+}
+
+a {
+  text-decoration: none;
+}
+
+#test {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.particular-post__tags {
+  margin-bottom: 16px;
+}
+
+.particular-post__tags .el-button {
+  padding: 4px;
+  font-size: 0.8125rem;
+  margin-right: 5px;
+}
+
+.particular-post__info{
+  font-size: 0.8rem;
+}
+
+.particular-post__avatar{
+  margin-right: 5px;
+}
+
+.particular-post__content h2,
+.particular-post__content h3,{
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+
