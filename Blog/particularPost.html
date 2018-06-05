@@ -31,13 +31,19 @@
             padding: 10px 15px;
         }
 
-        .particular-post__content a{
+        .particular-post__content a, .particular-post__author {
             color: #00b5ad;
         }
 
-        .particular-post__avatar{
+        .particular-post__avatar {
             width: 25px;
             border-radius: 50%;
+        }
+
+        @media (max-width: 768px) {
+            .el-aside {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -65,13 +71,17 @@
                         </a>
                     </div>
                     <el-row type="flex" class="particular-post__info" align="middle">
-                        <a href=""><img class="particular-post__avatar" :src="particularPost.authorAvatar" alt=""> </a> 
-                        <span><a class="particular-post__author" href="">{{particularPost.authorName}}</a> viết ngày 04/06/2018</span>
+                        <a href="">
+                            <img class="particular-post__avatar" :src="particularPost.authorAvatar" alt=""> </a>
+                        <span>
+                            <a class="particular-post__author" href="">{{particularPost.authorName}}</a> viết ngày 04/06/2018</span>
                     </el-row>
                     <div class="particular-post__content">
                         <p>
-                            <strong>Bài viết gốc được đăng ở Ê-ku <a href="https://ehkoo.com/bai-viet/tat-tan-tat-ve-promise-va-async-await">https://ehkoo.com/bai-viet/tat-tan-tat-ve-promise-va-async-await</a></strong>
-                            
+                            <strong>Bài viết gốc được đăng ở Ê-ku
+                                <a href="https://ehkoo.com/bai-viet/tat-tan-tat-ve-promise-va-async-await">https://ehkoo.com/bai-viet/tat-tan-tat-ve-promise-va-async-await</a>
+                            </strong>
+
                         </p>
                         <br>
                         <img src="images/post-img.png" alt="">
@@ -266,12 +276,19 @@ Promise.resolve().then(promise1).then(promise2).then(promise3)
                             Async/await mang đến giải pháp "xinh đẹp" hơn, cho phép bạn truy xuất đến giá trị của các promises phía trước nếu cần thiết.
                         </p>
                         <h3>Kết</h3>
-                        <p>Bạn có thể thấy Promise và async/await không hoàn toàn thay thế mà hỗ trợ lẫn nhau. Mặc dù chúng ta có thể dùng async/await ở đa số các trường hợp, Promise vẫn là nền tảng cần thiết khi thực thi các tác vụ bất đồng bộ trong JavaScript. Do đó bạn nên xem xét và lựa chọn giải pháp phù hợp, tùy vào tình hình thực tế nhá.</p>
+                        <p>Bạn có thể thấy Promise và async/await không hoàn toàn thay thế mà hỗ trợ lẫn nhau. Mặc dù chúng
+                            ta có thể dùng async/await ở đa số các trường hợp, Promise vẫn là nền tảng cần thiết khi thực
+                            thi các tác vụ bất đồng bộ trong JavaScript. Do đó bạn nên xem xét và lựa chọn giải pháp phù
+                            hợp, tùy vào tình hình thực tế nhá.</p>
                         <h4>Đọc thêm</h4>
-                        <p><a href="">Using Promises</a> -- MDN</p>
-                        <p><a href="">We have a problem with Promise</a> -- Nolan Lawson</p>
-                        <p><a href="">Promise is the wrong abstraction</a> -- Antti Holvikari</p>
-                        <p><a href="">Promises are not neutral enough</a> -- André Staltz</p>
+                        <p>
+                            <a href="">Using Promises</a> -- MDN</p>
+                        <p>
+                            <a href="">We have a problem with Promise</a> -- Nolan Lawson</p>
+                        <p>
+                            <a href="">Promise is the wrong abstraction</a> -- Antti Holvikari</p>
+                        <p>
+                            <a href="">Promises are not neutral enough</a> -- André Staltz</p>
                     </div>
 
                 </div>

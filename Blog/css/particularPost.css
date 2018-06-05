@@ -6,6 +6,10 @@ html {
   font-family: 'Helvetica Venue', Arial, sans-serif;
 }
 
+img{
+  max-width: 100%;
+}
+
 h1,
 h2,
 h3,
@@ -23,9 +27,15 @@ a {
   text-decoration: none;
 }
 
+
+
 #test {
   max-width: 1140px;
   margin: 0 auto;
+}
+
+.el-main{
+  padding: 0;
 }
 
 .particular-post__tags {
@@ -46,10 +56,13 @@ a {
   margin-right: 5px;
 }
 
+.particular-post__content h1,
 .particular-post__content h2,
-.particular-post__content h3,{
+.particular-post__content h3{
   padding-bottom: 5px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
+
+
 
 
