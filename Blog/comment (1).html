@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe"
+        crossorigin="anonymous"></script>
+    </script>
+
+    <title>Comment</title>
+
+    <style>
+        a {
+            text-decoration: none;
+        }
+
+        .comment {
+            max-width: 90%;
+            margin: 0 auto;
+        }
+
+        #app {
+            width: 1140px;
+            margin: 0 auto;
+            border: 1px solid;
+        }
+        img {
+            width: 100%;
+        }
+
+        .comment__icons ul li {
+            list-style-type: none;
+            display: inline-block;
+            padding-right: 15px;
+        }
+
+        .comment__icons li .mxh {
+            font-size: 1.75em;
+        }
+
+        .comment__bag img {
+            border-radius: 50%;
+        }
+
+        .comment__frames {
+            margin: 0 auto;
+        }
+
+        .comment__frames__avatar,
+        .show__avatar {
+            text-align: center;
+            padding: 0 13px 13px 13px;
+        }
+
+        .comment__frames__btn {
+            text-align: right;
+        }
+
+        .comment__show {
+            /* border-bottom: 1px solid #ece7e7; */
+            padding: 20px 0;
+        }
+
+        .comment__main {
+            text-align: justify;
+            line-height: 1.45rem;
+        }
+
+        .comment__positive {
+            list-style-type: none;
+            padding: 0px;
+        }
+
+        .comment__name {
+            font-weight: bold;
+        }
+
+        .comment__time {
+            font-size: 0.9rem;
+        }
+
+        .comment__positive li {
+            display: inline;
+            padding-right: 10px;
+        }
+
+        .show__comment {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="comment">
+            <el-row :gutter="20" class="comment__icons" type="flex" justify="end">
+                <ul>
+                    <li>
+                        <p>
+                            <i class="fas fa-thumbs-up"></i>
+                            <span>Thích: 1000</span>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <i class="fas fa-share-alt"></i>
+                            <span>Chia sẻ: 12</span>
+                        </p>
+                    </li>
+                    <li></li>
+                    <li>
+                        <i class="fab mxh fa-facebook-square"></i>
+                    </li>
+                    <li>
+                        <i class="fab mxh fa-twitter-square"></i>
+                    </li>
+                    <li>
+                        <i class="fab mxh fa-google-plus-square"></i>
+                    </li>
+                </ul>
+            </el-row>
+            <div class="comment__bag">
+                <div class="comment__frames">
+                    <el-row class="comment__frames__up" type="flex" justify="around" :gutter="20">
+                        <el-col :span="4">
+                            <div class="comment__frames__avatar">
+                                <img src="http://lh5.googleusercontent.com/-fylZF9ONaQg/WBP6lXY-A9I/AAAAAAABADA/BO_0loTj3u8keNXa4vRShuvvsxmcRBtNQCLcB/s1600/OhGai.Net-0202291016.jpg"
+                                    alt="">
+                            </div>
+                        </el-col>
+                        <el-col :span="20">
+                            <div class="comment__frames__posts">
+                                <el-input type="textarea" :rows="5" resize="none" placeholder="Bình luận" v-model="comment__lv1">Comment</el-input>
+                            </div>
+                        </el-col>
+                    </el-row>
+                    <div class="comment__frames__btn">
+                        <el-button type="info" plain @click="addComment">Posts</el-button>
+                    </div>
+                </div>
+                <div class="comment__show" v-for="(comment, index1) in comments">
+                    <el-row class="show__up" type="flex" justify="around" :gutter="20">
+                        <el-col :span="4">
+                            <div class="show__avatar">
+                                <img :src="comment.image" alt="">
+                            </div>
+                        </el-col>
+                        <el-col :span="20">
+                            <div class="show__posts">
+                                <span class="comment__name">{{comment.name}}</span>
+                                <span class="comment__time">1 giờ trước</span>
+                                <p class="comment__main"> {{comment.content}}
+
+                                </p>
+                            </div>
+                            <ul class="comment__positive">
+                                <li>
+                                    <a @click="likeComment(index1)">Thích</a>
+                                </li>
+                                <li>
+                                    <a @click="showComment(index1)">Trả lời</a>
+                                </li>
+                                <li style="float: right">
+                                    <i class="fas fa-thumbs-up"></i>
+                                    <span>{{comment.like}}</span>
+                                </li>
+                            </ul>
+                            <div class="comment__bag">
+                                <div class="comment__show" v-for="(com, index2) in comment.comment_deep">
+                                    <el-row class="show__up" type="flex" justify="around" :gutter="20">
+                                        <el-col :span="4">
+                                            <div class="show__avatar">
+                                                <img src="http://lh5.googleusercontent.com/-fylZF9ONaQg/WBP6lXY-A9I/AAAAAAABADA/BO_0loTj3u8keNXa4vRShuvvsxmcRBtNQCLcB/s1600/OhGai.Net-0202291016.jpg"
+                                                    alt="">
+                                            </div>
+                                        </el-col>
+                                        <el-col :span="20">
+                                            <div class="show__posts">
+                                                <span class="comment__name">{{com.name}}</span>
+                                                <span class="comment__time">1 giờ trước</span>
+                                                <p class="comment__main">
+                                                    {{com.content}}
+                                                </p>
+                                            </div>
+                                            <ul class="comment__positive">
+                                                <li>
+                                                    <a class=" response" @click="likeComment_deep(index1, index2)">Thích</a>
+                                                </li>
+                                                <li>
+                                                    <a class=" response" @click="showComment(index1,com.name)">Trả lời</a>
+                                                </li>
+                                                <li style="float: right">
+                                                    <i class="fas fa-thumbs-up"></i>
+                                                    <span>{{com.like}}</span>
+                                                </li>
+                                            </ul>
+                                        </el-col>
+                                    </el-row>
+                                </div>
+                                <div class="comment__frames show__comment">
+                                    <el-row class="comment__frames__up" type="flex" justify="around" :gutter="20">
+                                        <el-col :span="4">
+                                            <div class="comment__frames__avatar">
+                                                <img src="http://lh5.googleusercontent.com/-fylZF9ONaQg/WBP6lXY-A9I/AAAAAAABADA/BO_0loTj3u8keNXa4vRShuvvsxmcRBtNQCLcB/s1600/OhGai.Net-0202291016.jpg"
+                                                    alt="">
+                                            </div>
+                                        </el-col>
+                                        <el-col :span="20">
+                                            <div class="comment__frames__posts">
+                                                <el-input type="textarea" resize="none" :autosize="{ minRows: 4.5, maxRows: 6}" placeholder="Binh luan" v-model="comment__lv2">Comment</el-input>
+                                            </div>
+                                        </el-col>
+                                    </el-row>
+                                    <div class="comment__frames__btn">
+                                        <el-button type="info" plain @click="replyComment(index1)">Posts</el-button>
+                                    </div>
+                                </div>
+                            </div>
+                        </el-col>
+                    </el-row>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- import CSS -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <!-- import JavaScript -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                comment__lv1: '',
+                comment__lv2: '',
+                comments: [
+                    {
+                        name: 'Nguyễn Ngọc Anh', like: 19, image: 'http://img3.blogtamsu.vn/2017/06/trinh-xiu-blogtamsu-4.jpg', content: 'Bởi chuyện định cho Trung Quốc thuê 99 năm chỉ mới là dự thảo, đến ngày 15/6 Quốc hội sẽ thông qua Luật Đặc khu (Kỳ họp thứ 5, Quốc hội khóa 14). Nếu ngày 15/6 Quốc hội thực sự thông qua điều trên thì chúng ta không còn cơ hội phản đối. Nếu chúng ta lên tiếng phản đối trước 15/6, sẽ không sao cả vì đây chỉ là góp ý trên tinh thần xây dựng. Còn vào 15/6, nếu Quốc hội thông qua điều đó, chúng ta tiếp tục phản đối sẽ bị tội chống đối Nhà nước. Tóm lại là chúng ta còn 14 ngày để kêu gào trước khi quá muộn. Có quá nhiều lý do để phản đối Trung Quốc thuê Vân Đồn 99 năm.',
+                        comment_deep: [
+                            { name: 'Tên khác một chút', like: 21, content: 'Bởi chuyện ốc thuê 99 năm chỉ mới là dự thảo' },
+                        ]
+                    },
+                    {
+                        name: 'Tống Thiên Trang', like: 23, image: 'https://static1.dienanh.net/upload/2017/11/20/1cee91b5-aabe-439b-8f93-0285f6e7f5f1.jpg', content: 'Việc chăm sóc và nuôi dạy trẻ em ở Việt Nam theo khoa học hiện đại của các bà mẹ trẻ hiện nay khó khăn nhất lại xuất phát từ ...gia đình. Những cô con dâu không làm chủ được kinh tế xui rủi cưới ngay thằng chồng ba phải và gặp bà mẹ chồng bảo thủ thì thật sự là đại họa.',
+                        comment_deep: [
+                            
+                        ]
+                    },
+
+                    {
+                        name: 'Lâm Bảo Nhi', like: 129, image: 'http://avatar.nct.nixcdn.com/singer/avatar/2016/09/12/2/e/b/c/1473689429621_600.jpg', content: 'Em có thai với bạn thân rồi, giờ em vừa mừng, vừa lo. Em và thằng bạn thân chơi với nhau từ năm cấp 2, lên cấp 3 chúng em học cùng vẫn học cùng nhau và em phát hiện mình đã thích nó.Nhưng khi ấy nó đang yêu một con bé khoá dưới nên em chỉ biết lơ đi mà làm tròn trách nhiệm của đứa "bạn thân".',
+                        comment_deep: [
+                            { name: 'Tên khác một chút', like: 21, content: 'Bởi chuyệnốc thuê 99 năm chỉ mới là dự thảo' },
+                        ]
+                    }
+                ]
+            },
+            methods: {
+                addComment: function () {
+                    if (this.comment__lv1.length != '') {
+                        this.comments.push({ name: 'Nguyễn Ngọc Anh', like: 0, image: 'http://lh5.googleusercontent.com/-fylZF9ONaQg/WBP6lXY-A9I/AAAAAAABADA/BO_0loTj3u8keNXa4vRShuvvsxmcRBtNQCLcB/s1600/OhGai.Net-0202291016.jpg', content: this.comment__lv1, comment_deep: [] })
+                        this.comment__lv1 = '';
+                    }
+                },
+                replyComment: function (index1) {
+                    if (this.comment__lv2.length != '') {
+                        console.log(1);
+                        this.comments[index1].comment_deep.push({ name: 'Nguyễn Ngọc Anh', like: 0, image: 'http://lh5.googleusercontent.com/-fylZF9ONaQg/WBP6lXY-A9I/AAAAAAABADA/BO_0loTj3u8keNXa4vRShuvvsxmcRBtNQCLcB/s1600/OhGai.Net-0202291016.jpg', content: this.comment__lv2 });
+                        this.comment__lv2 = '';
+                        document.getElementsByClassName('show__comment')[index1].style.display = "none";
+                    }
+                },
+                showComment: function (stt, name='') {
+                    document.getElementsByClassName('show__comment')[stt].style.display = "block";
+                    if (name != ''){
+                        document.getElementsByClassName('show__comment')[stt].querySelector('textarea').value = `@ ${name} :`;
+                    }
+                    
+                },
+                likeComment: function (index1) {
+                    this.comments[index1].like += 1;
+                },
+                likeComment_deep: function (index1, index2) {
+                    this.comments[index1].comment_deep[index2].like++;
+
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

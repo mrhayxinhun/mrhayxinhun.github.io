@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="css/particularPost.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        code.hljs {
+            display: inline;
+            font-weight: 500;
+        }
+
+        pre code.hljs {
+            display: block;
+            font-weight: normal;
+        }
+
+        .particular-post__content a,
+        .particular-post__author,
+        .author-name {
+            color: #00b5ad;
+        }
+
+        .particular-post__author-avatar {
+            width: 25px;
+            border-radius: 50%;
+        }
+
+        .particular-post h1 {
+            font-size: 1.5rem;
+            color: #00b5ad;
+        }
+
+        @media (max-width: 768px) {
+            .el-aside {
+                display: none;
+            }
+        }
+
+        /* com */
+    </style>
+</head>
+
+<body>
+    <el-container id="test">
+        <el-header>
+        </el-header>
+        <el-container>
+            <el-main>
+                <div class="particular-post">
+
+                    <h1 class="particular-post__title">
+                        Tuốt tuồn tuột về Promeise và async/await
+                    </h1>
+                    <div class="particular-post__tags">
+                        <a :href="tag.link" v-for="tag in particularPost.tags">
+                            <el-button plain type="info">{{tag.name}}</el-button>
+                        </a>
+                    </div>
+                    <el-row type="flex" class="particular-post__info" align="middle">
+                        <a :href="particularPost.authorLink">
+                            <img class="particular-post__author-avatar" :src="particularPost.authorAvatar" alt=""> </a>
+                        <span>
+                            <a class="particular-post__author" :href="particularPost.authorLink">{{particularPost.authorName}}</a> viết ngày 04/06/2018</span>
+                    </el-row>
+                    <div class="particular-post__content">
+                        <p>
+                            <strong>Bài viết gốc được đăng ở Ê-ku
+                                <a href="https://ehkoo.com/bai-viet/tat-tan-tat-ve-promise-va-async-await">https://ehkoo.com/bai-viet/tat-tan-tat-ve-promise-va-async-await</a>
+                            </strong>
+
+                        </p>
+                        <br>
+                        <img src="images/post-img.png" alt="">
+                        <p>
+                            <code>Promise.race([blueTuktuk, greenMotobike, redTractor])</code> -- Hình minh họa của
+                            <a href="">
+                                <i>Ken Wong</i>
+                            </a>
+                        </p>
+                        <blockquote>
+                            Chời, thời này ai xài Promise nữa. Chuẩn bây giờ là async/await.
+                            <br> -- Ai đó trên mạng
+                        </blockquote>
+                        <p>Hãy khoan bạn ơi, đừng vội nhảy lên chuyến tàu tốc hành async/await trong khi chưa rành Promise,
+                            kẻo lại xảy ra "va chạm khi dồn dịch", gây nên hậu quả khôn lường, vì căn bản async/await vẫn
+                            dùng Promise ở bên dưới mà thôi.</p>
+                        <p>
+                            Cùng xem lại những khái niệm căn bản của Promise, đồng thời so sánh với async/await để xem khi nào thì nên xài hàng nào nhé.
+                        </p>
+                        <h3>Nhắc lại, Promise là gì?</h3>
+                        <p>Promise là một
+                            <i>cơ chế</i> trong JavaScript giúp bạn thực thi các tác vụ bất đồng bộ mà không rơi vào
+                            <i>callback hell</i>
+                            hay
+                            <i>pyramid of doom</i>, là tình trạng các hàm callback lồng vào nhau ở quá nhiều tầng. Các tác vụ
+                            bất đồng bộ có thể là gửi AJAX request, gọi hàm bên trong
+                            <code>setTimeout</code>,
+                            <code>setInterval</code> hoặc
+                            <code>requestAnimationFrame</code>, hay thao tác với WebSocket hoặc Worker... Dưới đây là một callback hell điển hình.
+                        </p>
+
+                        <pre>
+                            <code>
+api.getUser('pikalong', function(err, user) {
+    if (err) throw err
+    api.getPostsOfUser(user, function(err, posts) {
+        if (err) throw err
+        api.getCommentsOfPosts(posts, function(err, comments) {
+        // vân vân và mây mây...
+        })
+    })
+})        
+                            </code>
+                        </pre>
+                        <p>Ví dụ trên khi được viết lại bằng Promise sẽ là:</p>
+                        <pre>
+                            <code>
+api.getUser('pikalong')
+.then(user => api.getPostsOfUser(user))
+.then(posts => api.getCommentsOfPosts(posts))
+.catch(err => { throw err })                        
+                            </code>
+                        </pre>
+                        <p>
+                            Để tạo ra một promise object thì bạn dùng class Promise có sẵn trong trình duyệt như sau:
+                        </p>
+                        <pre>
+                            <code>
+const p = new Promise( /* executor */ function(resolve, reject) {
+     // Thực thi các tác vụ bất đồng bộ ở đây, và gọi `resolve(result)` khi tác
+     // vụ hoàn thành. Nếu xảy ra lỗi, gọi đến `reject(error)`.
+})
+                            </code>
+                        </pre>
+                        <p>
+                            Trong đó,
+                            <code>executor</code> là một hàm có hai tham số:
+                        </p>
+                        <ul>
+                            <li>
+                                <code>resolve</code> là hàm sẽ được gọi khi promise hoàn thành</li>
+                            <li>
+                                <code>reject</code> là hàm sẽ được gọi khi có lỗi xảy ra</li>
+                        </ul>
+                        <p>Ví dụ:</p>
+                        <pre>
+                            <code>
+api.getUser = function(username) {
+    // Hàm api.getUser() trả về một promise object
+    return new Promise((resolve, reject) => {
+        // Gửi AJAX request
+        http.get(`/users/${username}`, (err, result) => {
+                                      
+            // Nếu có lỗi bên trong callback, chúng ta gọi đến hàm `reject()`
+            if (err) return reject(err)
+                                      
+            // Ngược lại, dùng `resolve()` để trả dữ liệu về cho `.then()`
+            resolve(result)
+                                      
+        })
+    })
+}
+                            </code>
+                        </pre>
+                        <p>
+                            Như vậy api.getUser() sẽ trả về một promise object. Chúng ta có thể truy xuất đến kết quả trả về bằng phương thức .then()
+                            như sau:
+                        </p>
+                        <pre>
+                            <code>
+function onSuccess(user) { console.log(user) }
+function onError(err) { console.error(error) }
+                                    
+api.getUser('pikalong')
+.then(onSuccess, onError)
+                            </code>
+                        </pre>
+                        <p>
+                            Phương thức .then(onSuccess, onError) nhận vào hai hàm: onSuccess được gọi khi promise hoàn thành và onError được gọi khi
+                            có lỗi xảy ra. Bên trong tham số onSuccess bạn có thể trả về một giá trị đồng bộ, chẳng hạn như
+                            giá trị số, chuỗi, null, undefined, array hay object; hoặc một promise object khác. Các giá trị
+                            bất đồng bộ sẽ được bọc bên trong một Promise, cho phép bạn kết nối (chaining) nhiều promises
+                            lại với nhau.
+                        </p>
+                        <pre>
+                            <code>
+promise()
+.then(() => { return 'foo' })
+.then(result1 => {
+    console.log(result1) // 'foo'
+    return anotherPromise()
+})
+.then(result2 => console.log(result2)) // `result2` sẽ là kết quả của anotherPromise()
+.catch(err => {})
+                            </code>
+                        </pre>
+                        <p>
+                            Trong ví dụ trên, bạn thấy đến phương thức
+                            <code>.catch()</code>. Phương thức này chỉ là cú pháp bọc đường (syntactic sugar) của
+                            <code>.then(null,
+                                    onError)</code> mà thôi. Chúng ta sẽ nói thêm về
+                            <code>.catch()</code> ở bên dưới.
+                        </p>
+                        <h4>Tạo nhanh Promise với
+                            <code>Promise.resolve()</code> và
+                            <code>Promise.reject()</code>
+                        </h4>
+                        <p>Có những trường hợp bạn chỉ cần bọc một giá trị vào promise hay tự động reject. Thay vì dùng cú pháp
+                            <code>new Promise()</code> dài dòng, bạn có thể dùng hai phương thức tĩnh
+                            <code>Promise.resolve(result)</code> và
+                            <code>Promise.reject(err)</code>
+                        </p>
+                        <pre>
+                            <code>
+const p = Promise.resolve(12)
+.then(result => console.log(result)) // 12
+.then(res => Promise.reject(new Error('Dừng lại nhanh')))
+.then(() => 'Cười thêm phát nữa là tym anh đứt phanh')
+.catch(err => console.error(err)) // Error: Dừng lại nhanh                                
+                            </code>
+                        </pre>
+                        <h3>Còn async/await là cái chi?</h3>
+                        <p>Được giới thiệu trong ES7 ES8, async/await là một cơ chế giúp bạn thực hiện các thao tác bất đồng
+                            bộ một cách tuần tự hơn. Async/await vẫn sử dụng Promise ở bên dưới nhưng mã nguồn của bạn (theo
+                            một cách nào đó) sẽ trong sáng và dễ theo dõi.</p>
+                        <p>Để sử dụng, bạn phải khai báo hàm với từ khóa
+                            <code>async</code>. Khi đó bên trong hàm bạn có thể dùng
+                            <code>await</code>.</p>
+                        <pre>
+                            <code>
+async function() {
+    try {
+        const user = await api.getUser('pikalong')
+        const posts = await api.getPostsOfUser(user)
+        const comments = await api.getCommentsOfPosts(posts)
+                                      
+        console.log(comments)
+        } catch (err) {
+            console.log(err)
+        }
+    }                                
+                            </code>
+                        </pre>
+                        <p>Căn bản về Promise và async/await là vậy. Hiện giờ, bạn đã có thể sử dụng Promise và async/await
+                            ở tất cả các trình duyệt hiện đại (trừ IE11 ra nhé, bạn vẫn cần polyfill cho nó). Hãy xem những
+                            trường hợp cần lưu ý khi sử dụng chúng.</p>
+                        <h4>Chạy các Promise tuần tự</h4>
+                        <img src="images/post-img-2.png" alt="">
+                        <p>Trong trường hợp muốn chạy các promises một cách tuần tự như sơ đồ ở trên, bạn có thể dùng hàm
+                            <code>Array.prototype.reduce</code> .</p>
+                        <pre>
+                            <code>
+[promise1, promise2, promise3].reduce(function(currentPromise, promise) {
+    return currentPromise.then(promise)
+}, Promise.resolve())
+                                      
+    // Đoạn ở trên khi được viết dài dòng ra
+Promise.resolve().then(promise1).then(promise2).then(promise3)
+                            </code>
+                        </pre>
+                        <p>
+                            Async/await mang đến giải pháp "xinh đẹp" hơn, cho phép bạn truy xuất đến giá trị của các promises phía trước nếu cần thiết.
+                        </p>
+                        <h3>Kết</h3>
+                        <p>Bạn có thể thấy Promise và async/await không hoàn toàn thay thế mà hỗ trợ lẫn nhau. Mặc dù chúng
+                            ta có thể dùng async/await ở đa số các trường hợp, Promise vẫn là nền tảng cần thiết khi thực
+                            thi các tác vụ bất đồng bộ trong JavaScript. Do đó bạn nên xem xét và lựa chọn giải pháp phù
+                            hợp, tùy vào tình hình thực tế nhá.</p>
+                        <h4>Đọc thêm</h4>
+                        <p>
+                            <a href="">Using Promises</a> -- MDN</p>
+                        <p>
+                            <a href="">We have a problem with Promise</a> -- Nolan Lawson</p>
+                        <p>
+                            <a href="">Promise is the wrong abstraction</a> -- Antti Holvikari</p>
+                        <p>
+                            <a href="">Promises are not neutral enough</a> -- André Staltz</p>
+                    </div>
+                    <img src="images/advertise.png" alt="">
+
+                </div>
+                <div class="comment">
+                    <el-row :gutter="20" class="comment__icons" type="flex" justify="end">
+                        <ul>
+                            <li>
+                                <p>
+                                    <i class="fas fa-thumbs-up"></i>
+                                    <span>Thích: 1000</span>
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    <i class="fas fa-share-alt"></i>
+                                    <span>Chia sẻ: 12</span>
+                                </p>
+                            </li>
+                            <li></li>
+                            <li>
+                                <i class="fab mxh fa-facebook-square"></i>
+                            </li>
+                            <li>
+                                <i class="fab mxh fa-twitter-square"></i>
+                            </li>
+                            <li>
+                                <i class="fab mxh fa-google-plus-square"></i>
+                            </li>
+                        </ul>
+                    </el-row>
+                    <div class="comment__bag">
+                        <div class="comment__frames">
+                            <el-row class="comment__frames__up" type="flex" justify="around" :gutter="20">
+                                <el-col :span="4">
+                                    <div class="comment__frames__avatar">
+                                        <img src="http://lh5.googleusercontent.com/-fylZF9ONaQg/WBP6lXY-A9I/AAAAAAABADA/BO_0loTj3u8keNXa4vRShuvvsxmcRBtNQCLcB/s1600/OhGai.Net-0202291016.jpg"
+                                            alt="">
+                                    </div>
+                                </el-col>
+                                <el-col :span="20">
+                                    <div class="comment__frames__posts">
+                                        <el-input type="textarea" :rows="5" resize="none" placeholder="Bình luận" v-model="comment__lv1">Comment</el-input>
+                                    </div>
+                                </el-col>
+                            </el-row>
+                            <div class="comment__frames__btn">
+                                <el-button type="info" plain @click="addComment">Posts</el-button>
+                            </div>
+                        </div>
+                        <div class="comment__show" v-for="(comment, index1) in comments">
+                            <el-row class="show__up" type="flex" justify="around" :gutter="20">
+                                <el-col :span="4">
+                                    <div class="show__avatar">
+                                        <img :src="comment.image" alt="">
+                                    </div>
+                                </el-col>
+                                <el-col :span="20">
+                                    <div class="show__posts">
+                                        <span class="comment__name">{{comment.name}}</span>
+                                        <span class="comment__time">1 giờ trước</span>
+                                        <p class="comment__main"> {{comment.content}}
+        
+                                        </p>
+                                    </div>
+                                    <ul class="comment__positive">
+                                        <li>
+                                            <a @click="likeComment(index1)">Thích</a>
+                                        </li>
+                                        <li>
+                                            <a @click="showComment(index1)">Trả lời</a>
+                                        </li>
+                                        <li style="float: right">
+                                            <i class="fas fa-thumbs-up"></i>
+                                            <span>{{comment.like}}</span>
+                                        </li>
+                                    </ul>
+                                    <div class="comment__bag">
+                                        <div class="comment__show" v-for="(com, index2) in comment.comment_deep">
+                                            <el-row class="show__up" type="flex" justify="around" :gutter="20">
+                                                <el-col :span="4">
+                                                    <div class="show__avatar">
+                                                        <img src="http://lh5.googleusercontent.com/-fylZF9ONaQg/WBP6lXY-A9I/AAAAAAABADA/BO_0loTj3u8keNXa4vRShuvvsxmcRBtNQCLcB/s1600/OhGai.Net-0202291016.jpg"
+                                                            alt="">
+                                                    </div>
+                                                </el-col>
+                                                <el-col :span="20">
+                                                    <div class="show__posts">
+                                                        <span class="comment__name">{{com.name}}</span>
+                                                        <span class="comment__time">1 giờ trước</span>
+                                                        <p class="comment__main">
+                                                            {{com.content}}
+                                                        </p>
+                                                    </div>
+                                                    <ul class="comment__positive">
+                                                        <li>
+                                                            <a class=" response" @click="likeComment_deep(index1, index2)">Thích</a>
+                                                        </li>
+                                                        <li>
+                                                            <a class=" response" @click="showComment(index1,com.name)">Trả lời</a>
+                                                        </li>
+                                                        <li style="float: right">
+                                                            <i class="fas fa-thumbs-up"></i>
+                                                            <span>{{com.like}}</span>
+                                                        </li>
+                                                    </ul>
+                                                </el-col>
+                                            </el-row>
+                                        </div>
+                                        <div class="comment__frames show__comment">
+                                            <el-row class="comment__frames__up" type="flex" justify="around" :gutter="20">
+                                                <el-col :span="4">
+                                                    <div class="comment__frames__avatar">
+                                                        <img src="http://lh5.googleusercontent.com/-fylZF9ONaQg/WBP6lXY-A9I/AAAAAAABADA/BO_0loTj3u8keNXa4vRShuvvsxmcRBtNQCLcB/s1600/OhGai.Net-0202291016.jpg"
+                                                            alt="">
+                                                    </div>
+                                                </el-col>
+                                                <el-col :span="20">
+                                                    <div class="comment__frames__posts">
+                                                        <el-input type="textarea" resize="none" :autosize="{ minRows: 4.5, maxRows: 6}" placeholder="Binh luan" v-model="comment__lv2">Comment</el-input>
+                                                    </div>
+                                                </el-col>
+                                            </el-row>
+                                            <div class="comment__frames__btn">
+                                                <el-button type="info" plain @click="replyComment(index1)">Posts</el-button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </el-col>
+                            </el-row>
+                        </div>
+                    </div>
+        
+                </div>
+                <div class="posts-of-author">
+                    <h3 class="posts-of-author__title">Cùng tác giả</h3>
+                    <div v-for="post in posts">
+                        <el-row type="flex" class="posts">
+                            <el-col class="posts__avatar">
+                                <a :href="post.authorLink">
+                                    <img :src="post.images" alt="">
+                                </a>
+                            </el-col>
+                            <el-col>
+                                <div>
+                                    <h3 class="post__title">{{post.title}}</h3>
+                                </div>
+                                <div class="post__tag">
+                                    <a :href="tag.link" v-for="tag in post.tags" :key="tag.id">
+                                        <el-button plain type="info">{{tag.name}}</el-button>
+                                    </a>
+
+                                </div>
+                                <div class="post__content">
+                                    <p> Trào lưu tiêm thẩm mỹ vẫn chưa hề hạ nhiệt, sở dĩ phương pháp làm đẹp này vẫn được nhiều
+                                        chị em lựa chọn là bởi cách thức làm nhanh, không cần đụng chạm dao kéo... </p>
+                                </div>
+                                <div class="post__times">
+                                    <p>
+                                        <a :href="post.authorLink">{{post.author}}</a> đã đăng từ 2 ngày trước</p>
+                                </div>
+
+                            </el-col>
+                            <el-col class="posts__view">
+                                <div type="flex" justify="space-between">
+                                    <span>
+                                        <i class="far fa-eye fa-xs"></i>
+                                        <span> {{post.view}} </span>
+                                    </span>
+                                    <span>
+                                        <i class="fas fa-thumbs-up fa-xs"></i>
+                                        <span> {{post.like}} </span>
+                                    </span>
+                                </div>
+                            </el-col>
+                        </el-row>
+                    </div>
+                </div>
+                <div class="related-posts">
+                    <h3 class="posts-of-author__title">Bài viết tương tự</h3>
+                    <div v-for="post in posts">
+                        <el-row type="flex" class="posts">
+                            <el-col class="posts__avatar">
+                                <a :href="post.authorLink">
+                                    <img :src="post.images" alt="">
+                                </a>
+                            </el-col>
+                            <el-col>
+                                <div>
+                                    <h3 class="post__title">{{post.title}}</h3>
+                                </div>
+                                <div class="post__tag">
+                                    <a :href="tag.link" v-for="tag in post.tags" :key="tag.id">
+                                        <el-button plain type="info">{{tag.name}}</el-button>
+                                    </a>
+
+                                </div>
+                                <div class="post__content">
+                                    <p> Trào lưu tiêm thẩm mỹ vẫn chưa hề hạ nhiệt, sở dĩ phương pháp làm đẹp này vẫn được nhiều
+                                        chị em lựa chọn là bởi cách thức làm nhanh, không cần đụng chạm dao kéo... </p>
+                                </div>
+                                <div class="post__times">
+                                    <p>
+                                        <a :href="post.authorLink">{{post.author}}</a> đã đăng từ 2 ngày trước</p>
+                                </div>
+
+                            </el-col>
+                            <el-col class="posts__view">
+                                <div type="flex" justify="space-between">
+                                    <span>
+                                        <i class="far fa-eye fa-xs"></i>
+                                        <span> {{post.view}} </span>
+                                    </span>
+                                    <span>
+                                        <i class="fas fa-thumbs-up fa-xs"></i>
+                                        <span> {{post.like}} </span>
+                                    </span>
+                                </div>
+                            </el-col>
+                        </el-row>
+                    </div>
+                </div>
+            </el-main>
+            <el-aside>
+                
+                <div class="author">
+                    <el-row type="flex">
+                        <div class="author-avatar">
+                            <img src="images/avatar.jpg" alt="">
+                        </div>
+                        <div class="author-info">
+                            <h4>
+                                <a href="" class="author-name">Nguyễn Công Phượng</a>
+                            </h4>
+                            <div>
+                                <el-tooltip content="Người theo dõi" placement="bottom" effect="light">
+                                    <span class="author__thumbnail">
+                                        <i class="fas fa-user-plus fa-xs"></i>
+                                        <span>200</span>
+                                    </span>
+                                </el-tooltip>
+                                <el-tooltip placement="bottom" content="Bài viết" effect="light">
+                                    <span class="author__thumbnail">
+                                        <i class="el-icon-edit fa-xs"></i>
+                                        <span>799</span>
+
+                                </el-tooltip>
+                                <el-tooltip placement="bottom" content="Bài viết được lưu" effect="light">
+                                    <span class="author__thumbnail">
+                                        <i class="fas fa-bookmark fa-xs"></i>
+                                        <span>888</span>
+                                    </span>
+                                </el-tooltip>
+                                <el-button class="author-subcrise" plain type="primary">
+                                    <i class="fas fa-user-plus"></i> Theo dõi</el-button>
+                            </div>
+                        </div>
+                    </el-row>
+                </div>
+                <div class="post-info">
+                    <el-row type="flex" justify="space-around">
+                        <div class="post-info__item">
+                            <span class="post-info__quantity">35</span>
+                            <p>lượt lưu</p>
+                        </div>
+                        <div class="post-info__item">
+                            <span class="post-info__quantity">20</span>
+                            <p>thích</p>
+                        </div>
+                    </el-row>
+                    <el-button class="bookmark-post" plain type="primary">
+                        <i class="fas fa-bookmark"></i> Lưu bài viết</el-button>
+                </div>
+
+
+            </el-aside>
+        </el-container>
+        <el-footer>
+
+            <p class="footer__copyright">Copyright &copy; 2018, Techmaster</p>
+            <el-menu mode="horizontal" class="footer__menu">
+                <el-menu-item index="1">
+                    <a href="">Giới thiệu</a>
+                </el-menu-item>
+                <el-menu-item index="2">
+                    <a href="">Điều khoản</a>
+                </el-menu-item>
+                <el-menu-item index="3">Phản hồi</el-menu-item>
+                <el-menu-item index="4">
+                    <a href="">Fanpage</a>
+                </el-menu-item>
+            </el-menu>
+
+        </el-footer>
+    </el-container>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <!-- import JavaScript -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script>
+        new Vue({
+            el: "#test",
+            data: {
+                particularPost: {
+                    authorAvatar: "https://kenh14cdn.com/2018/4/13/photo-4-1523613034062930366784.jpg",
+                    authorName: "Nguyễn Công Phượng",
+                    authorLink: '',
+                    tags: [
+                        { name: "Javascript", link: '' },
+                        { name: "promise", link: '' },
+                        { name: "async/await", link: '' }
+                    ]
+                },
+                posts: [
+                    { images: 'https://kenh14cdn.com/2018/4/13/photo-4-1523613034062930366784.jpg', title: 'Học javascript 1 cách nhanh nhất', view: 100, like: 222, tags: [{ name: 'HTML', link: '' }, { name: 'javascript', link: '' }], author: "Nguyễn Công Phượng", authorLink: "" },
+                    { images: 'http://lh5.googleusercontent.com/-fylZF9ONaQg/WBP6lXY-A9I/AAAAAAABADA/BO_0loTj3u8keNXa4vRShuvvsxmcRBtNQCLcB/s1600/OhGai.Net-0202291016.jpg', title: 'Thành thạo vuejs trong vòng 1 tiếng', view: 332, like: 2002, tags: [{ name: 'HTML', link: '' }, { name: 'javascript', link: '' }, { name: "Go", link: "" }, { name: "PHP", link: "" }], author: "Nguyễn Công Phượng", authorLink: "" },
+                    { images: 'http://nguoinoitieng.tv/images/nnt/0/1/yb.jpg', title: 'Các chức năng cần học', view: 120, like: 2020, tags: [{ name: 'HTML', link: '' }, { name: 'javascript', link: '' }], author: "Nguyễn Công Phượng", authorLink: "" }
+                ],
+                comment__lv1: '',
+                comment__lv2: '',
+                comments: [
+                    {
+                        name: 'Nguyễn Ngọc Anh', like: 19, image: 'http://img3.blogtamsu.vn/2017/06/trinh-xiu-blogtamsu-4.jpg', content: 'Bởi chuyện định cho Trung Quốc thuê 99 năm chỉ mới là dự thảo, đến ngày 15/6 Quốc hội sẽ thông qua Luật Đặc khu (Kỳ họp thứ 5, Quốc hội khóa 14). Nếu ngày 15/6 Quốc hội thực sự thông qua điều trên thì chúng ta không còn cơ hội phản đối. Nếu chúng ta lên tiếng phản đối trước 15/6, sẽ không sao cả vì đây chỉ là góp ý trên tinh thần xây dựng. Còn vào 15/6, nếu Quốc hội thông qua điều đó, chúng ta tiếp tục phản đối sẽ bị tội chống đối Nhà nước. Tóm lại là chúng ta còn 14 ngày để kêu gào trước khi quá muộn. Có quá nhiều lý do để phản đối Trung Quốc thuê Vân Đồn 99 năm.',
+                        comment_deep: [
+                            { name: 'Tên khác một chút', like: 21, content: 'Bởi chuyện ốc thuê 99 năm chỉ mới là dự thảo' },
+                        ]
+                    },
+                    {
+                        name: 'Tống Thiên Trang', like: 23, image: 'https://static1.dienanh.net/upload/2017/11/20/1cee91b5-aabe-439b-8f93-0285f6e7f5f1.jpg', content: 'Việc chăm sóc và nuôi dạy trẻ em ở Việt Nam theo khoa học hiện đại của các bà mẹ trẻ hiện nay khó khăn nhất lại xuất phát từ ...gia đình. Những cô con dâu không làm chủ được kinh tế xui rủi cưới ngay thằng chồng ba phải và gặp bà mẹ chồng bảo thủ thì thật sự là đại họa.',
+                        comment_deep: [
+                            
+                        ]
+                    },
+
+                    {
+                        name: 'Lâm Bảo Nhi', like: 129, image: 'http://avatar.nct.nixcdn.com/singer/avatar/2016/09/12/2/e/b/c/1473689429621_600.jpg', content: 'Em có thai với bạn thân rồi, giờ em vừa mừng, vừa lo. Em và thằng bạn thân chơi với nhau từ năm cấp 2, lên cấp 3 chúng em học cùng vẫn học cùng nhau và em phát hiện mình đã thích nó.Nhưng khi ấy nó đang yêu một con bé khoá dưới nên em chỉ biết lơ đi mà làm tròn trách nhiệm của đứa "bạn thân".',
+                        comment_deep: [
+                            { name: 'Tên khác một chút', like: 21, content: 'Bởi chuyệnốc thuê 99 năm chỉ mới là dự thảo' },
+                        ]
+                    }
+                ]
+            },
+            methods: {
+                addComment: function () {
+                    if (this.comment__lv1.length != '') {
+                        this.comments.push({ name: 'Nguyễn Ngọc Anh', like: 0, image: 'http://lh5.googleusercontent.com/-fylZF9ONaQg/WBP6lXY-A9I/AAAAAAABADA/BO_0loTj3u8keNXa4vRShuvvsxmcRBtNQCLcB/s1600/OhGai.Net-0202291016.jpg', content: this.comment__lv1, comment_deep: [] })
+                        this.comment__lv1 = '';
+                    }
+                },
+                replyComment: function (index1) {
+                    if (this.comment__lv2.length != '') {
+                        console.log(1);
+                        this.comments[index1].comment_deep.push({ name: 'Nguyễn Ngọc Anh', like: 0, image: 'http://lh5.googleusercontent.com/-fylZF9ONaQg/WBP6lXY-A9I/AAAAAAABADA/BO_0loTj3u8keNXa4vRShuvvsxmcRBtNQCLcB/s1600/OhGai.Net-0202291016.jpg', content: this.comment__lv2 });
+                        this.comment__lv2 = '';
+                        document.getElementsByClassName('show__comment')[index1].style.display = "none";
+                    }
+                },
+                showComment: function (stt, name='') {
+                    document.getElementsByClassName('show__comment')[stt].style.display = "block";
+                    if (name != ''){
+                        document.getElementsByClassName('show__comment')[stt].querySelector('textarea').value = `@ ${name} :`;
+                    }
+                    
+                },
+                likeComment: function (index1) {
+                    this.comments[index1].like += 1;
+                },
+                likeComment_deep: function (index1, index2) {
+                    this.comments[index1].comment_deep[index2].like++;
+
+                }
+            }
+        })
+
+        $('code').each(function (i, block) {
+            hljs.highlightBlock(block);
+        });
+    </script>
+</body>
+
+</html>
