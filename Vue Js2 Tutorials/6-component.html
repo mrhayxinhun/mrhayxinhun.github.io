@@ -13,8 +13,11 @@
 
 <body>
     <div id="app1">
+      <table>
+        <tr is="button-counter"></tr>
         <button-counter></button-counter>
-        <button-counter></button-counter>
+      </table>
+        
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -26,7 +29,7 @@
                    count: 0
                }
            },
-           template: `<button @click="count++">You clicked me {{count}} times</button>`
+           template: '<button @click="count++">You clicked me {{count}} times</button>'
        })
        
        let app1 = new Vue ({

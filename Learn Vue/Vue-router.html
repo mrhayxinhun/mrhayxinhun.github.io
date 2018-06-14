@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue router</title>
+</head>
+<body>
+	<div id="app">
+		<h1>Hello App!</h1>
+		<p>
+			<router-link to="/user/foo">/user/foo/home</router-link>
+			<router-link to="/user/foo/profile">user/foo/profile</router-link>
+			<router-link to="/user/foo/post">/user/foo/post</router-link>
+		</p>
+		<router-view></router-view>
+		</div>
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+		<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+		<script type="text/javascript">
+			const User = {
+				template: `
+					<div>
+						<h2>User {{$route.params.id}}</h2>
+						<router-view></router-view>
+					</div>
+				`
+			}
+
+			const UserHome = {
+				template: `
+					<div>Try my best</div>
+				`
+			},
+			UserProfile = {
+				template: `
+					<div>Just dont give up</div>
+				`
+			},
+			UserPost = {
+				template: `
+					<div>Success doesnt have range</div>
+				`
+			}
+
+			const router = new VueRouter({
+				routes: [
+					{
+						path: "/user/:id", component: User,
+						children: [
+							{
+								path: '', component: UserHome
+							},
+							{
+								path: 'profile', component: UserProfile
+							},
+							{
+								path: 'post', component: UserPost
+							}
+						]
+					}
+				]
+			})
+
+			const app = new Vue({
+				router
+			}).$mount('#app')
+
+
+
+		</script>
+	</body>
+	</html>
