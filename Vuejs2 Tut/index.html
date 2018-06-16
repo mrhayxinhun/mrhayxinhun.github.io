@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,18 +8,88 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+    <div id="vue-app7">
+        
+    </div>
+
+    <div id="vue-app6">
+        <h3>V-for</h3>
+        <ul >
+            <li v-for="(character, index) in characters">{{index}}. {{character}}</li>
+        </ul>
+        <ul>
+            <li v-for="(val,key,index) in ninjas">{{index}}. {{key}} - {{val}}</li>
+        </ul>
+    </div>
+
+    <div id="vue-app5">
+        <h4>Conditionals</h4>
+        <button @click="error=!error">Toggle Error</button>
+        <button @click="success=!success">Toggle Success</button>
+        <p v-if="error">Error</p>
+        <p v-else>Success</p>
+        <template v-if="error">
+            <p>Hello v-if</p>
+        </template>
+    </div>
+
+    <div id="vue-app4">
+        <h1>Dynamic CSS</h1>
+        <h2>Example 1</h2>
+        <div :class="{red: false, blue: true}"></div>
+        <h2>Example 2</h2>
+        <div :class="{available: available}">
+            <span @click="available=!available">Duong taxi</span>
+        </div>
+        <h2>Example 3</h2>
+        <div :class="compClass">
+            <button @click="available=!available">Toggle class availble</button>
+            <button @click="nearby=!nearby">Toggle class nearby</button>
+            <span>mrhayxinhun</span>
+        </div>
+    </div>
+
+    <div id="vue-app3">
+
+        <h1>Computed Properties</h1>
+        <button @click="a++">Add to A</button>
+        <button @click="b++">Add to B</button>
+        <p>A - {{ a }}</p>
+        <p>B - {{ b }}</p>
+        <p>Age + A = {{AddToA}}</p>
+        <p>Age + B = {{AddToB}}</p>
+        <input type="text" v-model="AddToA">
+
+    </div>
+
+    <div id="vue-app2">
+        <h1>Keyboard event</h1>
+        <label>Name:</label>
+        <input type="text" @keyup="addName">
+        <label>Age</label>
+        <input type="text" v-model="age">
+        <p>{{name}} is {{age}} years old.</p>
+    </div>
 
     <div id="vue-app">
         <h1>{{ greet(time) }}</h1>
         <p>{{name}}</p>
+        <button v-on:click.once="add(1)">Add a year</button>
+        <button v-on:click="subtract(1)">Subtract a year</button>
+        <button @dblclick="add(10)">Add 10 year</button>
+        <button @dblclick="subtract(10)">Subtract 10 year</button>
+        <p>My age is {{age}}</p>
         <p>Job: {{ job }}</p>
-        <a v-bind:href="website">The Net Ninja</a>
+        <a @click.prevent="click" v-bind:href="website">The Net Ninja</a>
         <input type="text" v-bind:value="name">
         <p v-html="websiteTag"></p>
+        <div id="canvas" @mousemove="updateXY">{{x}}.{{y}}</div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="app.js"></script>
 </body>
+
 </html>
