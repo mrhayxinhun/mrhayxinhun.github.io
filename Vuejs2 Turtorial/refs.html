@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="vue-app">
+        <h2>Refs</h2>
+        <input type="text" ref="input" >
+        <button @click="readRefs">Click me</button>
+        <p>Your fav food: {{output}}</p>
+        <div id="test" ref="test">Welcome to Vuejs</div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue ({
+            el: "#vue-app",
+            
+            data: {
+                output:'aaa'
+            },
+
+            methods: {
+                readRefs() {
+                    console.log(this.$refs)
+                    console.log(this.$refs.input.value)
+                    console.log(this.$refs.test.innerHTML)
+                    this.output = this.$refs.input.value
+                }
+            }
+        })
+    </script>
+</body>
+</html>

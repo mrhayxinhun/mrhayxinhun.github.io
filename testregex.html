@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h2 id="Phan 1">Phan 1</h2>
+
+        <h3 id="Phan 1.1">Phan 1.1</h3>
+
+        <p>Nhắc lại kiến thức Trước khi bắt đầu với Dependency Injection, c&aacute;c bạn c&oacute; lẽ đều đ&atilde; biết về
+            hoặc ch&iacute; &iacute;t l&agrave; nghe n&oacute;i đến SOLID principles, những nguy&ecirc;n l&yacute; thiết
+            kế v&agrave; viết code. Nguy&ecirc;n l&yacute; cuối c&ugrave;ng trong SOLI
+            <strong>D</strong>&nbsp;ch&iacute;nh l&agrave; Dependency Inversion:</p>
+
+        <pre>
+<code>1. Các module cấp cao không nên phụ thuộc vào các modules cấp thấp.
+   Cả 2 nên phụ thuộc vào abstraction.
+
+2. Interface (abstraction) không nên phụ thuộc vào chi tiết, mà ngược lại. 
+   ( Các class giao tiếp với nhau thông qua interface, không phải thông qua implementation.)
+</code></pre>
+
+        <p>Với c&aacute;ch code th&ocirc;ng thường, c&aacute;c module cấp cao sẽ gọi c&aacute;c module cấp thấp. Module cấp
+            cao sẽ&nbsp;
+            <strong>phụ thuộc v&agrave; module cấp thấp</strong>, điều đ&oacute; tạo ra c&aacute;c dependency. Khi module cấp thấp
+            thay đổi, module cấp cao phải thay đổi theo. Một thay đổi sẽ k&eacute;o theo h&agrave;ng loạt thay đổi, giảm
+            khả năng bảo tr&igrave; của code.</p>
+
+        <h2 id="Phan 2">Phan 2</h2>
+
+        <h3 id="Phan 2.2">Phan 2.2</h3>
+
+        <h4 id="Phan 2.2.3">Phan 2.2.3</h4>
+
+        <p>&nbsp;</p>
+
+        <h2 id="Phan 3">Phan 3</h2>
+        <p>Nhắc lại kiến thức Trước khi bắt đầu với Dependency Injection, c&aacute;c bạn c&oacute; lẽ đều đ&atilde; biết về
+            hoặc ch&iacute; &iacute;t l&agrave; nghe n&oacute;i đến SOLID principles, những nguy&ecirc;n l&yacute; thiết
+            kế v&agrave; viết code. Nguy&ecirc;n l&yacute; cuối c&ugrave;ng trong SOLI
+            <strong>D</strong>&nbsp;ch&iacute;nh l&agrave; Dependency Inversion:</p>
+
+        <pre>
+<code>1. Các module cấp cao không nên phụ thuộc vào các modules cấp thấp.
+   Cả 2 nên phụ thuộc vào abstraction.
+
+2. Interface (abstraction) không nên phụ thuộc vào chi tiết, mà ngược lại. 
+   ( Các class giao tiếp với nhau thông qua interface, không phải thông qua implementation.)
+</code></pre>
+        <p>Nhắc lại kiến thức Trước khi bắt đầu với Dependency Injection, c&aacute;c bạn c&oacute; lẽ đều đ&atilde; biết về
+            hoặc ch&iacute; &iacute;t l&agrave; nghe n&oacute;i đến SOLID principles, những nguy&ecirc;n l&yacute; thiết
+            kế v&agrave; viết code. Nguy&ecirc;n l&yacute; cuối c&ugrave;ng trong SOLI
+            <strong>D</strong>&nbsp;ch&iacute;nh l&agrave; Dependency Inversion:</p>
+
+        <pre>
+<code>1. Các module cấp cao không nên phụ thuộc vào các modules cấp thấp.
+   Cả 2 nên phụ thuộc vào abstraction.
+
+2. Interface (abstraction) không nên phụ thuộc vào chi tiết, mà ngược lại. 
+   ( Các class giao tiếp với nhau thông qua interface, không phải thông qua implementation.)
+</code></pre>
+        <p>Nhắc lại kiến thức Trước khi bắt đầu với Dependency Injection, c&aacute;c bạn c&oacute; lẽ đều đ&atilde; biết về
+            hoặc ch&iacute; &iacute;t l&agrave; nghe n&oacute;i đến SOLID principles, những nguy&ecirc;n l&yacute; thiết
+            kế v&agrave; viết code. Nguy&ecirc;n l&yacute; cuối c&ugrave;ng trong SOLI
+            <strong>D</strong>&nbsp;ch&iacute;nh l&agrave; Dependency Inversion:</p>
+
+        <pre>
+<code>1. Các module cấp cao không nên phụ thuộc vào các modules cấp thấp.
+   Cả 2 nên phụ thuộc vào abstraction.
+
+2. Interface (abstraction) không nên phụ thuộc vào chi tiết, mà ngược lại. 
+   ( Các class giao tiếp với nhau thông qua interface, không phải thông qua implementation.)
+</code></pre>
+
+        <div class="heading" v-for="item in arrHeading" v-html="item">
+            <template v-for="item in arrHeading" v-html="item"></template>
+        </div>
+    </div>
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+
+
+        let app = new Vue({
+            el: "#app",
+
+            data: {
+                str: `<h2 id="Phan 1">Phan 1</h2>
+
+<h3 id="Phan 1.1">Phan 1.1</h3>
+
+<p>Nhắc lại kiến thức Trước khi bắt đầu với Dependency Injection, c&aacute;c bạn c&oacute; lẽ đều đ&atilde; biết về hoặc ch&iacute; &iacute;t l&agrave; nghe n&oacute;i đến SOLID principles, những nguy&ecirc;n l&yacute; thiết kế v&agrave; viết code. Nguy&ecirc;n l&yacute; cuối c&ugrave;ng trong SOLI<strong>D</strong>&nbsp;ch&iacute;nh l&agrave; Dependency Inversion:</p>
+
+<pre>
+<code>1. Các module cấp cao không nên phụ thuộc vào các modules cấp thấp.
+   Cả 2 nên phụ thuộc vào abstraction.
+
+2. Interface (abstraction) không nên phụ thuộc vào chi tiết, mà ngược lại. 
+   ( Các class giao tiếp với nhau thông qua interface, không phải thông qua implementation.)
+</code></pre>
+
+<p>Với c&aacute;ch code th&ocirc;ng thường, c&aacute;c module cấp cao sẽ gọi c&aacute;c module cấp thấp. Module cấp cao sẽ&nbsp;<strong>phụ thuộc v&agrave; module cấp thấp</strong>, điều đ&oacute; tạo ra c&aacute;c dependency. Khi module cấp thấp thay đổi, module cấp cao phải thay đổi theo. Một thay đổi sẽ k&eacute;o theo h&agrave;ng loạt thay đổi, giảm khả năng bảo tr&igrave; của code.</p>
+
+<h2 id="Phan 2">Phan 2</h2>
+
+<h3 id="Phan 2.2">Phan 2.2</h3>
+
+<h4 id="Phan 2.2.3">Phan 2.2.3</h4>
+
+<p>&nbsp;</p>
+
+<h2 id="Phan 3">Phan 3</h2>
+
+<h[234].+>.+<\/h[2,3,4]`,
+                regex: /<h[234].+>.+<\/h[2,3,4]>/g
+            },
+
+            computed: {
+                arrHeading() {
+                    let arr = this.str.match(this.regex)
+                    arr = arr.map(item => item.replace(/<h[234] id="/, '<a href="#').replace(/<\/h[234]>/, "</a>"))
+
+                    return arr
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
